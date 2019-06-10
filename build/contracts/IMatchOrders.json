@@ -1,0 +1,691 @@
+{
+  "contractName": "IMatchOrders",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "makerAddress",
+              "type": "address"
+            },
+            {
+              "name": "takerAddress",
+              "type": "address"
+            },
+            {
+              "name": "feeRecipientAddress",
+              "type": "address"
+            },
+            {
+              "name": "senderAddress",
+              "type": "address"
+            },
+            {
+              "name": "makerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "takerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "makerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "takerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "expirationTimeSeconds",
+              "type": "uint256"
+            },
+            {
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "name": "makerAssetData",
+              "type": "bytes"
+            },
+            {
+              "name": "takerAssetData",
+              "type": "bytes"
+            }
+          ],
+          "name": "leftOrder",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "name": "makerAddress",
+              "type": "address"
+            },
+            {
+              "name": "takerAddress",
+              "type": "address"
+            },
+            {
+              "name": "feeRecipientAddress",
+              "type": "address"
+            },
+            {
+              "name": "senderAddress",
+              "type": "address"
+            },
+            {
+              "name": "makerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "takerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "name": "makerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "takerFee",
+              "type": "uint256"
+            },
+            {
+              "name": "expirationTimeSeconds",
+              "type": "uint256"
+            },
+            {
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "name": "makerAssetData",
+              "type": "bytes"
+            },
+            {
+              "name": "takerAssetData",
+              "type": "bytes"
+            }
+          ],
+          "name": "rightOrder",
+          "type": "tuple"
+        },
+        {
+          "name": "leftSignature",
+          "type": "bytes"
+        },
+        {
+          "name": "rightSignature",
+          "type": "bytes"
+        }
+      ],
+      "name": "matchOrders",
+      "outputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "name": "makerAssetFilledAmount",
+                  "type": "uint256"
+                },
+                {
+                  "name": "takerAssetFilledAmount",
+                  "type": "uint256"
+                },
+                {
+                  "name": "makerFeePaid",
+                  "type": "uint256"
+                },
+                {
+                  "name": "takerFeePaid",
+                  "type": "uint256"
+                }
+              ],
+              "name": "left",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "name": "makerAssetFilledAmount",
+                  "type": "uint256"
+                },
+                {
+                  "name": "takerAssetFilledAmount",
+                  "type": "uint256"
+                },
+                {
+                  "name": "makerFeePaid",
+                  "type": "uint256"
+                },
+                {
+                  "name": "takerFeePaid",
+                  "type": "uint256"
+                }
+              ],
+              "name": "right",
+              "type": "tuple"
+            },
+            {
+              "name": "leftMakerAssetSpreadAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "matchedFillResults",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.5+commit.47a71e8f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"components\":[{\"name\":\"makerAddress\",\"type\":\"address\"},{\"name\":\"takerAddress\",\"type\":\"address\"},{\"name\":\"feeRecipientAddress\",\"type\":\"address\"},{\"name\":\"senderAddress\",\"type\":\"address\"},{\"name\":\"makerAssetAmount\",\"type\":\"uint256\"},{\"name\":\"takerAssetAmount\",\"type\":\"uint256\"},{\"name\":\"makerFee\",\"type\":\"uint256\"},{\"name\":\"takerFee\",\"type\":\"uint256\"},{\"name\":\"expirationTimeSeconds\",\"type\":\"uint256\"},{\"name\":\"salt\",\"type\":\"uint256\"},{\"name\":\"makerAssetData\",\"type\":\"bytes\"},{\"name\":\"takerAssetData\",\"type\":\"bytes\"}],\"name\":\"leftOrder\",\"type\":\"tuple\"},{\"components\":[{\"name\":\"makerAddress\",\"type\":\"address\"},{\"name\":\"takerAddress\",\"type\":\"address\"},{\"name\":\"feeRecipientAddress\",\"type\":\"address\"},{\"name\":\"senderAddress\",\"type\":\"address\"},{\"name\":\"makerAssetAmount\",\"type\":\"uint256\"},{\"name\":\"takerAssetAmount\",\"type\":\"uint256\"},{\"name\":\"makerFee\",\"type\":\"uint256\"},{\"name\":\"takerFee\",\"type\":\"uint256\"},{\"name\":\"expirationTimeSeconds\",\"type\":\"uint256\"},{\"name\":\"salt\",\"type\":\"uint256\"},{\"name\":\"makerAssetData\",\"type\":\"bytes\"},{\"name\":\"takerAssetData\",\"type\":\"bytes\"}],\"name\":\"rightOrder\",\"type\":\"tuple\"},{\"name\":\"leftSignature\",\"type\":\"bytes\"},{\"name\":\"rightSignature\",\"type\":\"bytes\"}],\"name\":\"matchOrders\",\"outputs\":[{\"components\":[{\"components\":[{\"name\":\"makerAssetFilledAmount\",\"type\":\"uint256\"},{\"name\":\"takerAssetFilledAmount\",\"type\":\"uint256\"},{\"name\":\"makerFeePaid\",\"type\":\"uint256\"},{\"name\":\"takerFeePaid\",\"type\":\"uint256\"}],\"name\":\"left\",\"type\":\"tuple\"},{\"components\":[{\"name\":\"makerAssetFilledAmount\",\"type\":\"uint256\"},{\"name\":\"takerAssetFilledAmount\",\"type\":\"uint256\"},{\"name\":\"makerFeePaid\",\"type\":\"uint256\"},{\"name\":\"takerFeePaid\",\"type\":\"uint256\"}],\"name\":\"right\",\"type\":\"tuple\"},{\"name\":\"leftMakerAssetSpreadAmount\",\"type\":\"uint256\"}],\"name\":\"matchedFillResults\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"matchOrders((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes),(address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes),bytes,bytes)\":{\"details\":\"Match two complementary orders that have a profitable spread.      Each order is filled at their respective price point. However, the calculations are      carried out as though the orders are both being filled at the right order's price point.      The profit made by the left order goes to the taker (who matched the two orders).\",\"params\":{\"leftOrder\":\"First order to match.\",\"leftSignature\":\"Proof that order was created by the left maker.\",\"rightOrder\":\"Second order to match.\",\"rightSignature\":\"Proof that order was created by the right maker.\"},\"return\":\"matchedFillResults Amounts filled and fees paid by maker and taker of matched orders.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/lauren/github/registry-contract/contracts/IMatchOrders.sol\":\"IMatchOrders\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/lauren/github/registry-contract/contracts/IMatchOrders.sol\":{\"keccak256\":\"0xc8bc1846e6a380a329c1bffa69c1a8b814e0f79e75f074e021ee7b5abc941cc1\",\"urls\":[\"bzzr://0bc85fc36da995c219ce5009850cbf912405c1679e0da77b9de0ad02c050cf67\"]},\"@0x/contracts-exchange-libs/contracts/src/LibEIP712.sol\":{\"keccak256\":\"0x9e3c7630c8389a8a13294a4224e7051ed5c64268864f53fc359377bdc8115c28\",\"urls\":[\"bzzr://af7152a1885ab00eb728e3e294b33b4eb1bdf3c2f6d423f5ce93d32da94f53dc\"]},\"@0x/contracts-exchange-libs/contracts/src/LibFillResults.sol\":{\"keccak256\":\"0xd2901bceaae8c4f1b6b13b38bf1c99dc8fa02fd82504009f8b82fc1c6a26c8ed\",\"urls\":[\"bzzr://eb694a8bbb5671db1e00f2ad8c99c6982448c2f9114e759f64ee00c52043c259\"]},\"@0x/contracts-exchange-libs/contracts/src/LibOrder.sol\":{\"keccak256\":\"0xaea24ce7e1f7f15dd6a3f58f7c93ffdb52bbba9527ecd7bc60271e21b253349f\",\"urls\":[\"bzzr://2a7fb7eb2c0775cc74161d37f9454da5f09e2ba00aa7248c38805f3dd7c3fada\"]},\"@0x/contracts-utils/contracts/src/SafeMath.sol\":{\"keccak256\":\"0x27027b268113e424039e67bbab9bfcfd76d0e5707c4b3068af68382c8f35bd34\",\"urls\":[\"bzzr://254aa51bd03ccc0f5096315b0883b03de9a3bc7105744570d6a77e00f4c2d6bd\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "/*\n\n  Copyright 2018 ZeroEx Intl.\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n\n*/\n\npragma solidity ^0.5.5;\npragma experimental ABIEncoderV2;\n\nimport \"@0x/contracts-exchange-libs/contracts/src/LibOrder.sol\";\nimport \"@0x/contracts-exchange-libs/contracts/src/LibFillResults.sol\";\n\n\ncontract IMatchOrders {\n\n    /// @dev Match two complementary orders that have a profitable spread.\n    ///      Each order is filled at their respective price point. However, the calculations are\n    ///      carried out as though the orders are both being filled at the right order's price point.\n    ///      The profit made by the left order goes to the taker (who matched the two orders).\n    /// @param leftOrder First order to match.\n    /// @param rightOrder Second order to match.\n    /// @param leftSignature Proof that order was created by the left maker.\n    /// @param rightSignature Proof that order was created by the right maker.\n    /// @return matchedFillResults Amounts filled and fees paid by maker and taker of matched orders.\n    function matchOrders(\n        LibOrder.Order memory leftOrder,\n        LibOrder.Order memory rightOrder,\n        bytes memory leftSignature,\n        bytes memory rightSignature\n    )\n        public\n        returns (LibFillResults.MatchedFillResults memory matchedFillResults);\n}\n",
+  "sourcePath": "/Users/lauren/github/registry-contract/contracts/IMatchOrders.sol",
+  "ast": {
+    "absolutePath": "/Users/lauren/github/registry-contract/contracts/IMatchOrders.sol",
+    "exportedSymbols": {
+      "IMatchOrders": [
+        89
+      ]
+    },
+    "id": 90,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 72,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "580:23:3"
+      },
+      {
+        "id": 73,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "604:33:3"
+      },
+      {
+        "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibOrder.sol",
+        "file": "@0x/contracts-exchange-libs/contracts/src/LibOrder.sol",
+        "id": 74,
+        "nodeType": "ImportDirective",
+        "scope": 90,
+        "sourceUnit": 721,
+        "src": "639:64:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibFillResults.sol",
+        "file": "@0x/contracts-exchange-libs/contracts/src/LibFillResults.sol",
+        "id": 75,
+        "nodeType": "ImportDirective",
+        "scope": 90,
+        "sourceUnit": 607,
+        "src": "704:70:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 89,
+        "linearizedBaseContracts": [
+          89
+        ],
+        "name": "IMatchOrders",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Match two complementary orders that have a profitable spread.\n      Each order is filled at their respective price point. However, the calculations are\n      carried out as though the orders are both being filled at the right order's price point.\n      The profit made by the left order goes to the taker (who matched the two orders).\n @param leftOrder First order to match.\n @param rightOrder Second order to match.\n @param leftSignature Proof that order was created by the left maker.\n @param rightSignature Proof that order was created by the right maker.\n @return matchedFillResults Amounts filled and fees paid by maker and taker of matched orders.",
+            "id": 88,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "matchOrders",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "name": "leftOrder",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1559:31:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$665_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 76,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 665,
+                    "src": "1559:14:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$665_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "name": "rightOrder",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1600:32:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$665_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 78,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 665,
+                    "src": "1600:14:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$665_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 81,
+                  "name": "leftSignature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1642:26:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1642:5:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 83,
+                  "name": "rightSignature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1678:27:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 82,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1678:5:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1549:162:3"
+            },
+            "returnParameters": {
+              "id": 87,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 86,
+                  "name": "matchedFillResults",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1744:59:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MatchedFillResults_$553_memory_ptr",
+                    "typeString": "struct LibFillResults.MatchedFillResults"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 85,
+                    "name": "LibFillResults.MatchedFillResults",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 553,
+                    "src": "1744:33:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_MatchedFillResults_$553_storage_ptr",
+                      "typeString": "struct LibFillResults.MatchedFillResults"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1743:61:3"
+            },
+            "scope": 89,
+            "src": "1529:276:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 90,
+        "src": "777:1030:3"
+      }
+    ],
+    "src": "580:1228:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/lauren/github/registry-contract/contracts/IMatchOrders.sol",
+    "exportedSymbols": {
+      "IMatchOrders": [
+        89
+      ]
+    },
+    "id": 90,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 72,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "580:23:3"
+      },
+      {
+        "id": 73,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "604:33:3"
+      },
+      {
+        "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibOrder.sol",
+        "file": "@0x/contracts-exchange-libs/contracts/src/LibOrder.sol",
+        "id": 74,
+        "nodeType": "ImportDirective",
+        "scope": 90,
+        "sourceUnit": 721,
+        "src": "639:64:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibFillResults.sol",
+        "file": "@0x/contracts-exchange-libs/contracts/src/LibFillResults.sol",
+        "id": 75,
+        "nodeType": "ImportDirective",
+        "scope": 90,
+        "sourceUnit": 607,
+        "src": "704:70:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 89,
+        "linearizedBaseContracts": [
+          89
+        ],
+        "name": "IMatchOrders",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Match two complementary orders that have a profitable spread.\n      Each order is filled at their respective price point. However, the calculations are\n      carried out as though the orders are both being filled at the right order's price point.\n      The profit made by the left order goes to the taker (who matched the two orders).\n @param leftOrder First order to match.\n @param rightOrder Second order to match.\n @param leftSignature Proof that order was created by the left maker.\n @param rightSignature Proof that order was created by the right maker.\n @return matchedFillResults Amounts filled and fees paid by maker and taker of matched orders.",
+            "id": 88,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "matchOrders",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "name": "leftOrder",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1559:31:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$665_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 76,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 665,
+                    "src": "1559:14:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$665_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "name": "rightOrder",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1600:32:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$665_memory_ptr",
+                    "typeString": "struct LibOrder.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 78,
+                    "name": "LibOrder.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 665,
+                    "src": "1600:14:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$665_storage_ptr",
+                      "typeString": "struct LibOrder.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 81,
+                  "name": "leftSignature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1642:26:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1642:5:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 83,
+                  "name": "rightSignature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1678:27:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 82,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1678:5:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1549:162:3"
+            },
+            "returnParameters": {
+              "id": 87,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 86,
+                  "name": "matchedFillResults",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "1744:59:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MatchedFillResults_$553_memory_ptr",
+                    "typeString": "struct LibFillResults.MatchedFillResults"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 85,
+                    "name": "LibFillResults.MatchedFillResults",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 553,
+                    "src": "1744:33:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_MatchedFillResults_$553_storage_ptr",
+                      "typeString": "struct LibFillResults.MatchedFillResults"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1743:61:3"
+            },
+            "scope": 89,
+            "src": "1529:276:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 90,
+        "src": "777:1030:3"
+      }
+    ],
+    "src": "580:1228:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.5+commit.47a71e8f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.10",
+  "updatedAt": "2019-06-10T20:25:52.502Z",
+  "devdoc": {
+    "methods": {
+      "matchOrders((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes),(address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes),bytes,bytes)": {
+        "details": "Match two complementary orders that have a profitable spread.      Each order is filled at their respective price point. However, the calculations are      carried out as though the orders are both being filled at the right order's price point.      The profit made by the left order goes to the taker (who matched the two orders).",
+        "params": {
+          "leftOrder": "First order to match.",
+          "leftSignature": "Proof that order was created by the left maker.",
+          "rightOrder": "Second order to match.",
+          "rightSignature": "Proof that order was created by the right maker."
+        },
+        "return": "matchedFillResults Amounts filled and fees paid by maker and taker of matched orders."
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
