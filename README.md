@@ -18,6 +18,7 @@ How this was put together:
 $ truffle init
 $ npm install @0x/contracts-exchange --save`
 $ truffle compile
+$ truffle migrate --network development
 ```
 ...per instructions [here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
 
