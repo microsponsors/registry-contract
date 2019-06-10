@@ -4,10 +4,20 @@ On-chain registry that maps Microsponsors user content to their Ethereum address
 
 Boilerplate source code is more or less copied/ compiled from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
+## Install, Compile & Deploy
 
-## Build & Compile:
+Install dependencies:
 `$ npm install`
-`$ truffle compile`
+
+Compile:
+```
+$ npm run compile
+```
+
+Compile & Deploy in one step
+```
+$ npm run deploy
+```
 
 * Note that dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
