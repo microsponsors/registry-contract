@@ -9,6 +9,9 @@ Boilerplate source code is more or less copied/ compiled from [0x's Whitelist.so
 Install dependencies:
 `$ npm install`
 
+Start Ganache in another terminal:
+`$ ganache-cli -p 8545`
+
 Compile:
 ```
 $ npm run compile
@@ -31,4 +34,12 @@ $ truffle compile
 $ truffle migrate --network development
 ```
 ...per instructions [here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
+
+
+### Versioning
+This stack seems to be sensitive to versioning, so capturing details here:
+
+truffle v5.0.21
+ganache-cli v6.4.3
+solc compiler 0.5.5, specified in truffle-config.js
 
