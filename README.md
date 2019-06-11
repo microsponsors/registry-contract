@@ -50,9 +50,9 @@ $ truffle console --network development
 
 ### Add or remove an address to the whitelist
 ```
-wi.updateWhitelistStatus("0xc835cf67962948128157de5ca5b55a4e75f572d2", true)
+wi.updateWhitelistStatus("0xc835cf67962948128157de5ca5b55a4e75f572d2", "0x666f6f2e636f6d", true)
 ```
-Second argument would be `false` to remove an address from the whitelist
+Third param is `false` to remove an address from the whitelist
 
 ### Check if an address is whitelisted
 ```

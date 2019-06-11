@@ -31,6 +31,9 @@ contract Whitelist is
     // Mapping of address => whitelist status.
     mapping (address => bool) public isWhitelisted;
 
+    // Mapping of address => domain
+    mapping (address => bytes32) private addressToDomain;
+
     // Exchange contract.
     // solhint-disable var-name-mixedcase
     IExchange internal EXCHANGE;
@@ -49,14 +52,18 @@ contract Whitelist is
     /// @dev Adds or removes an address from the whitelist.
     /// @param target Address to add or remove from whitelist.
     /// @param isApproved Whitelist status to assign to address.
+    /// @param fqdn Optional FQDN (domain) to map to address.
     function updateWhitelistStatus(
         address target,
+        bytes32 fqdn,
         bool isApproved
     )
         external
         onlyOwner
     {
+
         isWhitelisted[target] = isApproved;
+        addressToDomain[target] = fqdn;
     }
 
     /// @dev Verifies signer is same as signer of current Ethereum transaction.
@@ -133,4 +140,7 @@ contract Whitelist is
             TX_ORIGIN_SIGNATURE
         );
     }
+
+    /// Microsponsors-specific helper functions
+
 }
