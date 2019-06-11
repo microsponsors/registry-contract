@@ -50,7 +50,10 @@ $ truffle console --network development
 
 ### Add or remove an address to the whitelist
 ```
-wi.updateWhitelistStatus("0xc835cf67962948128157de5ca5b55a4e75f572d2", "0x666f6f2e636f6d", true)
+wi.updateWhitelistStatus(
+  "0xc835cf67962948128157de5ca5b55a4e75f572d2", // eth address
+  "0x666f6f2e636f6d", // web3.utils.utf8ToHex('foo.com')
+  true) // isApproved
 ```
 Third param is `false` to remove an address from the whitelist
 
