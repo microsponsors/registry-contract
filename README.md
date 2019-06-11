@@ -4,6 +4,7 @@ On-chain registry that maps Microsponsors user content to their Ethereum address
 
 Boilerplate source code is more or less copied/ compiled from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
+
 ## Install, Compile & Deploy
 
 Install dependencies: `$ npm install`
@@ -24,6 +25,13 @@ This stack seems to be sensitive to versioning, so capturing details here:
 * truffle v5.0.21
 * ganache-cli v6.4.3
 * solc compiler 0.5.5, specified in truffle-config.js
+
+### Linter
+Install [solhint](https://www.npmjs.com/package/solhint) globally and run the linter:
+```
+$ npm install -g solhint
+$ npm run lint
+```
 
 
 ## Scenarios

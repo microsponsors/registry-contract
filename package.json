@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "lint": "solhint \"contracts/**/*.sol\"",
     "compile": "rm -rf build && truffle compile",
     "deploy": "rm -rf build && truffle migrate --reset --compile-all",
     "test": "echo \"Error: no test specified\" && exit 1"
