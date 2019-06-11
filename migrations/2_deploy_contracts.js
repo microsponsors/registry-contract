@@ -1,6 +1,9 @@
 const Whitelist = artifacts.require("Whitelist")
 
 module.exports = function(deployer) {
+  // Second arg is the 0x Exchange contract location that the Whitelist will
+  // forward the order to after it validates user
+  // TODO: process.env Exchange contract argument
   deployer.deploy(Whitelist, "0x4f833a24e1f95d70f028921e27040ca56e09ab0b");
 };
 

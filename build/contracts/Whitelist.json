@@ -3788,9 +3788,16 @@
     "name": "solc",
     "version": "0.5.5+commit.47a71e8f.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "1560209575929": {
+      "events": {},
+      "links": {},
+      "address": "0x569355046FE04d2E761Da05F5F55A7b3b85197c5",
+      "transactionHash": "0x7dc48a7e26f0662dc1d3e5fceee169d8a84bea161df5a32df199e3b58c81fcb6"
+    }
+  },
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-06-10T23:01:15.009Z",
+  "updatedAt": "2019-06-11T00:11:07.139Z",
   "devdoc": {
     "methods": {
       "fillOrderIfWhitelisted((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes),uint256,uint256,bytes)": {
