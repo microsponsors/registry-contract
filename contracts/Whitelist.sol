@@ -51,7 +51,7 @@ contract Whitelist is
 
     /// @dev Admin adds or removes an address from the whitelist.
     /// @param target Address to add or remove from whitelist.
-    /// @param fqdn FQDN (domain) to map to address.
+    /// @param fqdn DNS domain to map to ethereum address.
     /// @param isApproved Whitelist status to assign to address.
     function adminUpdateWhitelistStatus(
         address target,
@@ -67,7 +67,7 @@ contract Whitelist is
     }
 
     /// @dev Admin views any domain mapped to a valid whitelisted address
-    /// @param target Address to validate and return domain mapping for.
+    /// @param target Ethereum address to validate & return DNS domain mapping for.
     function adminGetValidDomainMapping(
         address target
     )

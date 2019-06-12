@@ -1,6 +1,6 @@
 # Microsponsors Proof-of-Content Registry Contract
 
-On-chain registry that maps Microsponsors user content to their Ethereum address. Functionally, this is a whitelist that will be integrated into our onboarding flow. It will ensure that only verified users are transacting.
+On-chain registry that maps Microsponsors user DNS domain to their Ethereum address. Functionally, this is a whitelist that will be integrated into our onboarding flow. It will ensure that only verified users are transacting.
 
 Boilerplate source code is more or less copied/ compiled from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
@@ -47,9 +47,10 @@ $ truffle console --network development
 ```
 `wi` is now your whitelist instance, can be referred to in console session
 
-### Admin: Add or remove an address to the whitelist
+### Admin: Add or remove an address to the whitelist, map it to DNS
 // @param target Address to add or remove from whitelist.
-// @param domain to map to address via .js: web3.utils.utf8ToHex('foo.com')
+// @param hex-encoded DNS domain to map to ethereum address:
+// web3.utils.utf8ToHex('foo.com')
 // @param isApproved Whitelist status to assign to address.
 ```
 wi.adminUpdateWhitelistStatus(
@@ -62,9 +63,9 @@ Third param is `false` to remove an address from the whitelist
 ### Admin: Get a valid domain mapping for an address
 ```
 wi.adminGetValidDomainMapping("0xc835cf67962948128157de5ca5b55a4e75f572d2");
-'0x666f6f2e636f6d00000000000000000000000000000000000000000000000000'
+returns: '0x666f6f2e636f6d00000000000000000000000000000000000000000000000000'
 ```
-Handle hex return value in .js: `web3.toUtf8(<return value>)`
+Handle hex-encoded return value: `web3.toUtf8(<return value>)`
 
 ### Get domain mapping for user's own valid whitelisted address (non-admin)
 Only responds if msg.sender is asking for own domain mapping
@@ -75,7 +76,7 @@ wi.getValidDomainMapping({ from: "0xc835cf67962948128157de5ca5b55a4e75f572d2" })
 ### Check if an address is whitelisted
 ```
 > wi.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
-true
+returns true
 ```
 
 
