@@ -62,7 +62,7 @@ wi.adminUpdateWhitelist(
 
 ### adminGetAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId
-* @param contentId: Hex-encoded. Ex: web3.toHex('foo.com')
+* @param contentId: Hex-encoded. Ex: `web3.toHex('foo.com')`
 ```
 wi.adminGetAddressByContentId("0x666f6f2e636f6d")
 ```
