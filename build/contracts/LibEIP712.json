@@ -33,14 +33,14 @@
     "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibEIP712.sol",
     "exportedSymbols": {
       "LibEIP712": [
-        544
+        565
       ]
     },
-    "id": 545,
+    "id": 566,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 477,
+        "id": 498,
         "literals": [
           "solidity",
           "^",
@@ -56,19 +56,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 544,
+        "id": 565,
         "linearizedBaseContracts": [
-          544
+          565
         ],
         "name": "LibEIP712",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 480,
+            "id": 501,
             "name": "EIP191_HEADER",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "671:51:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -77,7 +77,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 478,
+              "id": 499,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "671:6:9",
@@ -89,7 +89,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "1901",
-              "id": 479,
+              "id": 500,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -108,10 +108,10 @@
           },
           {
             "constant": true,
-            "id": 483,
+            "id": 504,
             "name": "EIP712_DOMAIN_NAME",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "761:59:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -120,7 +120,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 481,
+              "id": 502,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "761:6:9",
@@ -132,7 +132,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30782050726f746f636f6c",
-              "id": 482,
+              "id": 503,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -151,10 +151,10 @@
           },
           {
             "constant": true,
-            "id": 486,
+            "id": 507,
             "name": "EIP712_DOMAIN_VERSION",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "862:52:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -163,7 +163,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 484,
+              "id": 505,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "862:6:9",
@@ -175,7 +175,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "32",
-              "id": 485,
+              "id": 506,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -194,10 +194,10 @@
           },
           {
             "constant": true,
-            "id": 498,
+            "id": 519,
             "name": "EIP712_DOMAIN_SEPARATOR_SCHEMA_HASH",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "971:223:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -206,7 +206,7 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 487,
+              "id": 508,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
               "src": "971:7:9",
@@ -224,7 +224,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "454950373132446f6d61696e28",
-                      "id": 491,
+                      "id": 512,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -242,7 +242,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "737472696e67206e616d652c",
-                      "id": 492,
+                      "id": 513,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -260,7 +260,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "737472696e672076657273696f6e2c",
-                      "id": 493,
+                      "id": 514,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -278,7 +278,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "6164647265737320766572696679696e67436f6e7472616374",
-                      "id": 494,
+                      "id": 515,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -296,7 +296,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "29",
-                      "id": 495,
+                      "id": 516,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -337,18 +337,18 @@
                     ],
                     "expression": {
                       "argumentTypes": null,
-                      "id": 489,
+                      "id": 510,
                       "name": "abi",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 959,
+                      "referencedDeclaration": 980,
                       "src": "1045:3:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_abi",
                         "typeString": "abi"
                       }
                     },
-                    "id": 490,
+                    "id": 511,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -362,7 +362,7 @@
                       "typeString": "function () pure returns (bytes memory)"
                     }
                   },
-                  "id": 496,
+                  "id": 517,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -384,18 +384,18 @@
                     "typeString": "bytes memory"
                   }
                 ],
-                "id": 488,
+                "id": 509,
                 "name": "keccak256",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 966,
+                "referencedDeclaration": 987,
                 "src": "1035:9:9",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                   "typeString": "function (bytes memory) pure returns (bytes32)"
                 }
               },
-              "id": 497,
+              "id": 518,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -413,10 +413,10 @@
           },
           {
             "constant": false,
-            "id": 500,
+            "id": 521,
             "name": "EIP712_DOMAIN_HASH",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "1301:33:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -425,7 +425,7 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 499,
+              "id": 520,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
               "src": "1301:7:9",
@@ -439,25 +439,25 @@
           },
           {
             "body": {
-              "id": 527,
+              "id": 548,
               "nodeType": "Block",
               "src": "1375:263:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 525,
+                    "id": 546,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 503,
+                      "id": 524,
                       "name": "EIP712_DOMAIN_HASH",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 500,
+                      "referencedDeclaration": 521,
                       "src": "1385:18:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -474,11 +474,11 @@
                           "arguments": [
                             {
                               "argumentTypes": null,
-                              "id": 507,
+                              "id": 528,
                               "name": "EIP712_DOMAIN_SEPARATOR_SCHEMA_HASH",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 498,
+                              "referencedDeclaration": 519,
                               "src": "1446:35:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bytes32",
@@ -493,11 +493,11 @@
                                   "arguments": [
                                     {
                                       "argumentTypes": null,
-                                      "id": 510,
+                                      "id": 531,
                                       "name": "EIP712_DOMAIN_NAME",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 483,
+                                      "referencedDeclaration": 504,
                                       "src": "1511:18:9",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_string_memory",
@@ -512,7 +512,7 @@
                                         "typeString": "string memory"
                                       }
                                     ],
-                                    "id": 509,
+                                    "id": 530,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
@@ -525,7 +525,7 @@
                                     },
                                     "typeName": "bytes"
                                   },
-                                  "id": 511,
+                                  "id": 532,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -547,18 +547,18 @@
                                     "typeString": "bytes memory"
                                   }
                                 ],
-                                "id": 508,
+                                "id": 529,
                                 "name": "keccak256",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 966,
+                                "referencedDeclaration": 987,
                                 "src": "1495:9:9",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                                   "typeString": "function (bytes memory) pure returns (bytes32)"
                                 }
                               },
-                              "id": 512,
+                              "id": 533,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -580,11 +580,11 @@
                                   "arguments": [
                                     {
                                       "argumentTypes": null,
-                                      "id": 515,
+                                      "id": 536,
                                       "name": "EIP712_DOMAIN_VERSION",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 486,
+                                      "referencedDeclaration": 507,
                                       "src": "1561:21:9",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_string_memory",
@@ -599,7 +599,7 @@
                                         "typeString": "string memory"
                                       }
                                     ],
-                                    "id": 514,
+                                    "id": 535,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
@@ -612,7 +612,7 @@
                                     },
                                     "typeName": "bytes"
                                   },
-                                  "id": 516,
+                                  "id": 537,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -634,18 +634,18 @@
                                     "typeString": "bytes memory"
                                   }
                                 ],
-                                "id": 513,
+                                "id": 534,
                                 "name": "keccak256",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 966,
+                                "referencedDeclaration": 987,
                                 "src": "1545:9:9",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                                   "typeString": "function (bytes memory) pure returns (bytes32)"
                                 }
                               },
-                              "id": 517,
+                              "id": 538,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -667,14 +667,14 @@
                                   "arguments": [
                                     {
                                       "argumentTypes": null,
-                                      "id": 520,
+                                      "id": 541,
                                       "name": "this",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 988,
+                                      "referencedDeclaration": 1009,
                                       "src": "1614:4:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_contract$_LibEIP712_$544",
+                                        "typeIdentifier": "t_contract$_LibEIP712_$565",
                                         "typeString": "contract LibEIP712"
                                       }
                                     }
@@ -682,11 +682,11 @@
                                   "expression": {
                                     "argumentTypes": [
                                       {
-                                        "typeIdentifier": "t_contract$_LibEIP712_$544",
+                                        "typeIdentifier": "t_contract$_LibEIP712_$565",
                                         "typeString": "contract LibEIP712"
                                       }
                                     ],
-                                    "id": 519,
+                                    "id": 540,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
@@ -699,7 +699,7 @@
                                     },
                                     "typeName": "address"
                                   },
-                                  "id": 521,
+                                  "id": 542,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
@@ -721,7 +721,7 @@
                                     "typeString": "address"
                                   }
                                 ],
-                                "id": 518,
+                                "id": 539,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -734,7 +734,7 @@
                                 },
                                 "typeName": "uint256"
                               },
-                              "id": 522,
+                              "id": 543,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -770,18 +770,18 @@
                             ],
                             "expression": {
                               "argumentTypes": null,
-                              "id": 505,
+                              "id": 526,
                               "name": "abi",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 959,
+                              "referencedDeclaration": 980,
                               "src": "1416:3:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_abi",
                                 "typeString": "abi"
                               }
                             },
-                            "id": 506,
+                            "id": 527,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -795,7 +795,7 @@
                               "typeString": "function () pure returns (bytes memory)"
                             }
                           },
-                          "id": 523,
+                          "id": 544,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -817,18 +817,18 @@
                             "typeString": "bytes memory"
                           }
                         ],
-                        "id": 504,
+                        "id": 525,
                         "name": "keccak256",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 966,
+                        "referencedDeclaration": 987,
                         "src": "1406:9:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                           "typeString": "function (bytes memory) pure returns (bytes32)"
                         }
                       },
-                      "id": 524,
+                      "id": 545,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -848,32 +848,32 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 526,
+                  "id": 547,
                   "nodeType": "ExpressionStatement",
                   "src": "1385:246:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 528,
+            "id": 549,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 501,
+              "id": 522,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1353:2:9"
             },
             "returnParameters": {
-              "id": 502,
+              "id": 523,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1375:0:9"
             },
-            "scope": 544,
+            "scope": 565,
             "src": "1341:297:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -881,21 +881,21 @@
           },
           {
             "body": {
-              "id": 542,
+              "id": 563,
               "nodeType": "Block",
               "src": "1948:810:9",
               "statements": [
                 {
                   "assignments": [
-                    536
+                    557
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 536,
+                      "id": 557,
                       "name": "eip712DomainHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 542,
+                      "scope": 563,
                       "src": "1958:24:9",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -904,7 +904,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 535,
+                        "id": 556,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1958:7:9",
@@ -917,14 +917,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 538,
+                  "id": 559,
                   "initialValue": {
                     "argumentTypes": null,
-                    "id": 537,
+                    "id": 558,
                     "name": "EIP712_DOMAIN_HASH",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 500,
+                    "referencedDeclaration": 521,
                     "src": "1985:18:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
@@ -938,7 +938,7 @@
                   "externalReferences": [
                     {
                       "hashStruct": {
-                        "declaration": 530,
+                        "declaration": 551,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "2569:10:9",
@@ -947,7 +947,7 @@
                     },
                     {
                       "result": {
-                        "declaration": 533,
+                        "declaration": 554,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "2688:6:9",
@@ -956,7 +956,7 @@
                     },
                     {
                       "eip712DomainHash": {
-                        "declaration": 536,
+                        "declaration": 557,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "2450:16:9",
@@ -964,7 +964,7 @@
                       }
                     }
                   ],
-                  "id": 539,
+                  "id": 560,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let memPtr := mload(64)\n    mstore(memPtr, 0x1901000000000000000000000000000000000000000000000000000000000000)\n    mstore(add(memPtr, 2), eip712DomainHash)\n    mstore(add(memPtr, 34), hashStruct)\n    result := keccak256(memPtr, 66)\n}",
                   "src": "2214:530:9"
@@ -972,41 +972,41 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 540,
+                    "id": 561,
                     "name": "result",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 533,
+                    "referencedDeclaration": 554,
                     "src": "2745:6:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 534,
-                  "id": 541,
+                  "functionReturnParameters": 555,
+                  "id": 562,
                   "nodeType": "Return",
                   "src": "2738:13:9"
                 }
               ]
             },
             "documentation": "@dev Calculates EIP712 encoding for a hash struct in this EIP712 Domain.\n @param hashStruct The EIP712 hash struct.\n @return EIP712 hash applied to this EIP712 Domain.",
-            "id": 543,
+            "id": 564,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "hashEIP712Message",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 531,
+              "id": 552,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 530,
+                  "id": 551,
                   "name": "hashStruct",
                   "nodeType": "VariableDeclaration",
-                  "scope": 543,
+                  "scope": 564,
                   "src": "1861:18:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1015,7 +1015,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 529,
+                    "id": 550,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1861:7:9",
@@ -1031,15 +1031,15 @@
               "src": "1860:20:9"
             },
             "returnParameters": {
-              "id": 534,
+              "id": 555,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 533,
+                  "id": 554,
                   "name": "result",
                   "nodeType": "VariableDeclaration",
-                  "scope": 543,
+                  "scope": 564,
                   "src": "1928:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1048,7 +1048,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 532,
+                    "id": 553,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1928:7:9",
@@ -1063,14 +1063,14 @@
               ],
               "src": "1927:16:9"
             },
-            "scope": 544,
+            "scope": 565,
             "src": "1834:924:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 545,
+        "scope": 566,
         "src": "606:2154:9"
       }
     ],
@@ -1080,14 +1080,14 @@
     "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibEIP712.sol",
     "exportedSymbols": {
       "LibEIP712": [
-        544
+        565
       ]
     },
-    "id": 545,
+    "id": 566,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 477,
+        "id": 498,
         "literals": [
           "solidity",
           "^",
@@ -1103,19 +1103,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 544,
+        "id": 565,
         "linearizedBaseContracts": [
-          544
+          565
         ],
         "name": "LibEIP712",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 480,
+            "id": 501,
             "name": "EIP191_HEADER",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "671:51:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1124,7 +1124,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 478,
+              "id": 499,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "671:6:9",
@@ -1136,7 +1136,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "1901",
-              "id": 479,
+              "id": 500,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1155,10 +1155,10 @@
           },
           {
             "constant": true,
-            "id": 483,
+            "id": 504,
             "name": "EIP712_DOMAIN_NAME",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "761:59:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1167,7 +1167,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 481,
+              "id": 502,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "761:6:9",
@@ -1179,7 +1179,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30782050726f746f636f6c",
-              "id": 482,
+              "id": 503,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1198,10 +1198,10 @@
           },
           {
             "constant": true,
-            "id": 486,
+            "id": 507,
             "name": "EIP712_DOMAIN_VERSION",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "862:52:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1210,7 +1210,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 484,
+              "id": 505,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "862:6:9",
@@ -1222,7 +1222,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "32",
-              "id": 485,
+              "id": 506,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1241,10 +1241,10 @@
           },
           {
             "constant": true,
-            "id": 498,
+            "id": 519,
             "name": "EIP712_DOMAIN_SEPARATOR_SCHEMA_HASH",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "971:223:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1253,7 +1253,7 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 487,
+              "id": 508,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
               "src": "971:7:9",
@@ -1271,7 +1271,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "454950373132446f6d61696e28",
-                      "id": 491,
+                      "id": 512,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1289,7 +1289,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "737472696e67206e616d652c",
-                      "id": 492,
+                      "id": 513,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1307,7 +1307,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "737472696e672076657273696f6e2c",
-                      "id": 493,
+                      "id": 514,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1325,7 +1325,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "6164647265737320766572696679696e67436f6e7472616374",
-                      "id": 494,
+                      "id": 515,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1343,7 +1343,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "29",
-                      "id": 495,
+                      "id": 516,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1384,18 +1384,18 @@
                     ],
                     "expression": {
                       "argumentTypes": null,
-                      "id": 489,
+                      "id": 510,
                       "name": "abi",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 959,
+                      "referencedDeclaration": 980,
                       "src": "1045:3:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_abi",
                         "typeString": "abi"
                       }
                     },
-                    "id": 490,
+                    "id": 511,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -1409,7 +1409,7 @@
                       "typeString": "function () pure returns (bytes memory)"
                     }
                   },
-                  "id": 496,
+                  "id": 517,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -1431,18 +1431,18 @@
                     "typeString": "bytes memory"
                   }
                 ],
-                "id": 488,
+                "id": 509,
                 "name": "keccak256",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 966,
+                "referencedDeclaration": 987,
                 "src": "1035:9:9",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                   "typeString": "function (bytes memory) pure returns (bytes32)"
                 }
               },
-              "id": 497,
+              "id": 518,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1460,10 +1460,10 @@
           },
           {
             "constant": false,
-            "id": 500,
+            "id": 521,
             "name": "EIP712_DOMAIN_HASH",
             "nodeType": "VariableDeclaration",
-            "scope": 544,
+            "scope": 565,
             "src": "1301:33:9",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1472,7 +1472,7 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 499,
+              "id": 520,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
               "src": "1301:7:9",
@@ -1486,25 +1486,25 @@
           },
           {
             "body": {
-              "id": 527,
+              "id": 548,
               "nodeType": "Block",
               "src": "1375:263:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 525,
+                    "id": 546,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 503,
+                      "id": 524,
                       "name": "EIP712_DOMAIN_HASH",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 500,
+                      "referencedDeclaration": 521,
                       "src": "1385:18:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -1521,11 +1521,11 @@
                           "arguments": [
                             {
                               "argumentTypes": null,
-                              "id": 507,
+                              "id": 528,
                               "name": "EIP712_DOMAIN_SEPARATOR_SCHEMA_HASH",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 498,
+                              "referencedDeclaration": 519,
                               "src": "1446:35:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bytes32",
@@ -1540,11 +1540,11 @@
                                   "arguments": [
                                     {
                                       "argumentTypes": null,
-                                      "id": 510,
+                                      "id": 531,
                                       "name": "EIP712_DOMAIN_NAME",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 483,
+                                      "referencedDeclaration": 504,
                                       "src": "1511:18:9",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_string_memory",
@@ -1559,7 +1559,7 @@
                                         "typeString": "string memory"
                                       }
                                     ],
-                                    "id": 509,
+                                    "id": 530,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
@@ -1572,7 +1572,7 @@
                                     },
                                     "typeName": "bytes"
                                   },
-                                  "id": 511,
+                                  "id": 532,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -1594,18 +1594,18 @@
                                     "typeString": "bytes memory"
                                   }
                                 ],
-                                "id": 508,
+                                "id": 529,
                                 "name": "keccak256",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 966,
+                                "referencedDeclaration": 987,
                                 "src": "1495:9:9",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                                   "typeString": "function (bytes memory) pure returns (bytes32)"
                                 }
                               },
-                              "id": 512,
+                              "id": 533,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1627,11 +1627,11 @@
                                   "arguments": [
                                     {
                                       "argumentTypes": null,
-                                      "id": 515,
+                                      "id": 536,
                                       "name": "EIP712_DOMAIN_VERSION",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 486,
+                                      "referencedDeclaration": 507,
                                       "src": "1561:21:9",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_string_memory",
@@ -1646,7 +1646,7 @@
                                         "typeString": "string memory"
                                       }
                                     ],
-                                    "id": 514,
+                                    "id": 535,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
@@ -1659,7 +1659,7 @@
                                     },
                                     "typeName": "bytes"
                                   },
-                                  "id": 516,
+                                  "id": 537,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -1681,18 +1681,18 @@
                                     "typeString": "bytes memory"
                                   }
                                 ],
-                                "id": 513,
+                                "id": 534,
                                 "name": "keccak256",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 966,
+                                "referencedDeclaration": 987,
                                 "src": "1545:9:9",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                                   "typeString": "function (bytes memory) pure returns (bytes32)"
                                 }
                               },
-                              "id": 517,
+                              "id": 538,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1714,14 +1714,14 @@
                                   "arguments": [
                                     {
                                       "argumentTypes": null,
-                                      "id": 520,
+                                      "id": 541,
                                       "name": "this",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 988,
+                                      "referencedDeclaration": 1009,
                                       "src": "1614:4:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_contract$_LibEIP712_$544",
+                                        "typeIdentifier": "t_contract$_LibEIP712_$565",
                                         "typeString": "contract LibEIP712"
                                       }
                                     }
@@ -1729,11 +1729,11 @@
                                   "expression": {
                                     "argumentTypes": [
                                       {
-                                        "typeIdentifier": "t_contract$_LibEIP712_$544",
+                                        "typeIdentifier": "t_contract$_LibEIP712_$565",
                                         "typeString": "contract LibEIP712"
                                       }
                                     ],
-                                    "id": 519,
+                                    "id": 540,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
@@ -1746,7 +1746,7 @@
                                     },
                                     "typeName": "address"
                                   },
-                                  "id": 521,
+                                  "id": 542,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
@@ -1768,7 +1768,7 @@
                                     "typeString": "address"
                                   }
                                 ],
-                                "id": 518,
+                                "id": 539,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -1781,7 +1781,7 @@
                                 },
                                 "typeName": "uint256"
                               },
-                              "id": 522,
+                              "id": 543,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1817,18 +1817,18 @@
                             ],
                             "expression": {
                               "argumentTypes": null,
-                              "id": 505,
+                              "id": 526,
                               "name": "abi",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 959,
+                              "referencedDeclaration": 980,
                               "src": "1416:3:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_abi",
                                 "typeString": "abi"
                               }
                             },
-                            "id": 506,
+                            "id": 527,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1842,7 +1842,7 @@
                               "typeString": "function () pure returns (bytes memory)"
                             }
                           },
-                          "id": 523,
+                          "id": 544,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1864,18 +1864,18 @@
                             "typeString": "bytes memory"
                           }
                         ],
-                        "id": 504,
+                        "id": 525,
                         "name": "keccak256",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 966,
+                        "referencedDeclaration": 987,
                         "src": "1406:9:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                           "typeString": "function (bytes memory) pure returns (bytes32)"
                         }
                       },
-                      "id": 524,
+                      "id": 545,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1895,32 +1895,32 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 526,
+                  "id": 547,
                   "nodeType": "ExpressionStatement",
                   "src": "1385:246:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 528,
+            "id": 549,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 501,
+              "id": 522,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1353:2:9"
             },
             "returnParameters": {
-              "id": 502,
+              "id": 523,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1375:0:9"
             },
-            "scope": 544,
+            "scope": 565,
             "src": "1341:297:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1928,21 +1928,21 @@
           },
           {
             "body": {
-              "id": 542,
+              "id": 563,
               "nodeType": "Block",
               "src": "1948:810:9",
               "statements": [
                 {
                   "assignments": [
-                    536
+                    557
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 536,
+                      "id": 557,
                       "name": "eip712DomainHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 542,
+                      "scope": 563,
                       "src": "1958:24:9",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1951,7 +1951,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 535,
+                        "id": 556,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1958:7:9",
@@ -1964,14 +1964,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 538,
+                  "id": 559,
                   "initialValue": {
                     "argumentTypes": null,
-                    "id": 537,
+                    "id": 558,
                     "name": "EIP712_DOMAIN_HASH",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 500,
+                    "referencedDeclaration": 521,
                     "src": "1985:18:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
@@ -1985,7 +1985,7 @@
                   "externalReferences": [
                     {
                       "hashStruct": {
-                        "declaration": 530,
+                        "declaration": 551,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "2569:10:9",
@@ -1994,7 +1994,7 @@
                     },
                     {
                       "result": {
-                        "declaration": 533,
+                        "declaration": 554,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "2688:6:9",
@@ -2003,7 +2003,7 @@
                     },
                     {
                       "eip712DomainHash": {
-                        "declaration": 536,
+                        "declaration": 557,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "2450:16:9",
@@ -2011,7 +2011,7 @@
                       }
                     }
                   ],
-                  "id": 539,
+                  "id": 560,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let memPtr := mload(64)\n    mstore(memPtr, 0x1901000000000000000000000000000000000000000000000000000000000000)\n    mstore(add(memPtr, 2), eip712DomainHash)\n    mstore(add(memPtr, 34), hashStruct)\n    result := keccak256(memPtr, 66)\n}",
                   "src": "2214:530:9"
@@ -2019,41 +2019,41 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 540,
+                    "id": 561,
                     "name": "result",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 533,
+                    "referencedDeclaration": 554,
                     "src": "2745:6:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 534,
-                  "id": 541,
+                  "functionReturnParameters": 555,
+                  "id": 562,
                   "nodeType": "Return",
                   "src": "2738:13:9"
                 }
               ]
             },
             "documentation": "@dev Calculates EIP712 encoding for a hash struct in this EIP712 Domain.\n @param hashStruct The EIP712 hash struct.\n @return EIP712 hash applied to this EIP712 Domain.",
-            "id": 543,
+            "id": 564,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "hashEIP712Message",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 531,
+              "id": 552,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 530,
+                  "id": 551,
                   "name": "hashStruct",
                   "nodeType": "VariableDeclaration",
-                  "scope": 543,
+                  "scope": 564,
                   "src": "1861:18:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2062,7 +2062,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 529,
+                    "id": 550,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1861:7:9",
@@ -2078,15 +2078,15 @@
               "src": "1860:20:9"
             },
             "returnParameters": {
-              "id": 534,
+              "id": 555,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 533,
+                  "id": 554,
                   "name": "result",
                   "nodeType": "VariableDeclaration",
-                  "scope": 543,
+                  "scope": 564,
                   "src": "1928:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2095,7 +2095,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 532,
+                    "id": 553,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1928:7:9",
@@ -2110,14 +2110,14 @@
               ],
               "src": "1927:16:9"
             },
-            "scope": 544,
+            "scope": 565,
             "src": "1834:924:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 545,
+        "scope": 566,
         "src": "606:2154:9"
       }
     ],
@@ -2129,7 +2129,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-06-11T21:28:40.127Z",
+  "updatedAt": "2019-06-12T00:26:13.068Z",
   "devdoc": {
     "methods": {}
   },

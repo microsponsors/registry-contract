@@ -389,7 +389,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-06-11T21:28:40.115Z",
+  "updatedAt": "2019-06-12T00:26:13.058Z",
   "devdoc": {
     "methods": {
       "executeTransaction(uint256,address,bytes,bytes)": {

@@ -49,11 +49,11 @@ contract Whitelist is
         TX_ORIGIN_SIGNATURE = abi.encodePacked(address(this), VALIDATOR_SIGNATURE_BYTE);
     }
 
-    /// @dev Adds or removes an address from the whitelist.
+    /// @dev Admin adds or removes an address from the whitelist.
     /// @param target Address to add or remove from whitelist.
+    /// @param fqdn FQDN (domain) to map to address.
     /// @param isApproved Whitelist status to assign to address.
-    /// @param fqdn Optional FQDN (domain) to map to address.
-    function updateWhitelistStatus(
+    function adminUpdateWhitelistStatus(
         address target,
         bytes32 fqdn,
         bool isApproved
@@ -65,6 +65,27 @@ contract Whitelist is
         isWhitelisted[target] = isApproved;
         addressToDomain[target] = fqdn;
     }
+
+    /// @dev Admin views the domain mapped to an address
+    /// @param target Address to validate and return domain mapping for.
+    function adminGetValidDomainMapping(
+        address target
+    )
+        external
+        view
+        onlyOwner
+        returns (bytes32 fqdn)
+    {
+
+        require(
+            isWhitelisted[target],
+            "ADDRESS_NOT_WHITELISTED"
+        );
+
+        return addressToDomain[target];
+
+    }
+
 
     /// @dev Verifies signer is same as signer of current Ethereum transaction.
     ///      NOTE: This function can currently be used to validate signatures coming from outside of this contract.
@@ -140,7 +161,4 @@ contract Whitelist is
             TX_ORIGIN_SIGNATURE
         );
     }
-
-    /// Microsponsors-specific helper functions
-
 }

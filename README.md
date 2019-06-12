@@ -36,7 +36,6 @@ $ npm run lint
 
 ## Scenarios
 After contract is deployed via ganache-cli
-
 Open truffle console and wire up test users:
 ```
 $ truffle console --network development
@@ -48,20 +47,31 @@ $ truffle console --network development
 ```
 `wi` is now your whitelist instance, can be referred to in console session
 
-### Add or remove an address to the whitelist
+### Admin: Add or remove an address to the whitelist
+// @param target Address to add or remove from whitelist.
+// @param domain to map to address via .js: web3.utils.utf8ToHex('foo.com')
+// @param isApproved Whitelist status to assign to address.
 ```
-wi.updateWhitelistStatus(
-  "0xc835cf67962948128157de5ca5b55a4e75f572d2", // eth address
-  "0x666f6f2e636f6d", // web3.utils.utf8ToHex('foo.com')
-  true) // isApproved
+wi.adminUpdateWhitelistStatus(
+  "0xc835cf67962948128157de5ca5b55a4e75f572d2",
+  "0x666f6f2e636f6d",
+  true)
 ```
 Third param is `false` to remove an address from the whitelist
+
+### Admin: Get a domain mapping for an address
+```
+wi.adminGetValidDomainMapping("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+'0x666f6f2e636f6d00000000000000000000000000000000000000000000000000'
+```
+Handle hex return value in .js: `web3.toUtf8(<return value>)`
 
 ### Check if an address is whitelisted
 ```
 > wi.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 true
 ```
+
 
 
 ## Dev Notes
