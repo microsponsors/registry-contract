@@ -35,7 +35,7 @@ $ npm run lint
 
 
 ## Scenarios
-Open truffle console and wire up test users after contract is deployed via ganache-cli locally
+Start ganache in one terminal, truffle console in another.
 ```
 $ ganache-cli -p 8545
 $ truffle console --network development
@@ -52,23 +52,29 @@ $ truffle console --network development
 * @param fqdn Hex-encoded DNS domain. -> web3.utils.utf8ToHex('foo.com')
 * @param isApproved Whitelist status for address.
 ```
-wi.adminUpdateWhitelistStatus(
+wi.adminUpdateWhitelist(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
   "0x666f6f2e636f6d",
   true)
 ```
 Set 3rd param to `false` to remove from whitelist.
 
-### Admin: Get a valid domain mapping for an address
+### Admin: Get valid address mapped to domain
+* @param fqdn Hex-encoded DNS domain. -> web3.utils.utf8ToHex('foo.com')
 ```
-wi.adminGetValidDomainMapping("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+wi.adminGetAddressByDomain("0x666f6f2e636f6d")
+```
+
+### Admin: Get domain mapped to valid whitelist address
+```
+wi.adminGetDomainByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 Handle hex-encoded return value: `web3.toUtf8(<return value>)`
 
 ### Get domain mapping for valid whitelist address
 Only if msg.sender is asking for own mapping
 ```
-wi.getValidDomainMapping({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
+wi.getDomainByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 ```
 
 ### Check if address is whitelisted

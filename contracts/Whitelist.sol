@@ -30,9 +30,11 @@ contract Whitelist is
 
     // Mapping of address => whitelist status.
     mapping (address => bool) public isWhitelisted;
-
     // Mapping of address => domain
     mapping (address => bytes32) private addressToDomain;
+    // Mapping of domain => address
+    mapping (bytes32 => address) private domainToAddress;
+
 
     // Exchange contract.
     // solhint-disable var-name-mixedcase
@@ -49,11 +51,11 @@ contract Whitelist is
         TX_ORIGIN_SIGNATURE = abi.encodePacked(address(this), VALIDATOR_SIGNATURE_BYTE);
     }
 
-    /// @dev Admin adds or removes an address from the whitelist.
+    /// @dev Admin adds or removes an address & domain mapping from the whitelist.
     /// @param target Address to add or remove from whitelist.
     /// @param fqdn DNS domain to map to ethereum address.
     /// @param isApproved Whitelist status to assign to address.
-    function adminUpdateWhitelistStatus(
+    function adminUpdateWhitelist(
         address target,
         bytes32 fqdn,
         bool isApproved
@@ -62,13 +64,31 @@ contract Whitelist is
         onlyOwner
     {
 
-        isWhitelisted[target] = isApproved;
         addressToDomain[target] = fqdn;
+        domainToAddress[fqdn] = target;
+        isWhitelisted[target] = isApproved;
+    }
+
+    function adminGetAddressByDomain(
+        bytes32 fqdn
+    )
+        external
+        view
+        onlyOwner
+        returns (address target)
+    {
+
+        require(
+            isWhitelisted[ domainToAddress[fqdn] ],
+            "ADDRESS_NOT_WHITELISTED"
+        );
+
+        return domainToAddress[fqdn];
     }
 
     /// @dev Admin views any domain mapped to a valid whitelisted address
     /// @param target Ethereum address to validate & return DNS domain mapping for.
-    function adminGetValidDomainMapping(
+    function adminGetDomainByAddress(
         address target
     )
         external
@@ -87,7 +107,7 @@ contract Whitelist is
     }
 
     /// @dev Valid whitelisted address can query its own domain mapping.
-    function getValidDomainMapping()
+    function getDomainByAddress()
         external
         view
         returns (bytes32 fqdn)
@@ -101,7 +121,6 @@ contract Whitelist is
         return addressToDomain[msg.sender];
 
     }
-
 
     /// @dev Verifies signer is same as signer of current Ethereum transaction.
     ///      NOTE: This function can currently be used to validate signatures coming from outside of this contract.
