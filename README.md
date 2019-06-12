@@ -49,9 +49,9 @@ $ truffle console --network development
 
 ### adminUpdateWhitelist()
 Admin: Add/remove address to whitelist, map it to contentId
-* @param target: Address to add or remove from whitelist.
-* @param contentId: Hex-encoded, Ex: web3.utils.utf8ToHex('foo.com')
-* @param isApproved: isWhitelisted boolean status for address.
+* @param `target`: Address to add or remove from whitelist.
+* @param `contentId`: Hex-encoded, Ex: web3.utils.utf8ToHex('foo.com')
+* @param `isApproved`: isWhitelisted boolean status for address.
 Set 3rd param to `false` to remove address from whitelist.
 ```
 wi.adminUpdateWhitelist(
@@ -62,7 +62,7 @@ wi.adminUpdateWhitelist(
 
 ### adminGetAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId
-* @param contentId: Hex-encoded. Ex: `web3.toHex('foo.com')`
+* @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`
 ```
 wi.adminGetAddressByContentId("0x666f6f2e636f6d")
 ```
