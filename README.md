@@ -1,6 +1,6 @@
 # Proof-of-Content Registry Contract
 
-On-chain registry that maps a users' Ethereum address to an isWhitelisted boolean and a contentId. Bids and fills will be validated by this contract.
+On-chain registry that maps a users' Ethereum address to an isWhitelisted boolean and a contentId. Bids and fills in the [0x Protocol](https://0x.org) format will be validated by this contract.
 
 Boilerplate source code is more or less copy-pasted from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
