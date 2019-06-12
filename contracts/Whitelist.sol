@@ -30,10 +30,10 @@ contract Whitelist is
 
     // Mapping of address => whitelist status.
     mapping (address => bool) public isWhitelisted;
-    // Mapping of address => domain
-    mapping (address => bytes32) private addressToDomain;
-    // Mapping of domain => address
-    mapping (bytes32 => address) private domainToAddress;
+    // Mapping of address => contentId
+    mapping (address => bytes32) private addressToContentId;
+    // Mapping of contentId => address
+    mapping (bytes32 => address) private contentIdToAddress;
 
 
     // Exchange contract.
@@ -53,24 +53,24 @@ contract Whitelist is
 
     /// @dev Admin adds or removes an address & domain mapping from the whitelist.
     /// @param target Address to add or remove from whitelist.
-    /// @param fqdn DNS domain to map to ethereum address.
+    /// @param contentId To map to ethereum address to.
     /// @param isApproved Whitelist status to assign to address.
     function adminUpdateWhitelist(
         address target,
-        bytes32 fqdn,
+        bytes32 contentId,
         bool isApproved
     )
         external
         onlyOwner
     {
 
-        addressToDomain[target] = fqdn;
-        domainToAddress[fqdn] = target;
+        addressToDomain[target] = contentId;
+        contentIdToAddress[contentId] = target;
         isWhitelisted[target] = isApproved;
     }
 
-    function adminGetAddressByDomain(
-        bytes32 fqdn
+    function adminGetAddressByContentId(
+        bytes32 contentId
     )
         external
         view
@@ -79,22 +79,22 @@ contract Whitelist is
     {
 
         require(
-            isWhitelisted[ domainToAddress[fqdn] ],
+            isWhitelisted[ contentIdToAddress[contentId] ],
             "ADDRESS_NOT_WHITELISTED"
         );
 
-        return domainToAddress[fqdn];
+        return contentIdToAddress[contentId];
     }
 
-    /// @dev Admin views any domain mapped to a valid whitelisted address
-    /// @param target Ethereum address to validate & return DNS domain mapping for.
-    function adminGetDomainByAddress(
+    /// @dev Admin gets contentId mapped to a valid whitelisted address.
+    /// @param target Ethereum address to validate & return contentId for.
+    function adminGetContentIdByAddress(
         address target
     )
         external
         view
         onlyOwner
-        returns (bytes32 fqdn)
+        returns (bytes32 contentId)
     {
 
         require(
@@ -102,15 +102,15 @@ contract Whitelist is
             "ADDRESS_NOT_WHITELISTED"
         );
 
-        return addressToDomain[target];
+        return addressToContentId[target];
 
     }
 
-    /// @dev Valid whitelisted address can query its own domain mapping.
-    function getDomainByAddress()
+    /// @dev Valid whitelisted address can query its own contentId mapping.
+    function getContentIdByAddress()
         external
         view
-        returns (bytes32 fqdn)
+        returns (bytes32 contentId)
     {
 
         require(
@@ -118,7 +118,7 @@ contract Whitelist is
             'INVALID_SENDER'
         );
 
-        return addressToDomain[msg.sender];
+        return addressToContentId[msg.sender];
 
     }
 
