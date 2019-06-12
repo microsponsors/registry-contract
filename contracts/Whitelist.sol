@@ -66,7 +66,7 @@ contract Whitelist is
         addressToDomain[target] = fqdn;
     }
 
-    /// @dev Admin views the domain mapped to an address
+    /// @dev Admin views any domain mapped to a valid whitelisted address
     /// @param target Address to validate and return domain mapping for.
     function adminGetValidDomainMapping(
         address target
@@ -83,6 +83,22 @@ contract Whitelist is
         );
 
         return addressToDomain[target];
+
+    }
+
+    /// @dev Valid whitelisted address can query its own domain mapping.
+    function getValidDomainMapping()
+        external
+        view
+        returns (bytes32 fqdn)
+    {
+
+        require(
+            isWhitelisted[msg.sender],
+            'INVALID_SENDER'
+        );
+
+        return addressToDomain[msg.sender];
 
     }
 

@@ -35,7 +35,7 @@ $ npm run lint
 
 
 ## Scenarios
-After contract is deployed via ganache-cli
+After contract is deployed via ganache-cli locally
 Open truffle console and wire up test users:
 ```
 $ truffle console --network development
@@ -59,19 +59,24 @@ wi.adminUpdateWhitelistStatus(
 ```
 Third param is `false` to remove an address from the whitelist
 
-### Admin: Get a domain mapping for an address
+### Admin: Get a valid domain mapping for an address
 ```
 wi.adminGetValidDomainMapping("0xc835cf67962948128157de5ca5b55a4e75f572d2");
 '0x666f6f2e636f6d00000000000000000000000000000000000000000000000000'
 ```
 Handle hex return value in .js: `web3.toUtf8(<return value>)`
 
+### Get domain mapping for user's own valid whitelisted address (non-admin)
+Only responds if msg.sender is asking for own domain mapping
+```
+wi.getValidDomainMapping({ from: "0xc835cf67962948128157de5ca5b55a4e75f572d2" })
+```
+
 ### Check if an address is whitelisted
 ```
 > wi.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 true
 ```
-
 
 
 ## Dev Notes
