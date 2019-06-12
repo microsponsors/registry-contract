@@ -48,9 +48,9 @@ $ truffle console --network development
 `wi` = whitelist instance
 
 ### Admin: Add or remove an address to the whitelist, map it to DNS
-// @param target Address to add or remove from whitelist.
-// @param fqdn Hex-encoded DNS domain. -> web3.utils.utf8ToHex('foo.com')
-// @param isApproved Whitelist status for address.
+* @param target Address to add or remove from whitelist.
+* @param fqdn Hex-encoded DNS domain. -> web3.utils.utf8ToHex('foo.com')
+* @param isApproved Whitelist status for address.
 ```
 wi.adminUpdateWhitelistStatus(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
