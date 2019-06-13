@@ -2,7 +2,7 @@
 
 On-chain registry that maps a users' Ethereum address to an isWhitelisted boolean and a contentId. Bids and fills in the [0x Protocol](https://0x.org) format will be validated by this contract.
 
-Boilerplate source code is more or less copy-pasted from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
+Boilerplate whitelist source code is more or less copy-pasted from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
 
 ## Install, Compile & Deploy
@@ -67,18 +67,18 @@ Admin: Get valid whitelist address mapped to a contentId
 wi.adminGetAddressByContentId("0x666f6f2e636f6d")
 ```
 
-### adminGetDomainByAddress()
+### adminGetContentIdByAddress()
 Admin: Get the contentId mapped to the valid whitelist address
 Handle hex-encoded return value: `web3.toUtf8(<return value>)`
 ```
-wi.adminGetDomainByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 ### getContentIdByAddress()
 Get contentId mapping for valid whitelist address
 Only if msg.sender is asking for own mapping
 ```
-wi.getDomainByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
+wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 ```
 
 ### isWhitelisted()
@@ -96,4 +96,4 @@ $ npm install @0x/contracts-exchange --save`
 $ truffle compile
 $ truffle migrate --network development
 ```
-...per instructions [here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
+...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)

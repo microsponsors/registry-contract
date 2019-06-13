@@ -31,10 +31,9 @@ contract Whitelist is
     // Mapping of address => whitelist status.
     mapping (address => bool) public isWhitelisted;
     // Mapping of address => contentId
-    mapping (address => bytes32) private addressToContentId;
+    mapping (address => string) private addressToContentId;
     // Mapping of contentId => address
-    mapping (bytes32 => address) private contentIdToAddress;
-
+    mapping (string => address) private contentIdToAddress;
 
     // Exchange contract.
     // solhint-disable var-name-mixedcase
@@ -57,20 +56,20 @@ contract Whitelist is
     /// @param isApproved Whitelist status to assign to address.
     function adminUpdateWhitelist(
         address target,
-        bytes32 contentId,
+        string calldata contentId,
         bool isApproved
     )
         external
         onlyOwner
     {
 
-        addressToDomain[target] = contentId;
+        addressToContentId[target] = contentId;
         contentIdToAddress[contentId] = target;
         isWhitelisted[target] = isApproved;
     }
 
     function adminGetAddressByContentId(
-        bytes32 contentId
+        string calldata contentId
     )
         external
         view
@@ -94,7 +93,7 @@ contract Whitelist is
         external
         view
         onlyOwner
-        returns (bytes32 contentId)
+        returns (string memory)
     {
 
         require(
@@ -110,7 +109,7 @@ contract Whitelist is
     function getContentIdByAddress()
         external
         view
-        returns (bytes32 contentId)
+        returns (string memory)
     {
 
         require(

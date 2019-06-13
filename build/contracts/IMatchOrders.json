@@ -670,7 +670,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-06-12T05:13:41.994Z",
+  "updatedAt": "2019-06-13T00:12:16.002Z",
   "devdoc": {
     "methods": {
       "matchOrders((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes),(address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes),bytes,bytes)": {
