@@ -1,5 +1,10 @@
 /*
 
+  Copyright 2019 Microsponsors, Inc.
+  This work has been modified for use by Microsponsors, Inc.
+  This derivative work is licensed under the Apache License, Version 2.0
+  Original license notice below:
+
   Copyright 2018 ZeroEx Intl.
 
   Licensed under the Apache License, Version 2.0 (the "License");
