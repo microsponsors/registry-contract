@@ -1,6 +1,6 @@
 # Proof-of-Content Registry Contract
 
-On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and a `contentId`, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
+[WIP] On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and a `contentId`, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
 
 Bids and fills in the [0x Protocol](https://0x.org) format will be validated by this contract.
 
