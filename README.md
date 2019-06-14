@@ -1,6 +1,6 @@
 # Proof-of-Content Registry Contract
 
-On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and a `contentId`.
+On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and a `contentId`, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
 
 Bids and fills in the [0x Protocol](https://0x.org) format will be validated by this contract.
 
@@ -53,7 +53,7 @@ $ truffle console --network development
 Admin: Add/remove address to whitelist, map it to contentId
 * @param `target`: Address to add or remove from whitelist.
 * @param `contentId`: Hex-encoded, Ex: web3.utils.utf8ToHex('foo.com')
-* @param `isApproved`: isWhitelisted boolean status for address.
+* @param `isApproved`: isWhitelisted status boolean for address.
 Set 3rd param to `false` to remove address from whitelist.
 ```
 wi.adminUpdateWhitelist(
@@ -61,6 +61,7 @@ wi.adminUpdateWhitelist(
   "0x666f6f2e636f6d",
   true)
 ```
+The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
 
 ### adminGetAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId
