@@ -73,6 +73,20 @@ contract Whitelist is
         isWhitelisted[target] = isApproved;
     }
 
+
+    /// @dev Admin removes whitelisted status from address
+    /// @param target Address to add or remove from Whitelist.
+    function adminRemoveFromWhitelist(
+        address target
+    )
+        external
+        onlyOwner
+    {
+
+        isWhitelisted[target] = false;
+
+    }
+
     function adminGetAddressByContentId(
         string calldata contentId
     )

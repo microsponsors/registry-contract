@@ -63,6 +63,13 @@ wi.adminUpdateWhitelist(
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
 
+### adminRemoveFromWhitelist()
+Admin: Remove address from whitelist (set isWhitelisted to false)
+* @param `target`: Address to add or remove from whitelist.
+```
+wi.adminRemoveFromWhitelist("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+```
+
 ### adminGetAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId
 * @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`

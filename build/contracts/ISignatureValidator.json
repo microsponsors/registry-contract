@@ -808,7 +808,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-06-13T00:12:16.003Z",
+  "updatedAt": "2019-07-10T18:35:10.634Z",
   "devdoc": {
     "methods": {
       "isValidSignature(bytes32,address,bytes)": {
