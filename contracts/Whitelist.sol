@@ -33,20 +33,19 @@ contract Whitelist is
     Ownable
 {
 
-    // Microsponsors data:
+    // Microsponsors Registry Data:
 
-    // Mapping of address => array of UserContent structs
-    struct UserContent {
-        string contentId;
-        bool isExist;
-    }
-    mapping (address => UserContent[]) private userContent;
+    // Mapping of address => whitelist status.
+    mapping (address => bool) public isWhitelisted;
 
     // Mapping of contentId => address
     mapping (string => address) private contentIdToAddress;
 
-    // Mapping of address => whitelist status.
-    mapping (address => bool) public isWhitelisted;
+    // Mapping of address => array of UserContentId structs
+    struct UserContentId {
+        string contentId;
+    }
+    mapping (address => UserContentId[]) private userContentIds;
 
 
     // Exchange contract.
@@ -77,10 +76,17 @@ contract Whitelist is
         onlyOwner
     {
 
-        // TODO: check for duplicate contentId
-        userContent[target].push(UserContent(contentId, true));
-        contentIdToAddress[contentId] = target;
+
+        // Check that content id is not a duplicate for this owner
+        if (contentIdToAddress[contentId] != target) {
+
+            userContentIds[target].push(UserContentId(contentId));
+            contentIdToAddress[contentId] = target;
+
+        }
+
         isWhitelisted[target] = isApproved;
+
     }
 
 
@@ -96,13 +102,14 @@ contract Whitelist is
     {
 
         require(
-          userContent[target][0].isExist == true,
-          'ADDRESS_HAS_NO_CONTENT_IDS'
+          userContentIds[target].length > 0,
+          'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
         );
 
         isWhitelisted[target] = isApproved;
 
     }
+
 
     function adminGetAddressByContentId(
         string calldata contentId
@@ -119,17 +126,19 @@ contract Whitelist is
         );
 
         return contentIdToAddress[contentId];
+
     }
 
+
     /// @dev Admin gets contentIds mapped to a valid whitelisted address.
-    /// @param target Ethereum address to validate & return contentId for.
+    /// @param target Ethereum address to validate & return contentIds for.
     function adminGetContentIdsByAddress(
         address target
     )
         external
         view
         onlyOwner
-        returns (UserContent[] memory)
+        returns (UserContentId[] memory)
     {
 
         require(
@@ -137,15 +146,16 @@ contract Whitelist is
             "ADDRESS_NOT_WHITELISTED"
         );
 
-        return userContent[target];
+        return userContentIds[target];
 
     }
+
 
     /// @dev Valid whitelisted address can query its own contentIds.
     function getContentIdsByAddress()
         external
         view
-        returns (UserContent[] memory)
+        returns (UserContentId[] memory)
     {
 
         require(
@@ -153,9 +163,10 @@ contract Whitelist is
             'INVALID_SENDER'
         );
 
-        return userContent[msg.sender];
+        return userContentIds[msg.sender];
 
     }
+
 
     /// @dev Verifies signer is same as signer of current Ethereum transaction.
     ///      NOTE: This function can currently be used to validate signatures coming from outside of this contract.
