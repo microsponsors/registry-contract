@@ -42,10 +42,10 @@ contract Whitelist is
     mapping (string => address) private contentIdToAddress;
 
     // Mapping of address => array of ContentId structs
-    struct ContentId {
+    struct ContentIdStruct {
         string contentId;
     }
-    mapping (address => ContentId[]) private addressToContentIds;
+    mapping (address => ContentIdStruct[]) private addressToContentIds;
 
 
     // Exchange contract.
@@ -76,10 +76,13 @@ contract Whitelist is
         onlyOwner
     {
 
+        // TODO:
+        // Set max length of content ids by checking bytes(contentId).length
+
         // Check that content id is not a duplicate for this owner
         if (contentIdToAddress[contentId] != target) {
 
-            addressToContentIds[target].push(ContentId(contentId));
+            addressToContentIds[target].push( ContentIdStruct(contentId) );
             contentIdToAddress[contentId] = target;
 
         }
@@ -90,7 +93,7 @@ contract Whitelist is
 
 
     /// @dev Admin updates whitelist status for a given address.
-    /// @param target Address to add or remove from Whitelist.
+    /// @param target Address to update.
     /// @param isApproved Whitelist status to assign to address.
     function adminUpdateStatus(
         address target,
@@ -107,6 +110,40 @@ contract Whitelist is
 
         isWhitelisted[target] = isApproved;
 
+    }
+
+    /// @dev Admin updates whitelist status for a given address.
+    function adminRemoveContentIdFromAddress(
+        address target,
+        string calldata contentId
+    )
+        external
+        onlyOwner
+    {
+
+        contentIdToAddress[contentId] = address(0);
+
+        // Remove content id from addressToContentIds mapping
+        ContentIdStruct[] memory m = addressToContentIds[target];
+        for (uint i = 0; i < m.length; i++) {
+            if (stringsMatch(contentId, m[i].contentId)) {
+                addressToContentIds[target][i] = ContentIdStruct('');
+            }
+        }
+
+        // TODO set isWhitelisted to false if target has no ids left
+
+    }
+
+    function stringsMatch (
+        string memory a,
+        string memory b
+    )
+        public
+        pure
+        returns (bool)
+    {
+        return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))) );
     }
 
 
@@ -137,7 +174,7 @@ contract Whitelist is
         external
         view
         onlyOwner
-        returns (ContentId[] memory)
+        returns (ContentIdStruct[] memory)
     {
 
         require(
@@ -154,7 +191,7 @@ contract Whitelist is
     function getContentIdsByAddress()
         external
         view
-        returns (ContentId[] memory)
+        returns (ContentIdStruct[] memory)
     {
 
         require(
