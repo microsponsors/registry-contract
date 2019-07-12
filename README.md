@@ -15,9 +15,10 @@ Start Ganache in another terminal: `$ ganache-cli -p 8545`
 
 Compile: `$ npm run compile`
 
+Compile & Deploy in one step: `$ npm run deploy`
+
 Note that in /migrations/2_deploy_contracts.js, the second argument to `.deploy()` must be the 0x Exchange contract that the Whitelist forwards the order to after whitelist validation.
 
-Compile & Deploy in one step: `$ npm run deploy`
 
 * Note: dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
@@ -54,7 +55,6 @@ Admin: Add/remove address to whitelist, map it to contentId
 * @param `target`: Address to add or remove from whitelist.
 * @param `contentId`: Hex-encoded, Ex: web3.utils.utf8ToHex('foo.com')
 * @param `isApproved`: isWhitelisted status boolean for address.
-Set 3rd param to `false` to remove address from whitelist.
 ```
 wi.adminUpdateWhitelist(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
@@ -63,36 +63,37 @@ wi.adminUpdateWhitelist(
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
 
-### adminRemoveFromWhitelist()
-Admin: Remove address from whitelist (set isWhitelisted to false)
+### adminUpdateStatus()
+Admin: Add or remove address from whitelist (set isWhitelisted to false)
 * @param `target`: Address to add or remove from whitelist.
+* @param `isApproved`: isWhitelisted status boolean for address.
 ```
-wi.adminRemoveFromWhitelist("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+wi.adminUpdateStatus("0xc835cf67962948128157de5ca5b55a4e75f572d2", false);
 ```
 
 ### adminGetAddressByContentId()
-Admin: Get valid whitelist address mapped to a contentId
+Admin: Get valid whitelist address mapped to a contentId.
 * @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`
 ```
 wi.adminGetAddressByContentId("0x666f6f2e636f6d")
 ```
 
-### adminGetContentIdByAddress()
-Admin: Get the contentId mapped to the valid whitelist address
+### adminGetContentIdsByAddress()
+Admin: Get the contentId mapped to the valid whitelist address.
 Handle hex-encoded return value: `web3.toUtf8(<return value>)`
 ```
 wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
-### getContentIdByAddress()
-Get contentId mapping for valid whitelist address
-Only if msg.sender is asking for own mapping
+### getContentIdsByAddress()
+Get contentIds for valid whitelist address.
+Only if msg.sender is asking for own mapping.
 ```
 wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 ```
 
 ### isWhitelisted()
-Check if address is whitelisted
+Check isWhitelisted status boolean for an address.
 ```
 > wi.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```

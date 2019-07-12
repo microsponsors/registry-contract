@@ -33,12 +33,21 @@ contract Whitelist is
     Ownable
 {
 
-    // Mapping of address => whitelist status.
-    mapping (address => bool) public isWhitelisted;
-    // Mapping of address => contentId
-    mapping (address => string) private addressToContentId;
+    // Microsponsors data:
+
+    // Mapping of address => array of UserContent structs
+    struct UserContent {
+        string contentId;
+        bool isExist;
+    }
+    mapping (address => UserContent[]) private userContent;
+
     // Mapping of contentId => address
     mapping (string => address) private contentIdToAddress;
+
+    // Mapping of address => whitelist status.
+    mapping (address => bool) public isWhitelisted;
+
 
     // Exchange contract.
     // solhint-disable var-name-mixedcase
@@ -55,7 +64,7 @@ contract Whitelist is
         TX_ORIGIN_SIGNATURE = abi.encodePacked(address(this), VALIDATOR_SIGNATURE_BYTE);
     }
 
-    /// @dev Admin adds or removes an address & domain mapping from the whitelist.
+    /// @dev Admin adds or remove an address & domain mapping from the whitelist.
     /// @param target Address to add or remove from whitelist.
     /// @param contentId To map to ethereum address to.
     /// @param isApproved Whitelist status to assign to address.
@@ -68,22 +77,30 @@ contract Whitelist is
         onlyOwner
     {
 
-        addressToContentId[target] = contentId;
+        // TODO: check for duplicate contentId
+        userContent[target].push(UserContent(contentId, true));
         contentIdToAddress[contentId] = target;
         isWhitelisted[target] = isApproved;
     }
 
 
-    /// @dev Admin removes whitelisted status from address
+    /// @dev Admin updates whitelist status for a given address.
     /// @param target Address to add or remove from Whitelist.
-    function adminRemoveFromWhitelist(
-        address target
+    /// @param isApproved Whitelist status to assign to address.
+    function adminUpdateStatus(
+        address target,
+        bool isApproved
     )
         external
         onlyOwner
     {
 
-        isWhitelisted[target] = false;
+        require(
+          userContent[target][0].isExist == true,
+          'ADDRESS_HAS_NO_CONTENT_IDS'
+        );
+
+        isWhitelisted[target] = isApproved;
 
     }
 
@@ -104,15 +121,15 @@ contract Whitelist is
         return contentIdToAddress[contentId];
     }
 
-    /// @dev Admin gets contentId mapped to a valid whitelisted address.
+    /// @dev Admin gets contentIds mapped to a valid whitelisted address.
     /// @param target Ethereum address to validate & return contentId for.
-    function adminGetContentIdByAddress(
+    function adminGetContentIdsByAddress(
         address target
     )
         external
         view
         onlyOwner
-        returns (string memory)
+        returns (UserContent[] memory)
     {
 
         require(
@@ -120,15 +137,15 @@ contract Whitelist is
             "ADDRESS_NOT_WHITELISTED"
         );
 
-        return addressToContentId[target];
+        return userContent[target];
 
     }
 
-    /// @dev Valid whitelisted address can query its own contentId mapping.
-    function getContentIdByAddress()
+    /// @dev Valid whitelisted address can query its own contentIds.
+    function getContentIdsByAddress()
         external
         view
-        returns (string memory)
+        returns (UserContent[] memory)
     {
 
         require(
@@ -136,7 +153,7 @@ contract Whitelist is
             'INVALID_SENDER'
         );
 
-        return addressToContentId[msg.sender];
+        return userContent[msg.sender];
 
     }
 
