@@ -41,11 +41,11 @@ contract Whitelist is
     // Mapping of contentId => address
     mapping (string => address) private contentIdToAddress;
 
-    // Mapping of address => array of UserContentId structs
-    struct UserContentId {
+    // Mapping of address => array of ContentId structs
+    struct ContentId {
         string contentId;
     }
-    mapping (address => UserContentId[]) private userContentIds;
+    mapping (address => ContentId[]) private addressToContentIds;
 
 
     // Exchange contract.
@@ -76,11 +76,10 @@ contract Whitelist is
         onlyOwner
     {
 
-
         // Check that content id is not a duplicate for this owner
         if (contentIdToAddress[contentId] != target) {
 
-            userContentIds[target].push(UserContentId(contentId));
+            addressToContentIds[target].push(ContentId(contentId));
             contentIdToAddress[contentId] = target;
 
         }
@@ -102,7 +101,7 @@ contract Whitelist is
     {
 
         require(
-          userContentIds[target].length > 0,
+          addressToContentIds[target].length > 0,
           'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
         );
 
@@ -138,7 +137,7 @@ contract Whitelist is
         external
         view
         onlyOwner
-        returns (UserContentId[] memory)
+        returns (ContentId[] memory)
     {
 
         require(
@@ -146,7 +145,7 @@ contract Whitelist is
             "ADDRESS_NOT_WHITELISTED"
         );
 
-        return userContentIds[target];
+        return addressToContentIds[target];
 
     }
 
@@ -155,7 +154,7 @@ contract Whitelist is
     function getContentIdsByAddress()
         external
         view
-        returns (UserContentId[] memory)
+        returns (ContentId[] memory)
     {
 
         require(
@@ -163,7 +162,7 @@ contract Whitelist is
             'INVALID_SENDER'
         );
 
-        return userContentIds[msg.sender];
+        return addressToContentIds[msg.sender];
 
     }
 
