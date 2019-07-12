@@ -104,6 +104,7 @@ contract Whitelist is
     {
 
         require(
+          // TODO better check here, could be empty strings!
           addressToContentIds[target].length > 0,
           'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
         );
