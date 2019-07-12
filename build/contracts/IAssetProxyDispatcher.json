@@ -404,7 +404,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-07-12T05:13:47.475Z",
+  "updatedAt": "2019-07-12T23:10:39.926Z",
   "devdoc": {
     "methods": {
       "getAssetProxy(bytes4)": {

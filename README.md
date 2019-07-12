@@ -71,6 +71,16 @@ Admin: Add or remove address from whitelist (set isWhitelisted to false)
 wi.adminUpdateStatus("0xc835cf67962948128157de5ca5b55a4e75f572d2", false);
 ```
 
+### adminRemoveContentIdFromAddress()
+* @param `target`: Address to remove content id from.
+* @param `contentId`: Content id to remove.
+```
+wi.adminRemoveContentIdFromAddress(
+  "0xc835cf67962948128157de5ca5b55a4e75f572d2",
+  "0x666f6f2e636f6d"
+);
+```
+
 ### adminGetAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId.
 * @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`

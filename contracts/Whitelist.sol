@@ -104,8 +104,7 @@ contract Whitelist is
     {
 
         require(
-          // TODO better check here, could be empty strings!
-          addressToContentIds[target].length > 0,
+          getNumContentIds(target) > 0,
           'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
         );
 
@@ -132,19 +131,11 @@ contract Whitelist is
             }
         }
 
-        // TODO set isWhitelisted to false if target has no ids left
+        // If address has no valid content ids left, remove from Whitelist
+        if (getNumContentIds(target) == 0) {
+            isWhitelisted[target] = false;
+        }
 
-    }
-
-    function stringsMatch (
-        string memory a,
-        string memory b
-    )
-        public
-        pure
-        returns (bool)
-    {
-        return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))) );
     }
 
 
@@ -156,6 +147,8 @@ contract Whitelist is
         onlyOwner
         returns (address target)
     {
+
+        // TODO add a better error output for when content is assigned to address(0)
 
         require(
             isWhitelisted[ contentIdToAddress[contentId] ],
@@ -279,4 +272,39 @@ contract Whitelist is
             TX_ORIGIN_SIGNATURE
         );
     }
+
+
+    /* Helpers */
+
+    function stringsMatch (
+        string memory a,
+        string memory b
+    )
+        private
+        pure
+        returns (bool)
+    {
+        return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))) );
+    }
+
+    function getNumContentIds (
+        address target
+    )
+        private
+        view
+        returns (uint16 result)
+    {
+
+        ContentIdStruct[] memory m = addressToContentIds[target];
+        uint16 counter = 0;
+        for (uint i = 0; i < m.length; i++) {
+            if (!stringsMatch('', m[i].contentId)) {
+                counter++;
+            }
+        }
+
+        return counter;
+
+    }
+
 }
