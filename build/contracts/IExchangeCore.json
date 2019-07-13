@@ -1079,7 +1079,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-07-13T00:30:17.240Z",
+  "updatedAt": "2019-07-13T00:54:28.057Z",
   "devdoc": {
     "methods": {
       "cancelOrder((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes))": {

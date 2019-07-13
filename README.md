@@ -50,25 +50,28 @@ $ truffle console --network development
 ```
 `wi` = whitelist instance
 
-### adminUpdateWhitelist()
-Admin: Add/remove address to whitelist, map it to contentId
+### adminUpdate()
+Admin: Add/remove address to whitelist, map it to contentId.
 * @param `target`: Address to add or remove from whitelist.
 * @param `contentId`: Hex-encoded, Ex: web3.utils.utf8ToHex('foo.com')
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
-wi.adminUpdateWhitelist(
+wi.adminUpdate(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
   "0x666f6f2e636f6d",
   true)
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
 
-### adminUpdateStatus()
+### adminUpdateWhitelistStatus()
 Admin: Add or remove address from whitelist (set isWhitelisted to false)
 * @param `target`: Address to add or remove from whitelist.
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
-wi.adminUpdateStatus("0xc835cf67962948128157de5ca5b55a4e75f572d2", false);
+wi.adminUpdateWhitelistStatus(
+  "0xc835cf67962948128157de5ca5b55a4e75f572d2",
+  false
+);
 ```
 
 ### adminRemoveContentIdFromAddress()

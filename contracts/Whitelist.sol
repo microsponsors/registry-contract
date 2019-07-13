@@ -65,9 +65,9 @@ contract Whitelist is
 
     /// @dev Admin adds  mapping
     /// @param target Address to add or remove from whitelist.
-    /// @param contentId To map to ethereum address to.
+    /// @param contentId To map the address to.
     /// @param isApproved Whitelist status to assign to address.
-    function adminUpdateWhitelist(
+    function adminUpdate(
         address target,
         string calldata contentId,
         bool isApproved
@@ -103,7 +103,7 @@ contract Whitelist is
     /// @dev Admin updates whitelist status for a given address.
     /// @param target Address to update.
     /// @param isApproved Whitelist status to assign to address.
-    function adminUpdateStatus(
+    function adminUpdateWhitelistStatus(
         address target,
         bool isApproved
     )
@@ -111,6 +111,7 @@ contract Whitelist is
         onlyOwner
     {
 
+        // TODO only require this IF admin is trying to set isApproved to true
         require(
           getNumContentIds(target) > 0,
           'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
