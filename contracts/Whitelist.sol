@@ -63,7 +63,7 @@ contract Whitelist is
         TX_ORIGIN_SIGNATURE = abi.encodePacked(address(this), VALIDATOR_SIGNATURE_BYTE);
     }
 
-    /// @dev Admin adds or remove an address & domain mapping from the whitelist.
+    /// @dev Admin adds  mapping
     /// @param target Address to add or remove from whitelist.
     /// @param contentId To map to ethereum address to.
     /// @param isApproved Whitelist status to assign to address.
@@ -79,9 +79,17 @@ contract Whitelist is
         // TODO:
         // Set max length of content ids by checking bytes(contentId).length
 
-        // Check that content id is not a duplicate for this owner
         if (contentIdToAddress[contentId] != target) {
 
+            // If content id already belongs to another owner
+            // It must be explicitly removed from that owner using remove functions
+            // before it is re-assigned
+            require(
+                contentIdToAddress[contentId] == 0x0000000000000000000000000000000000000000,
+                "REMOVE_CONTENT_ID_FROM_PREVIOUS_OWNER_ADDRESS"
+            );
+
+            // Assign content id to new owner
             addressToContentIds[target].push( ContentIdStruct(contentId) );
             contentIdToAddress[contentId] = target;
 
@@ -121,7 +129,7 @@ contract Whitelist is
         onlyOwner
     {
 
-        contentIdToAddress[contentId] = address(0);
+        contentIdToAddress[contentId] = address(0x0000000000000000000000000000000000000000);
 
         // Remove content id from addressToContentIds mapping
         ContentIdStruct[] memory m = addressToContentIds[target];
@@ -147,13 +155,6 @@ contract Whitelist is
         onlyOwner
         returns (address target)
     {
-
-        // TODO add a better error output for when content is assigned to address(0)
-
-        require(
-            isWhitelisted[ contentIdToAddress[contentId] ],
-            "ADDRESS_NOT_WHITELISTED"
-        );
 
         return contentIdToAddress[contentId];
 
