@@ -98,6 +98,12 @@ Handle hex-encoded return value: `web3.toUtf8(<return value>)`
 wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
+### isWhitelisted()
+Check isWhitelisted status boolean for an address.
+```
+> wi.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+```
+
 ### getContentIdsByAddress()
 Get contentIds for valid whitelist address.
 Only if msg.sender is asking for own mapping.
@@ -105,10 +111,11 @@ Only if msg.sender is asking for own mapping.
 wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 ```
 
-### isWhitelisted()
-Check isWhitelisted status boolean for an address.
+### removeContentIdFromAddress()
+Valid whitelisted address can remove its own content id.
+* @param `contentId`: Content id to remove.
 ```
-> wi.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+wi.removeContentIdFromAddress("0x666f6f2e636f6d");
 ```
 
 
