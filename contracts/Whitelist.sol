@@ -136,6 +136,11 @@ contract Whitelist is
         onlyOwner
     {
 
+        require(
+            contentIdToAddress[contentId] == target,
+            'CONTENT_ID_DOES_NOT_BELONG_TO_ADDRESS'
+        );
+
         contentIdToAddress[contentId] = address(0x0000000000000000000000000000000000000000);
 
         // Remove content id from addressToContentIds mapping
@@ -211,6 +216,11 @@ contract Whitelist is
         require(
             isWhitelisted[msg.sender],
             'INVALID_SENDER'
+        );
+
+        require(
+            contentIdToAddress[contentId] == msg.sender,
+            'CONTENT_ID_DOES_NOT_BELONG_TO_SENDER'
         );
 
         contentIdToAddress[contentId] = address(0x0000000000000000000000000000000000000000);
