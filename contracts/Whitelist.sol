@@ -111,11 +111,12 @@ contract Whitelist is
         onlyOwner
     {
 
-        // TODO only require this IF admin is trying to set isApproved to true
-        require(
-          getNumContentIds(target) > 0,
-          'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
-        );
+        if (isApproved == true) {
+          require(
+            getNumContentIds(target) > 0,
+            'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
+          );
+        }
 
         isWhitelisted[target] = isApproved;
 
