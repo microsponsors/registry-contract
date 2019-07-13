@@ -12,14 +12,14 @@
     "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibFillResults.sol",
     "exportedSymbols": {
       "LibFillResults": [
-        878
+        892
       ]
     },
-    "id": 879,
+    "id": 893,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 806,
+        "id": 820,
         "literals": [
           "solidity",
           "^",
@@ -32,10 +32,10 @@
       {
         "absolutePath": "@0x/contracts-utils/contracts/src/SafeMath.sol",
         "file": "@0x/contracts-utils/contracts/src/SafeMath.sol",
-        "id": 807,
+        "id": 821,
         "nodeType": "ImportDirective",
-        "scope": 879,
-        "sourceUnit": 1210,
+        "scope": 893,
+        "sourceUnit": 1224,
         "src": "605:56:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -46,45 +46,45 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 808,
+              "id": 822,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1209,
+              "referencedDeclaration": 1223,
               "src": "695:8:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1209",
+                "typeIdentifier": "t_contract$_SafeMath_$1223",
                 "typeString": "contract SafeMath"
               }
             },
-            "id": 809,
+            "id": 823,
             "nodeType": "InheritanceSpecifier",
             "src": "695:8:10"
           }
         ],
         "contractDependencies": [
-          1209
+          1223
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 878,
+        "id": 892,
         "linearizedBaseContracts": [
-          878,
-          1209
+          892,
+          1223
         ],
         "name": "LibFillResults",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "LibFillResults.FillResults",
-            "id": 818,
+            "id": 832,
             "members": [
               {
                 "constant": false,
-                "id": 811,
+                "id": 825,
                 "name": "makerAssetFilledAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 818,
+                "scope": 832,
                 "src": "739:30:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -93,7 +93,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 810,
+                  "id": 824,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "739:7:10",
@@ -107,10 +107,10 @@
               },
               {
                 "constant": false,
-                "id": 813,
+                "id": 827,
                 "name": "takerAssetFilledAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 818,
+                "scope": 832,
                 "src": "821:30:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -119,7 +119,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 812,
+                  "id": 826,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "821:7:10",
@@ -133,10 +133,10 @@
               },
               {
                 "constant": false,
-                "id": 815,
+                "id": 829,
                 "name": "makerFeePaid",
                 "nodeType": "VariableDeclaration",
-                "scope": 818,
+                "scope": 832,
                 "src": "903:20:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -145,7 +145,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 814,
+                  "id": 828,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "903:7:10",
@@ -159,10 +159,10 @@
               },
               {
                 "constant": false,
-                "id": 817,
+                "id": 831,
                 "name": "takerFeePaid",
                 "nodeType": "VariableDeclaration",
-                "scope": 818,
+                "scope": 832,
                 "src": "1004:20:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -171,7 +171,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 816,
+                  "id": 830,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1004:7:10",
@@ -186,36 +186,36 @@
             ],
             "name": "FillResults",
             "nodeType": "StructDefinition",
-            "scope": 878,
+            "scope": 892,
             "src": "710:390:10",
             "visibility": "public"
           },
           {
             "canonicalName": "LibFillResults.MatchedFillResults",
-            "id": 825,
+            "id": 839,
             "members": [
               {
                 "constant": false,
-                "id": 820,
+                "id": 834,
                 "name": "left",
                 "nodeType": "VariableDeclaration",
-                "scope": 825,
+                "scope": 839,
                 "src": "1142:16:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                  "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                   "typeString": "struct LibFillResults.FillResults"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 819,
+                  "id": 833,
                   "name": "FillResults",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 818,
+                  "referencedDeclaration": 832,
                   "src": "1142:11:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   }
                 },
@@ -224,26 +224,26 @@
               },
               {
                 "constant": false,
-                "id": 822,
+                "id": 836,
                 "name": "right",
                 "nodeType": "VariableDeclaration",
-                "scope": 825,
+                "scope": 839,
                 "src": "1234:17:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                  "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                   "typeString": "struct LibFillResults.FillResults"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 821,
+                  "id": 835,
                   "name": "FillResults",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 818,
+                  "referencedDeclaration": 832,
                   "src": "1234:11:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   }
                 },
@@ -252,10 +252,10 @@
               },
               {
                 "constant": false,
-                "id": 824,
+                "id": 838,
                 "name": "leftMakerAssetSpreadAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 825,
+                "scope": 839,
                 "src": "1327:34:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -264,7 +264,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 823,
+                  "id": 837,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1327:7:10",
@@ -279,20 +279,20 @@
             ],
             "name": "MatchedFillResults",
             "nodeType": "StructDefinition",
-            "scope": 878,
+            "scope": 892,
             "src": "1106:371:10",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 876,
+              "id": 890,
               "nodeType": "Block",
               "src": "1914:515:10",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 841,
+                    "id": 855,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -301,25 +301,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 832,
+                        "id": 846,
                         "name": "totalFillResults",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 841,
                         "src": "1924:16:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                          "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                           "typeString": "struct LibFillResults.FillResults memory"
                         }
                       },
-                      "id": 834,
+                      "id": 848,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "makerAssetFilledAmount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 811,
+                      "referencedDeclaration": 825,
                       "src": "1924:39:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -335,25 +335,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 836,
+                            "id": 850,
                             "name": "totalFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 827,
+                            "referencedDeclaration": 841,
                             "src": "1974:16:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 837,
+                          "id": 851,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "makerAssetFilledAmount",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 811,
+                          "referencedDeclaration": 825,
                           "src": "1974:39:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -364,25 +364,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 838,
+                            "id": 852,
                             "name": "singleFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 829,
+                            "referencedDeclaration": 843,
                             "src": "2015:17:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 839,
+                          "id": 853,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "makerAssetFilledAmount",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 811,
+                          "referencedDeclaration": 825,
                           "src": "2015:40:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -401,18 +401,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 835,
+                        "id": 849,
                         "name": "safeAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1140,
+                        "referencedDeclaration": 1154,
                         "src": "1966:7:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 840,
+                      "id": 854,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -432,14 +432,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 842,
+                  "id": 856,
                   "nodeType": "ExpressionStatement",
                   "src": "1924:132:10"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 852,
+                    "id": 866,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -448,25 +448,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 843,
+                        "id": 857,
                         "name": "totalFillResults",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 841,
                         "src": "2066:16:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                          "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                           "typeString": "struct LibFillResults.FillResults memory"
                         }
                       },
-                      "id": 845,
+                      "id": 859,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "takerAssetFilledAmount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 813,
+                      "referencedDeclaration": 827,
                       "src": "2066:39:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -482,25 +482,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 847,
+                            "id": 861,
                             "name": "totalFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 827,
+                            "referencedDeclaration": 841,
                             "src": "2116:16:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 848,
+                          "id": 862,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "takerAssetFilledAmount",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 813,
+                          "referencedDeclaration": 827,
                           "src": "2116:39:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -511,25 +511,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 849,
+                            "id": 863,
                             "name": "singleFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 829,
+                            "referencedDeclaration": 843,
                             "src": "2157:17:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 850,
+                          "id": 864,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "takerAssetFilledAmount",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 813,
+                          "referencedDeclaration": 827,
                           "src": "2157:40:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -548,18 +548,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 846,
+                        "id": 860,
                         "name": "safeAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1140,
+                        "referencedDeclaration": 1154,
                         "src": "2108:7:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 851,
+                      "id": 865,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -579,14 +579,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 853,
+                  "id": 867,
                   "nodeType": "ExpressionStatement",
                   "src": "2066:132:10"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 863,
+                    "id": 877,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -595,25 +595,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 854,
+                        "id": 868,
                         "name": "totalFillResults",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 841,
                         "src": "2208:16:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                          "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                           "typeString": "struct LibFillResults.FillResults memory"
                         }
                       },
-                      "id": 856,
+                      "id": 870,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "makerFeePaid",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 815,
+                      "referencedDeclaration": 829,
                       "src": "2208:29:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -629,25 +629,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 858,
+                            "id": 872,
                             "name": "totalFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 827,
+                            "referencedDeclaration": 841,
                             "src": "2248:16:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 859,
+                          "id": 873,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "makerFeePaid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 815,
+                          "referencedDeclaration": 829,
                           "src": "2248:29:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -658,25 +658,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 860,
+                            "id": 874,
                             "name": "singleFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 829,
+                            "referencedDeclaration": 843,
                             "src": "2279:17:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 861,
+                          "id": 875,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "makerFeePaid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 815,
+                          "referencedDeclaration": 829,
                           "src": "2279:30:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -695,18 +695,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 857,
+                        "id": 871,
                         "name": "safeAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1140,
+                        "referencedDeclaration": 1154,
                         "src": "2240:7:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 862,
+                      "id": 876,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -726,14 +726,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 864,
+                  "id": 878,
                   "nodeType": "ExpressionStatement",
                   "src": "2208:102:10"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 874,
+                    "id": 888,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -742,25 +742,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 865,
+                        "id": 879,
                         "name": "totalFillResults",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 841,
                         "src": "2320:16:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                          "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                           "typeString": "struct LibFillResults.FillResults memory"
                         }
                       },
-                      "id": 867,
+                      "id": 881,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "takerFeePaid",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 817,
+                      "referencedDeclaration": 831,
                       "src": "2320:29:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -776,25 +776,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 869,
+                            "id": 883,
                             "name": "totalFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 827,
+                            "referencedDeclaration": 841,
                             "src": "2360:16:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 870,
+                          "id": 884,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "takerFeePaid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 817,
+                          "referencedDeclaration": 831,
                           "src": "2360:29:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -805,25 +805,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 871,
+                            "id": 885,
                             "name": "singleFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 829,
+                            "referencedDeclaration": 843,
                             "src": "2391:17:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 872,
+                          "id": 886,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "takerFeePaid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 817,
+                          "referencedDeclaration": 831,
                           "src": "2391:30:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -842,18 +842,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 868,
+                        "id": 882,
                         "name": "safeAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1140,
+                        "referencedDeclaration": 1154,
                         "src": "2352:7:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 873,
+                      "id": 887,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -873,45 +873,45 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 875,
+                  "id": 889,
                   "nodeType": "ExpressionStatement",
                   "src": "2320:102:10"
                 }
               ]
             },
             "documentation": "@dev Adds properties of both FillResults instances.\n      Modifies the first FillResults instance specified.\n @param totalFillResults Fill results instance that will be added onto.\n @param singleFillResults Fill results instance that will be added to totalFillResults.",
-            "id": 877,
+            "id": 891,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "addFillResults",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 830,
+              "id": 844,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 827,
+                  "id": 841,
                   "name": "totalFillResults",
                   "nodeType": "VariableDeclaration",
-                  "scope": 877,
+                  "scope": 891,
                   "src": "1805:35:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 826,
+                    "id": 840,
                     "name": "FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 818,
+                    "referencedDeclaration": 832,
                     "src": "1805:11:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -920,26 +920,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 829,
+                  "id": 843,
                   "name": "singleFillResults",
                   "nodeType": "VariableDeclaration",
-                  "scope": 877,
+                  "scope": 891,
                   "src": "1842:36:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 828,
+                    "id": 842,
                     "name": "FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 818,
+                    "referencedDeclaration": 832,
                     "src": "1842:11:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -950,19 +950,19 @@
               "src": "1804:75:10"
             },
             "returnParameters": {
-              "id": 831,
+              "id": 845,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1914:0:10"
             },
-            "scope": 878,
+            "scope": 892,
             "src": "1781:648:10",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 879,
+        "scope": 893,
         "src": "664:1767:10"
       }
     ],
@@ -972,14 +972,14 @@
     "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibFillResults.sol",
     "exportedSymbols": {
       "LibFillResults": [
-        878
+        892
       ]
     },
-    "id": 879,
+    "id": 893,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 806,
+        "id": 820,
         "literals": [
           "solidity",
           "^",
@@ -992,10 +992,10 @@
       {
         "absolutePath": "@0x/contracts-utils/contracts/src/SafeMath.sol",
         "file": "@0x/contracts-utils/contracts/src/SafeMath.sol",
-        "id": 807,
+        "id": 821,
         "nodeType": "ImportDirective",
-        "scope": 879,
-        "sourceUnit": 1210,
+        "scope": 893,
+        "sourceUnit": 1224,
         "src": "605:56:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1006,45 +1006,45 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 808,
+              "id": 822,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1209,
+              "referencedDeclaration": 1223,
               "src": "695:8:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1209",
+                "typeIdentifier": "t_contract$_SafeMath_$1223",
                 "typeString": "contract SafeMath"
               }
             },
-            "id": 809,
+            "id": 823,
             "nodeType": "InheritanceSpecifier",
             "src": "695:8:10"
           }
         ],
         "contractDependencies": [
-          1209
+          1223
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 878,
+        "id": 892,
         "linearizedBaseContracts": [
-          878,
-          1209
+          892,
+          1223
         ],
         "name": "LibFillResults",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "LibFillResults.FillResults",
-            "id": 818,
+            "id": 832,
             "members": [
               {
                 "constant": false,
-                "id": 811,
+                "id": 825,
                 "name": "makerAssetFilledAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 818,
+                "scope": 832,
                 "src": "739:30:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1053,7 +1053,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 810,
+                  "id": 824,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "739:7:10",
@@ -1067,10 +1067,10 @@
               },
               {
                 "constant": false,
-                "id": 813,
+                "id": 827,
                 "name": "takerAssetFilledAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 818,
+                "scope": 832,
                 "src": "821:30:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1079,7 +1079,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 812,
+                  "id": 826,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "821:7:10",
@@ -1093,10 +1093,10 @@
               },
               {
                 "constant": false,
-                "id": 815,
+                "id": 829,
                 "name": "makerFeePaid",
                 "nodeType": "VariableDeclaration",
-                "scope": 818,
+                "scope": 832,
                 "src": "903:20:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1105,7 +1105,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 814,
+                  "id": 828,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "903:7:10",
@@ -1119,10 +1119,10 @@
               },
               {
                 "constant": false,
-                "id": 817,
+                "id": 831,
                 "name": "takerFeePaid",
                 "nodeType": "VariableDeclaration",
-                "scope": 818,
+                "scope": 832,
                 "src": "1004:20:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1131,7 +1131,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 816,
+                  "id": 830,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1004:7:10",
@@ -1146,36 +1146,36 @@
             ],
             "name": "FillResults",
             "nodeType": "StructDefinition",
-            "scope": 878,
+            "scope": 892,
             "src": "710:390:10",
             "visibility": "public"
           },
           {
             "canonicalName": "LibFillResults.MatchedFillResults",
-            "id": 825,
+            "id": 839,
             "members": [
               {
                 "constant": false,
-                "id": 820,
+                "id": 834,
                 "name": "left",
                 "nodeType": "VariableDeclaration",
-                "scope": 825,
+                "scope": 839,
                 "src": "1142:16:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                  "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                   "typeString": "struct LibFillResults.FillResults"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 819,
+                  "id": 833,
                   "name": "FillResults",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 818,
+                  "referencedDeclaration": 832,
                   "src": "1142:11:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   }
                 },
@@ -1184,26 +1184,26 @@
               },
               {
                 "constant": false,
-                "id": 822,
+                "id": 836,
                 "name": "right",
                 "nodeType": "VariableDeclaration",
-                "scope": 825,
+                "scope": 839,
                 "src": "1234:17:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                  "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                   "typeString": "struct LibFillResults.FillResults"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 821,
+                  "id": 835,
                   "name": "FillResults",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 818,
+                  "referencedDeclaration": 832,
                   "src": "1234:11:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   }
                 },
@@ -1212,10 +1212,10 @@
               },
               {
                 "constant": false,
-                "id": 824,
+                "id": 838,
                 "name": "leftMakerAssetSpreadAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 825,
+                "scope": 839,
                 "src": "1327:34:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1224,7 +1224,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 823,
+                  "id": 837,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1327:7:10",
@@ -1239,20 +1239,20 @@
             ],
             "name": "MatchedFillResults",
             "nodeType": "StructDefinition",
-            "scope": 878,
+            "scope": 892,
             "src": "1106:371:10",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 876,
+              "id": 890,
               "nodeType": "Block",
               "src": "1914:515:10",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 841,
+                    "id": 855,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1261,25 +1261,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 832,
+                        "id": 846,
                         "name": "totalFillResults",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 841,
                         "src": "1924:16:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                          "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                           "typeString": "struct LibFillResults.FillResults memory"
                         }
                       },
-                      "id": 834,
+                      "id": 848,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "makerAssetFilledAmount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 811,
+                      "referencedDeclaration": 825,
                       "src": "1924:39:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1295,25 +1295,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 836,
+                            "id": 850,
                             "name": "totalFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 827,
+                            "referencedDeclaration": 841,
                             "src": "1974:16:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 837,
+                          "id": 851,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "makerAssetFilledAmount",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 811,
+                          "referencedDeclaration": 825,
                           "src": "1974:39:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1324,25 +1324,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 838,
+                            "id": 852,
                             "name": "singleFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 829,
+                            "referencedDeclaration": 843,
                             "src": "2015:17:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 839,
+                          "id": 853,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "makerAssetFilledAmount",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 811,
+                          "referencedDeclaration": 825,
                           "src": "2015:40:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1361,18 +1361,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 835,
+                        "id": 849,
                         "name": "safeAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1140,
+                        "referencedDeclaration": 1154,
                         "src": "1966:7:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 840,
+                      "id": 854,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1392,14 +1392,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 842,
+                  "id": 856,
                   "nodeType": "ExpressionStatement",
                   "src": "1924:132:10"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 852,
+                    "id": 866,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1408,25 +1408,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 843,
+                        "id": 857,
                         "name": "totalFillResults",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 841,
                         "src": "2066:16:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                          "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                           "typeString": "struct LibFillResults.FillResults memory"
                         }
                       },
-                      "id": 845,
+                      "id": 859,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "takerAssetFilledAmount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 813,
+                      "referencedDeclaration": 827,
                       "src": "2066:39:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1442,25 +1442,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 847,
+                            "id": 861,
                             "name": "totalFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 827,
+                            "referencedDeclaration": 841,
                             "src": "2116:16:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 848,
+                          "id": 862,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "takerAssetFilledAmount",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 813,
+                          "referencedDeclaration": 827,
                           "src": "2116:39:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1471,25 +1471,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 849,
+                            "id": 863,
                             "name": "singleFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 829,
+                            "referencedDeclaration": 843,
                             "src": "2157:17:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 850,
+                          "id": 864,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "takerAssetFilledAmount",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 813,
+                          "referencedDeclaration": 827,
                           "src": "2157:40:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1508,18 +1508,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 846,
+                        "id": 860,
                         "name": "safeAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1140,
+                        "referencedDeclaration": 1154,
                         "src": "2108:7:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 851,
+                      "id": 865,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1539,14 +1539,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 853,
+                  "id": 867,
                   "nodeType": "ExpressionStatement",
                   "src": "2066:132:10"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 863,
+                    "id": 877,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1555,25 +1555,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 854,
+                        "id": 868,
                         "name": "totalFillResults",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 841,
                         "src": "2208:16:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                          "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                           "typeString": "struct LibFillResults.FillResults memory"
                         }
                       },
-                      "id": 856,
+                      "id": 870,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "makerFeePaid",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 815,
+                      "referencedDeclaration": 829,
                       "src": "2208:29:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1589,25 +1589,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 858,
+                            "id": 872,
                             "name": "totalFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 827,
+                            "referencedDeclaration": 841,
                             "src": "2248:16:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 859,
+                          "id": 873,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "makerFeePaid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 815,
+                          "referencedDeclaration": 829,
                           "src": "2248:29:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1618,25 +1618,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 860,
+                            "id": 874,
                             "name": "singleFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 829,
+                            "referencedDeclaration": 843,
                             "src": "2279:17:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 861,
+                          "id": 875,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "makerFeePaid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 815,
+                          "referencedDeclaration": 829,
                           "src": "2279:30:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1655,18 +1655,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 857,
+                        "id": 871,
                         "name": "safeAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1140,
+                        "referencedDeclaration": 1154,
                         "src": "2240:7:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 862,
+                      "id": 876,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1686,14 +1686,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 864,
+                  "id": 878,
                   "nodeType": "ExpressionStatement",
                   "src": "2208:102:10"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 874,
+                    "id": 888,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1702,25 +1702,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 865,
+                        "id": 879,
                         "name": "totalFillResults",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 841,
                         "src": "2320:16:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                          "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                           "typeString": "struct LibFillResults.FillResults memory"
                         }
                       },
-                      "id": 867,
+                      "id": 881,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "takerFeePaid",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 817,
+                      "referencedDeclaration": 831,
                       "src": "2320:29:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1736,25 +1736,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 869,
+                            "id": 883,
                             "name": "totalFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 827,
+                            "referencedDeclaration": 841,
                             "src": "2360:16:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 870,
+                          "id": 884,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "takerFeePaid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 817,
+                          "referencedDeclaration": 831,
                           "src": "2360:29:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1765,25 +1765,25 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 871,
+                            "id": 885,
                             "name": "singleFillResults",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 829,
+                            "referencedDeclaration": 843,
                             "src": "2391:17:10",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                              "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                               "typeString": "struct LibFillResults.FillResults memory"
                             }
                           },
-                          "id": 872,
+                          "id": 886,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "takerFeePaid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 817,
+                          "referencedDeclaration": 831,
                           "src": "2391:30:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1802,18 +1802,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 868,
+                        "id": 882,
                         "name": "safeAdd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1140,
+                        "referencedDeclaration": 1154,
                         "src": "2352:7:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 873,
+                      "id": 887,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1833,45 +1833,45 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 875,
+                  "id": 889,
                   "nodeType": "ExpressionStatement",
                   "src": "2320:102:10"
                 }
               ]
             },
             "documentation": "@dev Adds properties of both FillResults instances.\n      Modifies the first FillResults instance specified.\n @param totalFillResults Fill results instance that will be added onto.\n @param singleFillResults Fill results instance that will be added to totalFillResults.",
-            "id": 877,
+            "id": 891,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "addFillResults",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 830,
+              "id": 844,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 827,
+                  "id": 841,
                   "name": "totalFillResults",
                   "nodeType": "VariableDeclaration",
-                  "scope": 877,
+                  "scope": 891,
                   "src": "1805:35:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 826,
+                    "id": 840,
                     "name": "FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 818,
+                    "referencedDeclaration": 832,
                     "src": "1805:11:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -1880,26 +1880,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 829,
+                  "id": 843,
                   "name": "singleFillResults",
                   "nodeType": "VariableDeclaration",
-                  "scope": 877,
+                  "scope": 891,
                   "src": "1842:36:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$818_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$832_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 828,
+                    "id": 842,
                     "name": "FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 818,
+                    "referencedDeclaration": 832,
                     "src": "1842:11:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$818_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$832_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -1910,19 +1910,19 @@
               "src": "1804:75:10"
             },
             "returnParameters": {
-              "id": 831,
+              "id": 845,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1914:0:10"
             },
-            "scope": 878,
+            "scope": 892,
             "src": "1781:648:10",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 879,
+        "scope": 893,
         "src": "664:1767:10"
       }
     ],
@@ -1934,7 +1934,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-07-13T00:54:28.076Z",
+  "updatedAt": "2019-07-13T01:37:56.785Z",
   "devdoc": {
     "methods": {}
   },

@@ -111,6 +111,11 @@ contract Whitelist is
         onlyOwner
     {
 
+        require(
+            isApproved != isWhitelisted[target],
+            'NO_STATUS_UPDATE_REQUIRED'
+        );
+
         if (isApproved == true) {
           require(
             getNumContentIds(target) > 0,
