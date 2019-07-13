@@ -117,10 +117,10 @@ contract Whitelist is
         );
 
         if (isApproved == true) {
-          require(
-            getNumContentIds(target) > 0,
-            'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
-          );
+            require(
+                getNumContentIds(target) > 0,
+                'ADDRESS_HAS_NO_ASSOCIATED_CONTENT_IDS'
+            );
         }
 
         isWhitelisted[target] = isApproved;
@@ -179,11 +179,6 @@ contract Whitelist is
         returns (ContentIdStruct[] memory)
     {
 
-        require(
-            isWhitelisted[target],
-            "ADDRESS_NOT_WHITELISTED"
-        );
-
         return addressToContentIds[target];
 
     }
@@ -202,6 +197,36 @@ contract Whitelist is
         );
 
         return addressToContentIds[msg.sender];
+
+    }
+
+
+    /// @dev Valid whitelisted address can remove its own content id.
+    function removeContentIdFromAddress(
+        string calldata contentId
+    )
+        external
+    {
+
+        require(
+            isWhitelisted[msg.sender],
+            'INVALID_SENDER'
+        );
+
+        contentIdToAddress[contentId] = address(0x0000000000000000000000000000000000000000);
+
+        // Remove content id from addressToContentIds mapping
+        ContentIdStruct[] memory m = addressToContentIds[msg.sender];
+        for (uint i = 0; i < m.length; i++) {
+            if (stringsMatch(contentId, m[i].contentId)) {
+                addressToContentIds[msg.sender][i] = ContentIdStruct('');
+            }
+        }
+
+        // If address has no valid content ids left, remove from Whitelist
+        if (getNumContentIds(msg.sender) == 0) {
+            isWhitelisted[msg.sender] = false;
+        }
 
     }
 
