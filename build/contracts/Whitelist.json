@@ -13791,15 +13791,15 @@
     "version": "0.5.5+commit.47a71e8f.Emscripten.clang"
   },
   "networks": {
-    "1562990157164": {
+    "1563227085821": {
       "events": {},
       "links": {},
-      "address": "0x87Cb81389A904b09A1b2C8B2aAA91C85c194d717",
-      "transactionHash": "0x63bc47d98a637566c2421dab0a8dbb50a66279dbc4d1b6c851039a4641e074bf"
+      "address": "0x69635F085Fa72F86C49B7A219185687f949e5d35",
+      "transactionHash": "0x75443eeb40f305a14ed627091f64e57a2200e1d6e23903473df6a8fb1680ef5f"
     }
   },
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-07-13T03:57:11.658Z",
+  "updatedAt": "2019-07-15T21:47:11.420Z",
   "devdoc": {
     "methods": {
       "adminGetContentIdsByAddress(address)": {
