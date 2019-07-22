@@ -181,10 +181,17 @@ contract Whitelist is
         external
         view
         onlyOwner
-        returns (ContentIdStruct[] memory)
+        returns (string[] memory)
     {
 
-        return addressToContentIds[target];
+        ContentIdStruct[] memory m = addressToContentIds[target];
+        string[] memory r = new string[](m.length);
+
+        for (uint i = 0; i < m.length; i++) {
+            r[i] =  m[i].contentId;
+        }
+
+        return r;
 
     }
 
@@ -193,7 +200,7 @@ contract Whitelist is
     function getContentIdsByAddress()
         external
         view
-        returns (ContentIdStruct[] memory)
+        returns (string[] memory)
     {
 
         require(
@@ -201,7 +208,14 @@ contract Whitelist is
             'INVALID_SENDER'
         );
 
-        return addressToContentIds[msg.sender];
+        ContentIdStruct[] memory m = addressToContentIds[msg.sender];
+        string[] memory r = new string[](m.length);
+
+        for (uint i = 0; i < m.length; i++) {
+            r[i] =  m[i].contentId;
+        }
+
+        return r;
 
     }
 
