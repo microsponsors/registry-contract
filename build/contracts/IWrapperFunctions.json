@@ -4309,7 +4309,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-07-23T01:09:48.376Z",
+  "updatedAt": "2019-08-04T18:47:57.967Z",
   "devdoc": {
     "methods": {
       "batchCancelOrders((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[])": {

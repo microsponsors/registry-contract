@@ -33,22 +33,30 @@ contract Whitelist is
     Ownable
 {
 
-    // Microsponsors Registry Data:
 
-    // Mapping of address => whitelist status.
+    /***  Microsponsors Registry Data:  ***/
+
+
+    // Map address => whitelist status
     mapping (address => bool) public isWhitelisted;
 
-    // Mapping of contentId => address
+    // Map contentId => address
     mapping (string => address) private contentIdToAddress;
 
-    // Mapping of address => array of ContentId structs
+    // Map address => array of ContentId structs
     struct ContentIdStruct {
         string contentId;
     }
     mapping (address => ContentIdStruct[]) private addressToContentIds;
 
+    // Pause. When true, edits are blocked.
+    bool public paused = false;
 
-    // Exchange contract.
+
+    /***  0x Exchange Details:  ***/
+
+
+    // 0x Exchange contract.
     // solhint-disable var-name-mixedcase
     IExchange internal EXCHANGE;
     bytes internal TX_ORIGIN_SIGNATURE;
@@ -56,12 +64,19 @@ contract Whitelist is
 
     byte constant internal VALIDATOR_SIGNATURE_BYTE = "\x05";
 
+
+    /***  Constructor  ***/
+
     constructor (address _exchange)
         public
     {
         EXCHANGE = IExchange(_exchange);
         TX_ORIGIN_SIGNATURE = abi.encodePacked(address(this), VALIDATOR_SIGNATURE_BYTE);
     }
+
+
+    /***  Admin Functions  ***/
+
 
     /// @dev Admin adds  mapping
     /// @param target Address to add or remove from whitelist.
@@ -74,6 +89,7 @@ contract Whitelist is
     )
         external
         onlyOwner
+        whenNotPaused
     {
 
         // TODO:
@@ -109,6 +125,7 @@ contract Whitelist is
     )
         external
         onlyOwner
+        whenNotPaused
     {
 
         require(
@@ -134,6 +151,7 @@ contract Whitelist is
     )
         external
         onlyOwner
+        whenNotPaused
     {
 
         require(
@@ -196,6 +214,9 @@ contract Whitelist is
     }
 
 
+    /*** User-facing functions ***/
+
+
     /// @dev Valid whitelisted address can query its own contentIds.
     function getContentIdsByAddress()
         external
@@ -225,6 +246,7 @@ contract Whitelist is
         string calldata contentId
     )
         external
+        whenNotPaused
     {
 
         require(
@@ -253,6 +275,9 @@ contract Whitelist is
         }
 
     }
+
+
+    /*** Transaction validation & Execution ***/
 
 
     /// @dev Verifies signer is same as signer of current Ethereum transaction.
@@ -291,6 +316,7 @@ contract Whitelist is
         bytes memory orderSignature
     )
         public
+        whenNotPaused
     {
         address takerAddress = msg.sender;
 
@@ -331,7 +357,38 @@ contract Whitelist is
     }
 
 
-    /* Helpers */
+    /*** Pausable adapted from OpenZeppelin via Cryptokitties ***/
+
+
+    /// @dev Modifier to allow actions only when the contract IS NOT paused
+    modifier whenNotPaused() {
+        require(!paused);
+        _;
+    }
+
+    /// @dev Modifier to allow actions only when the contract IS paused
+    modifier whenPaused {
+        require(paused);
+        _;
+    }
+
+    /// @dev Called by contract owner to pause actions on this contract
+    function pause() external onlyOwner whenNotPaused {
+        paused = true;
+    }
+
+    /// @dev Called by contract owner to unpause the smart contract.
+    /// @notice This is public rather than external so it can be called by
+    ///  derived contracts.
+    function unpause() public onlyOwner whenPaused {
+        // can't unpause if contract was upgraded
+        paused = false;
+    }
+
+
+
+    /***  Helpers  ***/
+
 
     function stringsMatch (
         string memory a,
@@ -363,5 +420,6 @@ contract Whitelist is
         return counter;
 
     }
+
 
 }

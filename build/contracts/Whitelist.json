@@ -15651,15 +15651,15 @@
     "version": "0.5.5+commit.47a71e8f.Emscripten.clang"
   },
   "networks": {
-    "1563844147220": {
+    "1564944426392": {
       "events": {},
       "links": {},
-      "address": "0x7870aFeC380651DdbFda81272B34B8e2B35548be",
-      "transactionHash": "0xe3dfcfc845e4e7cb7e6b8a3e84851e36fd8023e1294f2905137efa7754dc2401"
+      "address": "0x915314e0843dA77e7cae1b1278DFb21bfE1D5aff",
+      "transactionHash": "0x1d2325d6a5e18753f01e34bddfdfcee753b5107b948475303cf2c8349b1cc3c0"
     }
   },
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-07-23T01:09:49.716Z",
+  "updatedAt": "2019-08-04T18:47:59.168Z",
   "devdoc": {
     "methods": {
       "adminGetContentIdsByAddress(address)": {
