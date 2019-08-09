@@ -2054,7 +2054,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-08-04T18:47:57.959Z",
+  "updatedAt": "2019-08-09T04:09:48.330Z",
   "devdoc": {
     "methods": {
       "batchCancelOrders((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[])": {
