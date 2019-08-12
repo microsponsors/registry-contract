@@ -2,9 +2,9 @@
 
 [WIP] On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and a `contentId`, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
 
-Bids and fills in the [0x Protocol](https://0x.org) format will be validated by this contract.
+Bids and order fills in the [0x Protocol](https://0x.org) format will be validated by this contract.
 
-Boilerplate whitelist source code is more or less copy-pasted from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
+Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
 
 ## Install, Compile & Deploy
@@ -126,15 +126,15 @@ wi.removeContentIdFromAddress("0x666f6f2e636f6d");
 ## 0x Exchange Functions
 
 ### isValidSignature()
-Verifies signer is same as signer of current transaction.
+Verifies current signer is same as signer of incoming bid or order fill.
 
 ### fillOrderIfWhitelisted()
 Is pausable.
 
 
 ## Pause contract
-Admin: Stops editing of state for contract and filling of orders.
-Does not stop reads!
+Admin: Pauses updating of contract state for whitelist, content registry and filling of orders.
+Does not stop reads or signature validation!
 
 ### pause()
 ### unpause()
