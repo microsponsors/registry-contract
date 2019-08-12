@@ -6,6 +6,8 @@ Bids and order fills in the [0x Protocol](https://0x.org) format will be validat
 
 Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
+For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
+
 
 ## Install, Compile & Deploy
 
