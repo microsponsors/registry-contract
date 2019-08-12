@@ -23,6 +23,15 @@ Note that in /migrations/2_deploy_contracts.js, the second argument to `.deploy(
 
 * Note: dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
+### Setup, migration to local ganache
+```
+$ truffle init
+$ npm install @0x/contracts-exchange --save`
+$ truffle compile
+$ truffle migrate --network development
+```
+...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
+
 ### Versioning
 This stack seems to be sensitive to versioning, so capturing details here:
 
@@ -46,7 +55,7 @@ $ truffle console --network development
 ```
 
 
-## Manage Whitelist
+## Manage Whitelist and Content Registry
 ```
 > Whitelist.deployed().then(inst => { wi = inst })
 ```
@@ -142,12 +151,36 @@ Does not stop reads or signature validation!
 ### unpause()
 
 
-## Dev Notes
-How this was put together:
+## Ox orders
+Example 0x Protocol `order` object that is submitted as first argument to `fillOrderIfWhitelisted()`:
+
+```javascript
+interface Order {
+    senderAddress: string;
+    // Ethereum address of the Maker
+    makerAddress: string;
+    // Ethereum address of the Taker. If no address specified, anyone can fill the order.
+    takerAddress: string;
+    // How many ZRX the Maker will pay as a fee to the relayer
+    makerFee: BigNumber;
+    // How many ZRX the Taker will pay as a fee to the relayer
+    takerFee: BigNumber;
+    // The amount of an asset the Maker is offering to exchange
+    makerAssetAmount: BigNumber;
+    // The amount of an asset the Maker is willing to accept in return
+    takerAssetAmount: BigNumber;
+    // The identifying data about the asset the Maker is offering
+    makerAssetData: string;
+    // The identifying data about the asset the Maker is requesting in return
+    takerAssetData: string;
+    // A salt to guarantee OrderHash uniqueness. Usually a milisecond timestamp of when order was made
+    salt: BigNumber;
+    // The address of the 0x protocol exchange smart contract
+    exchangeAddress: string;
+    // The address (user or smart contract) that will receive the fees
+    feeRecipientAddress: string;
+    // When the order will expire (unix timestamp in seconds)
+    expirationTimeSeconds: BigNumber;
+}
 ```
-$ truffle init
-$ npm install @0x/contracts-exchange --save`
-$ truffle compile
-$ truffle migrate --network development
-```
-...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
+
