@@ -49,7 +49,7 @@ contract Whitelist is
     }
     mapping (address => ContentIdStruct[]) private addressToContentIds;
 
-    // Pause. When true, edits are blocked.
+    // Pause. When true, Registry edits and 0x order fills are blocked.
     bool public paused = false;
 
 
