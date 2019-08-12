@@ -1,6 +1,6 @@
 # Proof-of-Content Registry Contract
 
-[WIP] On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and a `contentId`, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
+[WIP] On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and any `contentId` they wish to associate with that address, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
 
 Bids and order fills in the [0x Protocol](https://0x.org) format will be validated by this contract.
 
@@ -11,29 +11,18 @@ For doc purposes, things here marked `Admin` refer to the `owner` of this smart 
 
 ## Install, Compile & Deploy
 
-Install dependencies: `$ npm install`
-
+Install 0x dependencies: `$ npm install`
 Start Ganache in another terminal: `$ ganache-cli -p 8545`
-
 Compile: `$ npm run compile`
+Deploy to local ganache instance: `$ truffle migrate --network development `
+Or... Compile & Deploy in one step: `$ npm run deploy`
 
-Compile & Deploy in one step: `$ npm run deploy`
-
-Note that in /migrations/2_deploy_contracts.js, the second argument to `.deploy()` must be the 0x Exchange contract that the Whitelist forwards the order to after whitelist validation.
+Note that in `/migrations/2_deploy_contracts.js`, the second argument to `.deploy()` must be the 0x Exchange contract that the Whitelist forwards the order to after whitelist validation. Latest [0x smart contract addresses can be found here](https://github.com/0xProject/0x-monorepo/tree/development/packages/contract-addresses).
 
 * Note: dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
-### Setup, migration to local ganache
-```
-$ truffle init
-$ npm install @0x/contracts-exchange --save`
-$ truffle compile
-$ truffle migrate --network development
-```
-...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
-
 ### Versioning
-This stack seems to be sensitive to versioning, so capturing details here:
+This stack seems to be sensitive to versioning, so capturing details of local setup here:
 
 * truffle v5.0.21
 * ganache-cli v6.4.3
@@ -46,6 +35,15 @@ $ npm install -g solhint
 $ npm run lint
 ```
 
+#### Original Setup
+How this repo was originally put together:
+```
+$ truffle init
+$ npm install @0x/contracts-exchange --save`
+$ truffle compile
+$ truffle migrate --network development
+```
+...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
 
 ## Scenarios
 Start ganache in one terminal, truffle console in another.
@@ -53,7 +51,6 @@ Start ganache in one terminal, truffle console in another.
 $ ganache-cli -p 8545
 $ truffle console --network development
 ```
-
 
 ## Manage Whitelist and Content Registry
 ```
