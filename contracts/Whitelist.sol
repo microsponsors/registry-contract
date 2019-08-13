@@ -37,11 +37,11 @@ contract Whitelist is
     /***  Microsponsors Registry Data:  ***/
 
 
+    // Array of registrant addresses
+    address[] private registrants;
+
     // Map address => whitelist status
     mapping (address => bool) public isWhitelisted;
-
-    // Map contentId => address
-    mapping (string => address) private contentIdToAddress;
 
     // Map address => array of ContentId structs
     struct ContentIdStruct {
@@ -49,7 +49,10 @@ contract Whitelist is
     }
     mapping (address => ContentIdStruct[]) private addressToContentIds;
 
-    // Pause. When true, Registry edits and 0x order fills are blocked.
+    // Map contentId => address (for reverse-lookups)
+    mapping (string => address) private contentIdToAddress;
+
+    // Pause. When true, Registry state updates and 0x order fills are blocked.
     bool public paused = false;
 
 
@@ -67,6 +70,7 @@ contract Whitelist is
 
     /***  Constructor  ***/
 
+    /// @param _exchange 0x Exchange contract address to direct order fills to
     constructor (address _exchange)
         public
     {
@@ -75,13 +79,13 @@ contract Whitelist is
     }
 
 
-    /***  Admin Functions  ***/
+    /***  Admin functions (onlyOwner) that mutate contract state  ***/
 
 
-    /// @dev Admin adds  mapping
+    /// @dev Admin registers an address with a contentId
     /// @param target Address to add or remove from whitelist.
     /// @param contentId To map the address to.
-    /// @param isApproved Whitelist status to assign to address.
+    /// @param isApproved Whitelist status to assign to the address.
     function adminUpdate(
         address target,
         string calldata contentId,
@@ -97,18 +101,30 @@ contract Whitelist is
 
         if (contentIdToAddress[contentId] != target) {
 
-            // If content id already belongs to another owner
-            // It must be explicitly removed from that owner using remove functions
-            // before it is re-assigned
+            // If content id already belongs to another owner address
+            // it must be explicitly removed from that owner address
+            // via user-facing remove method OR via admin remove method
+            // before it is re-assigned to new address
             require(
                 contentIdToAddress[contentId] == 0x0000000000000000000000000000000000000000,
                 "REMOVE_CONTENT_ID_FROM_PREVIOUS_OWNER_ADDRESS"
             );
 
-            // Assign content id to new owner
+            // Assign content id to registrant address
             addressToContentIds[target].push( ContentIdStruct(contentId) );
             contentIdToAddress[contentId] = target;
 
+        }
+
+        // Push new addresses into registrants array
+        bool hasRegistered = false;
+        for (uint i=0; i<registrants.length; i++) {
+            if (registrants[i] == target) {
+                hasRegistered = true;
+            }
+        }
+        if (!hasRegistered) {
+            registrants.push(target);
         }
 
         isWhitelisted[target] = isApproved;
@@ -128,11 +144,15 @@ contract Whitelist is
         whenNotPaused
     {
 
+        // Revert transaction (refund gas) if
+        // the requested whitelist status update is redundant
         require(
             isApproved != isWhitelisted[target],
             'NO_STATUS_UPDATE_REQUIRED'
         );
 
+        // Disallow users with no associated content ids
+        // (ex: admin or user themselves may have removed content ids)
         if (isApproved == true) {
             require(
                 getNumContentIds(target) > 0,
@@ -173,6 +193,35 @@ contract Whitelist is
         if (getNumContentIds(target) == 0) {
             isWhitelisted[target] = false;
         }
+
+    }
+
+
+    /*** Admin read-only functions ***/
+
+
+    function adminGetRegistrantCount ()
+        external
+        view
+        onlyOwner
+        returns (uint)
+    {
+
+        return registrants.length;
+
+    }
+
+    function adminGetRegistrantByIndex (
+        uint index
+    )
+        external
+        view
+        onlyOwner
+        returns (address)
+    {
+
+        // Will throw error if specified index does not exist
+        return registrants[index];
 
     }
 

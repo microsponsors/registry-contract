@@ -10,4 +10,3 @@ module.exports = function(deployer) {
   // TODO: process.env Exchange contract argument
   deployer.deploy(Whitelist, "0x080bf510fcbf18b91105470639e9561022937712");
 };
-
