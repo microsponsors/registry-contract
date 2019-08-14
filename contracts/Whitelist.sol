@@ -38,19 +38,19 @@ contract Whitelist is
 
 
     // Array of registrant addresses
+    // Regardless of isWhitelisted status
     address[] private registrants;
 
-    // Map address => whitelist status
+    // Map address => whitelist status.
+    // Addresses authorized to transact thru this Registry.
     mapping (address => bool) public isWhitelisted;
 
-    // Map address => array of ContentId structs
+    // Map address => array of ContentId structs.
+    // Using struct because there is no mapping to an array of strings in solidity at this time.
     struct ContentIdStruct {
         string contentId;
     }
     mapping (address => ContentIdStruct[]) private addressToContentIds;
-
-    // Map contentId => address (for reverse-lookups)
-    mapping (string => address) private contentIdToAddress;
 
     // Pause. When true, Registry state updates and 0x order fills are blocked.
     bool public paused = false;
@@ -82,9 +82,9 @@ contract Whitelist is
     /***  Admin functions (onlyOwner) that mutate contract state  ***/
 
 
-    /// @dev Admin registers an address with a contentId
+    /// @dev Admin registers an address with a contentId.
     /// @param target Address to add or remove from whitelist.
-    /// @param contentId To map the address to.
+    /// @param contentId UTF8 string that is hex-encoded
     /// @param isApproved Whitelist status to assign to the address.
     function adminUpdate(
         address target,
@@ -96,25 +96,12 @@ contract Whitelist is
         whenNotPaused
     {
 
-        // TODO:
-        // Set max length of content ids by checking bytes(contentId).length
-
-        if (contentIdToAddress[contentId] != target) {
-
-            // If content id already belongs to another owner address
-            // it must be explicitly removed from that owner address
-            // via user-facing remove method OR via admin remove method
-            // before it is re-assigned to new address
-            require(
-                contentIdToAddress[contentId] == 0x0000000000000000000000000000000000000000,
-                "REMOVE_CONTENT_ID_FROM_PREVIOUS_OWNER_ADDRESS"
-            );
-
-            // Assign content id to registrant address
-            addressToContentIds[target].push( ContentIdStruct(contentId) );
-            contentIdToAddress[contentId] = target;
-
-        }
+        // TODO: disallow duplicates!
+        // TODO: if contentId was previously assigned to another address
+        //       and we remove that addresses last contentId here,
+        //       we have to remove that address from the whitelist, too
+        // Assign content id to registrant address
+        addressToContentIds[target].push( ContentIdStruct(contentId) );
 
         if (!hasRegistered(target)) {
             registrants.push(target);
@@ -157,7 +144,7 @@ contract Whitelist is
 
     }
 
-    /// @dev Admin updates whitelist status for a given address.
+    /// @dev Admin removes a contentId from a given address.
     function adminRemoveContentIdFromAddress(
         address target,
         string calldata contentId
@@ -167,13 +154,6 @@ contract Whitelist is
         whenNotPaused
     {
 
-        require(
-            contentIdToAddress[contentId] == target,
-            'CONTENT_ID_DOES_NOT_BELONG_TO_ADDRESS'
-        );
-
-        contentIdToAddress[contentId] = address(0x0000000000000000000000000000000000000000);
-
         // Remove content id from addressToContentIds mapping
         ContentIdStruct[] memory m = addressToContentIds[target];
         for (uint i = 0; i < m.length; i++) {
@@ -182,7 +162,7 @@ contract Whitelist is
             }
         }
 
-        // If address has no valid content ids left, remove from Whitelist
+        // If address has no valid content ids left, remove from Whitelist.
         if (getNumContentIds(target) == 0) {
             isWhitelisted[target] = false;
         }
@@ -228,7 +208,8 @@ contract Whitelist is
         returns (address target)
     {
 
-        return contentIdToAddress[contentId];
+        // TODO update me; loop thru addressToContent id instead
+        // return contentIdToAddress[contentId];
 
     }
 
@@ -297,13 +278,13 @@ contract Whitelist is
         );
 
         require(
-            contentIdToAddress[contentId] == msg.sender,
+            // TODO update me:
+            // contentIdToAddress[contentId] == msg.sender,
             'CONTENT_ID_DOES_NOT_BELONG_TO_SENDER'
         );
 
-        contentIdToAddress[contentId] = address(0x0000000000000000000000000000000000000000);
-
         // Remove content id from addressToContentIds mapping
+        // (Simply replace content id with empty string)
         ContentIdStruct[] memory m = addressToContentIds[msg.sender];
         for (uint i = 0; i < m.length; i++) {
             if (stringsMatch(contentId, m[i].contentId)) {
@@ -472,6 +453,8 @@ contract Whitelist is
         ContentIdStruct[] memory m = addressToContentIds[target];
         uint16 counter = 0;
         for (uint i = 0; i < m.length; i++) {
+            // Omit entries that are empty strings
+            // (from contentIds that were removed)
             if (!stringsMatch('', m[i].contentId)) {
                 counter++;
             }
