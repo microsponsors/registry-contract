@@ -97,11 +97,15 @@ contract Whitelist is
     {
 
         // TODO: disallow duplicates!
-        // TODO: if contentId was previously assigned to another address
-        //       and we remove that addresses last contentId here,
-        //       we have to remove that address from the whitelist, too
-        // Assign content id to registrant address
-        addressToContentIds[target].push( ContentIdStruct(contentId) );
+        if (!contentIdToAddress(target) == target) {
+
+          // TODO: if contentId was previously assigned to another address
+          //       and we remove that addresses last contentId here,
+          //       we have to remove that address from the whitelist, too
+
+          // Assign content id to registrant address
+          addressToContentIds[target].push( ContentIdStruct(contentId) );
+        }
 
         if (!hasRegistered(target)) {
             registrants.push(target);
@@ -208,8 +212,7 @@ contract Whitelist is
         returns (address target)
     {
 
-        // TODO update me; loop thru addressToContent id instead
-        // return contentIdToAddress[contentId];
+        return contentIdToAddress(contentId);
 
     }
 
@@ -278,8 +281,7 @@ contract Whitelist is
         );
 
         require(
-            // TODO update me:
-            // contentIdToAddress[contentId] == msg.sender,
+            contentIdToAddress(contentId) == msg.sender,
             'CONTENT_ID_DOES_NOT_BELONG_TO_SENDER'
         );
 
@@ -429,6 +431,18 @@ contract Whitelist is
 
     }
 
+
+    function contentIdToAddress(
+        string calldata contentId
+    )
+        private
+        view
+        returns (address)
+    {
+
+        // TODO
+
+    }
 
     function stringsMatch (
         string memory a,
