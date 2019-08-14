@@ -27,14 +27,14 @@
     "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibOrder.sol",
     "exportedSymbols": {
       "LibOrder": [
-        1295
+        1305
       ]
     },
-    "id": 1296,
+    "id": 1306,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1183,
+        "id": 1193,
         "literals": [
           "solidity",
           "^",
@@ -47,10 +47,10 @@
       {
         "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibEIP712.sol",
         "file": "./LibEIP712.sol",
-        "id": 1184,
+        "id": 1194,
         "nodeType": "ImportDirective",
-        "scope": 1296,
-        "sourceUnit": 1108,
+        "scope": 1306,
+        "sourceUnit": 1118,
         "src": "605:25:11",
         "symbolAliases": [],
         "unitAlias": ""
@@ -61,41 +61,41 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1185,
+              "id": 1195,
               "name": "LibEIP712",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1107,
+              "referencedDeclaration": 1117,
               "src": "658:9:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_LibEIP712_$1107",
+                "typeIdentifier": "t_contract$_LibEIP712_$1117",
                 "typeString": "contract LibEIP712"
               }
             },
-            "id": 1186,
+            "id": 1196,
             "nodeType": "InheritanceSpecifier",
             "src": "658:9:11"
           }
         ],
         "contractDependencies": [
-          1107
+          1117
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1295,
+        "id": 1305,
         "linearizedBaseContracts": [
-          1295,
-          1107
+          1305,
+          1117
         ],
         "name": "LibOrder",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 1207,
+            "id": 1217,
             "name": "EIP712_ORDER_SCHEMA_HASH",
             "nodeType": "VariableDeclaration",
-            "scope": 1295,
+            "scope": 1305,
             "src": "714:521:11",
             "stateVariable": true,
             "storageLocation": "default",
@@ -104,7 +104,7 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 1187,
+              "id": 1197,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
               "src": "714:7:11",
@@ -122,7 +122,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "4f7264657228",
-                      "id": 1191,
+                      "id": 1201,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -140,7 +140,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "61646472657373206d616b6572416464726573732c",
-                      "id": 1192,
+                      "id": 1202,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -158,7 +158,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "616464726573732074616b6572416464726573732c",
-                      "id": 1193,
+                      "id": 1203,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -176,7 +176,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "6164647265737320666565526563697069656e74416464726573732c",
-                      "id": 1194,
+                      "id": 1204,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -194,7 +194,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "616464726573732073656e646572416464726573732c",
-                      "id": 1195,
+                      "id": 1205,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -212,7 +212,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e74323536206d616b65724173736574416d6f756e742c",
-                      "id": 1196,
+                      "id": 1206,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -230,7 +230,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e743235362074616b65724173736574416d6f756e742c",
-                      "id": 1197,
+                      "id": 1207,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -248,7 +248,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e74323536206d616b65724665652c",
-                      "id": 1198,
+                      "id": 1208,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -266,7 +266,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e743235362074616b65724665652c",
-                      "id": 1199,
+                      "id": 1209,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -284,7 +284,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e743235362065787069726174696f6e54696d655365636f6e64732c",
-                      "id": 1200,
+                      "id": 1210,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -302,7 +302,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e743235362073616c742c",
-                      "id": 1201,
+                      "id": 1211,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -320,7 +320,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "6279746573206d616b65724173736574446174612c",
-                      "id": 1202,
+                      "id": 1212,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -338,7 +338,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "62797465732074616b6572417373657444617461",
-                      "id": 1203,
+                      "id": 1213,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -356,7 +356,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "29",
-                      "id": 1204,
+                      "id": 1214,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -433,18 +433,18 @@
                     ],
                     "expression": {
                       "argumentTypes": null,
-                      "id": 1189,
+                      "id": 1199,
                       "name": "abi",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1522,
+                      "referencedDeclaration": 1532,
                       "src": "777:3:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_abi",
                         "typeString": "abi"
                       }
                     },
-                    "id": 1190,
+                    "id": 1200,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -458,7 +458,7 @@
                       "typeString": "function () pure returns (bytes memory)"
                     }
                   },
-                  "id": 1205,
+                  "id": 1215,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -480,18 +480,18 @@
                     "typeString": "bytes memory"
                   }
                 ],
-                "id": 1188,
+                "id": 1198,
                 "name": "keccak256",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 1529,
+                "referencedDeclaration": 1539,
                 "src": "767:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                   "typeString": "function (bytes memory) pure returns (bytes32)"
                 }
               },
-              "id": 1206,
+              "id": 1216,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -509,46 +509,46 @@
           },
           {
             "canonicalName": "LibOrder.OrderStatus",
-            "id": 1215,
+            "id": 1225,
             "members": [
               {
-                "id": 1208,
+                "id": 1218,
                 "name": "INVALID",
                 "nodeType": "EnumValue",
                 "src": "1438:7:11"
               },
               {
-                "id": 1209,
+                "id": 1219,
                 "name": "INVALID_MAKER_ASSET_AMOUNT",
                 "nodeType": "EnumValue",
                 "src": "1492:26:11"
               },
               {
-                "id": 1210,
+                "id": 1220,
                 "name": "INVALID_TAKER_ASSET_AMOUNT",
                 "nodeType": "EnumValue",
                 "src": "1579:26:11"
               },
               {
-                "id": 1211,
+                "id": 1221,
                 "name": "FILLABLE",
                 "nodeType": "EnumValue",
                 "src": "1666:8:11"
               },
               {
-                "id": 1212,
+                "id": 1222,
                 "name": "EXPIRED",
                 "nodeType": "EnumValue",
                 "src": "1724:7:11"
               },
               {
-                "id": 1213,
+                "id": 1223,
                 "name": "FULLY_FILLED",
                 "nodeType": "EnumValue",
                 "src": "1790:12:11"
               },
               {
-                "id": 1214,
+                "id": 1224,
                 "name": "CANCELLED",
                 "nodeType": "EnumValue",
                 "src": "1852:9:11"
@@ -560,14 +560,14 @@
           },
           {
             "canonicalName": "LibOrder.Order",
-            "id": 1240,
+            "id": 1250,
             "members": [
               {
                 "constant": false,
-                "id": 1217,
+                "id": 1227,
                 "name": "makerAddress",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "1982:20:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -576,7 +576,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1216,
+                  "id": 1226,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1982:7:11",
@@ -591,10 +591,10 @@
               },
               {
                 "constant": false,
-                "id": 1219,
+                "id": 1229,
                 "name": "takerAddress",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2063:20:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -603,7 +603,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1218,
+                  "id": 1228,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2063:7:11",
@@ -618,10 +618,10 @@
               },
               {
                 "constant": false,
-                "id": 1221,
+                "id": 1231,
                 "name": "feeRecipientAddress",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2214:27:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -630,7 +630,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1220,
+                  "id": 1230,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2214:7:11",
@@ -645,10 +645,10 @@
               },
               {
                 "constant": false,
-                "id": 1223,
+                "id": 1233,
                 "name": "senderAddress",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2316:21:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -657,7 +657,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1222,
+                  "id": 1232,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2316:7:11",
@@ -672,10 +672,10 @@
               },
               {
                 "constant": false,
-                "id": 1225,
+                "id": 1235,
                 "name": "makerAssetAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2500:24:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -684,7 +684,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1224,
+                  "id": 1234,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2500:7:11",
@@ -698,10 +698,10 @@
               },
               {
                 "constant": false,
-                "id": 1227,
+                "id": 1237,
                 "name": "takerAssetAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2620:24:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -710,7 +710,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1226,
+                  "id": 1236,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2620:7:11",
@@ -724,10 +724,10 @@
               },
               {
                 "constant": false,
-                "id": 1229,
+                "id": 1239,
                 "name": "makerFee",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2739:16:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -736,7 +736,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1228,
+                  "id": 1238,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2739:7:11",
@@ -750,10 +750,10 @@
               },
               {
                 "constant": false,
-                "id": 1231,
+                "id": 1241,
                 "name": "takerFee",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2926:16:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -762,7 +762,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1230,
+                  "id": 1240,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2926:7:11",
@@ -776,10 +776,10 @@
               },
               {
                 "constant": false,
-                "id": 1233,
+                "id": 1243,
                 "name": "expirationTimeSeconds",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "3113:29:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -788,7 +788,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1232,
+                  "id": 1242,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "3113:7:11",
@@ -802,10 +802,10 @@
               },
               {
                 "constant": false,
-                "id": 1235,
+                "id": 1245,
                 "name": "salt",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "3211:12:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -814,7 +814,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1234,
+                  "id": 1244,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "3211:7:11",
@@ -828,10 +828,10 @@
               },
               {
                 "constant": false,
-                "id": 1237,
+                "id": 1247,
                 "name": "makerAssetData",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "3322:20:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -840,7 +840,7 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1236,
+                  "id": 1246,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
                   "src": "3322:5:11",
@@ -854,10 +854,10 @@
               },
               {
                 "constant": false,
-                "id": 1239,
+                "id": 1249,
                 "name": "takerAssetData",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "3505:20:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -866,7 +866,7 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1238,
+                  "id": 1248,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
                   "src": "3505:5:11",
@@ -881,20 +881,20 @@
             ],
             "name": "Order",
             "nodeType": "StructDefinition",
-            "scope": 1295,
+            "scope": 1305,
             "src": "1959:1726:11",
             "visibility": "public"
           },
           {
             "canonicalName": "LibOrder.OrderInfo",
-            "id": 1247,
+            "id": 1257,
             "members": [
               {
                 "constant": false,
-                "id": 1242,
+                "id": 1252,
                 "name": "orderStatus",
                 "nodeType": "VariableDeclaration",
-                "scope": 1247,
+                "scope": 1257,
                 "src": "3756:17:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -903,7 +903,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 1241,
+                  "id": 1251,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "3756:5:11",
@@ -917,10 +917,10 @@
               },
               {
                 "constant": false,
-                "id": 1244,
+                "id": 1254,
                 "name": "orderHash",
                 "nodeType": "VariableDeclaration",
-                "scope": 1247,
+                "scope": 1257,
                 "src": "3861:17:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -929,7 +929,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 1243,
+                  "id": 1253,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "3861:7:11",
@@ -943,10 +943,10 @@
               },
               {
                 "constant": false,
-                "id": 1246,
+                "id": 1256,
                 "name": "orderTakerAssetFilledAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1247,
+                "scope": 1257,
                 "src": "3964:35:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -955,7 +955,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1245,
+                  "id": 1255,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "3964:7:11",
@@ -970,31 +970,31 @@
             ],
             "name": "OrderInfo",
             "nodeType": "StructDefinition",
-            "scope": 1295,
+            "scope": 1305,
             "src": "3729:327:11",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1264,
+              "id": 1274,
               "nodeType": "Block",
               "src": "4323:90:11",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1260,
+                    "id": 1270,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1254,
+                      "id": 1264,
                       "name": "orderHash",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1252,
+                      "referencedDeclaration": 1262,
                       "src": "4333:9:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -1011,14 +1011,14 @@
                           "arguments": [
                             {
                               "argumentTypes": null,
-                              "id": 1257,
+                              "id": 1267,
                               "name": "order",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1249,
+                              "referencedDeclaration": 1259,
                               "src": "4373:5:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                                "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                                 "typeString": "struct LibOrder.Order memory"
                               }
                             }
@@ -1026,22 +1026,22 @@
                           "expression": {
                             "argumentTypes": [
                               {
-                                "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                                "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                                 "typeString": "struct LibOrder.Order memory"
                               }
                             ],
-                            "id": 1256,
+                            "id": 1266,
                             "name": "hashOrder",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1294,
+                            "referencedDeclaration": 1304,
                             "src": "4363:9:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_function_internal_pure$_t_struct$_Order_$1240_memory_ptr_$returns$_t_bytes32_$",
+                              "typeIdentifier": "t_function_internal_pure$_t_struct$_Order_$1250_memory_ptr_$returns$_t_bytes32_$",
                               "typeString": "function (struct LibOrder.Order memory) pure returns (bytes32)"
                             }
                           },
-                          "id": 1258,
+                          "id": 1268,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1063,18 +1063,18 @@
                             "typeString": "bytes32"
                           }
                         ],
-                        "id": 1255,
+                        "id": 1265,
                         "name": "hashEIP712Message",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1106,
+                        "referencedDeclaration": 1116,
                         "src": "4345:17:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bytes32_$",
                           "typeString": "function (bytes32) view returns (bytes32)"
                         }
                       },
-                      "id": 1259,
+                      "id": 1269,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1094,64 +1094,64 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 1261,
+                  "id": 1271,
                   "nodeType": "ExpressionStatement",
                   "src": "4333:47:11"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1262,
+                    "id": 1272,
                     "name": "orderHash",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1252,
+                    "referencedDeclaration": 1262,
                     "src": "4397:9:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 1253,
-                  "id": 1263,
+                  "functionReturnParameters": 1263,
+                  "id": 1273,
                   "nodeType": "Return",
                   "src": "4390:16:11"
                 }
               ]
             },
             "documentation": "@dev Calculates Keccak-256 hash of the order.\n @param order The order structure.\n @return Keccak-256 EIP712 hash of the order.",
-            "id": 1265,
+            "id": 1275,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getOrderHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1250,
+              "id": 1260,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1249,
+                  "id": 1259,
                   "name": "order",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1265,
+                  "scope": 1275,
                   "src": "4233:18:11",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                    "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                     "typeString": "struct LibOrder.Order"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1248,
+                    "id": 1258,
                     "name": "Order",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1240,
+                    "referencedDeclaration": 1250,
                     "src": "4233:5:11",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Order_$1240_storage_ptr",
+                      "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
                       "typeString": "struct LibOrder.Order"
                     }
                   },
@@ -1162,15 +1162,15 @@
               "src": "4232:20:11"
             },
             "returnParameters": {
-              "id": 1253,
+              "id": 1263,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1252,
+                  "id": 1262,
                   "name": "orderHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1265,
+                  "scope": 1275,
                   "src": "4300:17:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1179,7 +1179,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1251,
+                    "id": 1261,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "4300:7:11",
@@ -1194,7 +1194,7 @@
               ],
               "src": "4299:19:11"
             },
-            "scope": 1295,
+            "scope": 1305,
             "src": "4211:202:11",
             "stateMutability": "view",
             "superFunction": null,
@@ -1202,21 +1202,21 @@
           },
           {
             "body": {
-              "id": 1293,
+              "id": 1303,
               "nodeType": "Block",
               "src": "4659:1572:11",
               "statements": [
                 {
                   "assignments": [
-                    1273
+                    1283
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1273,
+                      "id": 1283,
                       "name": "schemaHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1293,
+                      "scope": 1303,
                       "src": "4669:18:11",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1225,7 +1225,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1272,
+                        "id": 1282,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "4669:7:11",
@@ -1238,14 +1238,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1275,
+                  "id": 1285,
                   "initialValue": {
                     "argumentTypes": null,
-                    "id": 1274,
+                    "id": 1284,
                     "name": "EIP712_ORDER_SCHEMA_HASH",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1207,
+                    "referencedDeclaration": 1217,
                     "src": "4690:24:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
@@ -1257,15 +1257,15 @@
                 },
                 {
                   "assignments": [
-                    1277
+                    1287
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1277,
+                      "id": 1287,
                       "name": "makerAssetDataHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1293,
+                      "scope": 1303,
                       "src": "4724:26:11",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1274,7 +1274,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1276,
+                        "id": 1286,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "4724:7:11",
@@ -1287,7 +1287,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1282,
+                  "id": 1292,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -1295,25 +1295,25 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1279,
+                          "id": 1289,
                           "name": "order",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1267,
+                          "referencedDeclaration": 1277,
                           "src": "4763:5:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                            "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                             "typeString": "struct LibOrder.Order memory"
                           }
                         },
-                        "id": 1280,
+                        "id": 1290,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "makerAssetData",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1237,
+                        "referencedDeclaration": 1247,
                         "src": "4763:20:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory",
@@ -1328,18 +1328,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 1278,
+                      "id": 1288,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1529,
+                      "referencedDeclaration": 1539,
                       "src": "4753:9:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 1281,
+                    "id": 1291,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1358,15 +1358,15 @@
                 },
                 {
                   "assignments": [
-                    1284
+                    1294
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1284,
+                      "id": 1294,
                       "name": "takerAssetDataHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1293,
+                      "scope": 1303,
                       "src": "4794:26:11",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1375,7 +1375,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1283,
+                        "id": 1293,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "4794:7:11",
@@ -1388,7 +1388,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1289,
+                  "id": 1299,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -1396,25 +1396,25 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1286,
+                          "id": 1296,
                           "name": "order",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1267,
+                          "referencedDeclaration": 1277,
                           "src": "4833:5:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                            "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                             "typeString": "struct LibOrder.Order memory"
                           }
                         },
-                        "id": 1287,
+                        "id": 1297,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "takerAssetData",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1239,
+                        "referencedDeclaration": 1249,
                         "src": "4833:20:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory",
@@ -1429,18 +1429,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 1285,
+                      "id": 1295,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1529,
+                      "referencedDeclaration": 1539,
                       "src": "4823:9:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 1288,
+                    "id": 1298,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1461,7 +1461,7 @@
                   "externalReferences": [
                     {
                       "order": {
-                        "declaration": 1267,
+                        "declaration": 1277,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5624:5:11",
@@ -1470,7 +1470,7 @@
                     },
                     {
                       "order": {
-                        "declaration": 1267,
+                        "declaration": 1277,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5663:5:11",
@@ -1479,7 +1479,7 @@
                     },
                     {
                       "order": {
-                        "declaration": 1267,
+                        "declaration": 1277,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5703:5:11",
@@ -1488,7 +1488,7 @@
                     },
                     {
                       "result": {
-                        "declaration": 1270,
+                        "declaration": 1280,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "6030:6:11",
@@ -1497,7 +1497,7 @@
                     },
                     {
                       "schemaHash": {
-                        "declaration": 1273,
+                        "declaration": 1283,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5916:10:11",
@@ -1506,7 +1506,7 @@
                     },
                     {
                       "makerAssetDataHash": {
-                        "declaration": 1277,
+                        "declaration": 1287,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5953:18:11",
@@ -1515,7 +1515,7 @@
                     },
                     {
                       "takerAssetDataHash": {
-                        "declaration": 1284,
+                        "declaration": 1294,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5998:18:11",
@@ -1523,7 +1523,7 @@
                       }
                     }
                   ],
-                  "id": 1290,
+                  "id": 1300,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let pos1 := sub(order, 32)\n    let pos2 := add(order, 320)\n    let pos3 := add(order, 352)\n    let temp1 := mload(pos1)\n    let temp2 := mload(pos2)\n    let temp3 := mload(pos3)\n    mstore(pos1, schemaHash)\n    mstore(pos2, makerAssetDataHash)\n    mstore(pos3, takerAssetDataHash)\n    result := keccak256(pos1, 416)\n    mstore(pos1, temp1)\n    mstore(pos2, temp2)\n    mstore(pos3, temp3)\n}",
                   "src": "5503:714:11"
@@ -1531,57 +1531,57 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1291,
+                    "id": 1301,
                     "name": "result",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1270,
+                    "referencedDeclaration": 1280,
                     "src": "6218:6:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 1271,
-                  "id": 1292,
+                  "functionReturnParameters": 1281,
+                  "id": 1302,
                   "nodeType": "Return",
                   "src": "6211:13:11"
                 }
               ]
             },
             "documentation": "@dev Calculates EIP712 hash of the order.\n @param order The order structure.\n @return EIP712 hash of the order.",
-            "id": 1294,
+            "id": 1304,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "hashOrder",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1268,
+              "id": 1278,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1267,
+                  "id": 1277,
                   "name": "order",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1294,
+                  "scope": 1304,
                   "src": "4572:18:11",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                    "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                     "typeString": "struct LibOrder.Order"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1266,
+                    "id": 1276,
                     "name": "Order",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1240,
+                    "referencedDeclaration": 1250,
                     "src": "4572:5:11",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Order_$1240_storage_ptr",
+                      "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
                       "typeString": "struct LibOrder.Order"
                     }
                   },
@@ -1592,15 +1592,15 @@
               "src": "4571:20:11"
             },
             "returnParameters": {
-              "id": 1271,
+              "id": 1281,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1270,
+                  "id": 1280,
                   "name": "result",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1294,
+                  "scope": 1304,
                   "src": "4639:14:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1609,7 +1609,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1269,
+                    "id": 1279,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "4639:7:11",
@@ -1624,14 +1624,14 @@
               ],
               "src": "4638:16:11"
             },
-            "scope": 1295,
+            "scope": 1305,
             "src": "4553:1678:11",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 1296,
+        "scope": 1306,
         "src": "633:5600:11"
       }
     ],
@@ -1641,14 +1641,14 @@
     "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibOrder.sol",
     "exportedSymbols": {
       "LibOrder": [
-        1295
+        1305
       ]
     },
-    "id": 1296,
+    "id": 1306,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1183,
+        "id": 1193,
         "literals": [
           "solidity",
           "^",
@@ -1661,10 +1661,10 @@
       {
         "absolutePath": "@0x/contracts-exchange-libs/contracts/src/LibEIP712.sol",
         "file": "./LibEIP712.sol",
-        "id": 1184,
+        "id": 1194,
         "nodeType": "ImportDirective",
-        "scope": 1296,
-        "sourceUnit": 1108,
+        "scope": 1306,
+        "sourceUnit": 1118,
         "src": "605:25:11",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1675,41 +1675,41 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1185,
+              "id": 1195,
               "name": "LibEIP712",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1107,
+              "referencedDeclaration": 1117,
               "src": "658:9:11",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_LibEIP712_$1107",
+                "typeIdentifier": "t_contract$_LibEIP712_$1117",
                 "typeString": "contract LibEIP712"
               }
             },
-            "id": 1186,
+            "id": 1196,
             "nodeType": "InheritanceSpecifier",
             "src": "658:9:11"
           }
         ],
         "contractDependencies": [
-          1107
+          1117
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1295,
+        "id": 1305,
         "linearizedBaseContracts": [
-          1295,
-          1107
+          1305,
+          1117
         ],
         "name": "LibOrder",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 1207,
+            "id": 1217,
             "name": "EIP712_ORDER_SCHEMA_HASH",
             "nodeType": "VariableDeclaration",
-            "scope": 1295,
+            "scope": 1305,
             "src": "714:521:11",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1718,7 +1718,7 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 1187,
+              "id": 1197,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
               "src": "714:7:11",
@@ -1736,7 +1736,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "4f7264657228",
-                      "id": 1191,
+                      "id": 1201,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1754,7 +1754,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "61646472657373206d616b6572416464726573732c",
-                      "id": 1192,
+                      "id": 1202,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1772,7 +1772,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "616464726573732074616b6572416464726573732c",
-                      "id": 1193,
+                      "id": 1203,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1790,7 +1790,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "6164647265737320666565526563697069656e74416464726573732c",
-                      "id": 1194,
+                      "id": 1204,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1808,7 +1808,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "616464726573732073656e646572416464726573732c",
-                      "id": 1195,
+                      "id": 1205,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1826,7 +1826,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e74323536206d616b65724173736574416d6f756e742c",
-                      "id": 1196,
+                      "id": 1206,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1844,7 +1844,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e743235362074616b65724173736574416d6f756e742c",
-                      "id": 1197,
+                      "id": 1207,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1862,7 +1862,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e74323536206d616b65724665652c",
-                      "id": 1198,
+                      "id": 1208,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1880,7 +1880,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e743235362074616b65724665652c",
-                      "id": 1199,
+                      "id": 1209,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1898,7 +1898,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e743235362065787069726174696f6e54696d655365636f6e64732c",
-                      "id": 1200,
+                      "id": 1210,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1916,7 +1916,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "75696e743235362073616c742c",
-                      "id": 1201,
+                      "id": 1211,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1934,7 +1934,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "6279746573206d616b65724173736574446174612c",
-                      "id": 1202,
+                      "id": 1212,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1952,7 +1952,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "62797465732074616b6572417373657444617461",
-                      "id": 1203,
+                      "id": 1213,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1970,7 +1970,7 @@
                     {
                       "argumentTypes": null,
                       "hexValue": "29",
-                      "id": 1204,
+                      "id": 1214,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2047,18 +2047,18 @@
                     ],
                     "expression": {
                       "argumentTypes": null,
-                      "id": 1189,
+                      "id": 1199,
                       "name": "abi",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1522,
+                      "referencedDeclaration": 1532,
                       "src": "777:3:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_abi",
                         "typeString": "abi"
                       }
                     },
-                    "id": 1190,
+                    "id": 1200,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -2072,7 +2072,7 @@
                       "typeString": "function () pure returns (bytes memory)"
                     }
                   },
-                  "id": 1205,
+                  "id": 1215,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -2094,18 +2094,18 @@
                     "typeString": "bytes memory"
                   }
                 ],
-                "id": 1188,
+                "id": 1198,
                 "name": "keccak256",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 1529,
+                "referencedDeclaration": 1539,
                 "src": "767:9:11",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                   "typeString": "function (bytes memory) pure returns (bytes32)"
                 }
               },
-              "id": 1206,
+              "id": 1216,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -2123,46 +2123,46 @@
           },
           {
             "canonicalName": "LibOrder.OrderStatus",
-            "id": 1215,
+            "id": 1225,
             "members": [
               {
-                "id": 1208,
+                "id": 1218,
                 "name": "INVALID",
                 "nodeType": "EnumValue",
                 "src": "1438:7:11"
               },
               {
-                "id": 1209,
+                "id": 1219,
                 "name": "INVALID_MAKER_ASSET_AMOUNT",
                 "nodeType": "EnumValue",
                 "src": "1492:26:11"
               },
               {
-                "id": 1210,
+                "id": 1220,
                 "name": "INVALID_TAKER_ASSET_AMOUNT",
                 "nodeType": "EnumValue",
                 "src": "1579:26:11"
               },
               {
-                "id": 1211,
+                "id": 1221,
                 "name": "FILLABLE",
                 "nodeType": "EnumValue",
                 "src": "1666:8:11"
               },
               {
-                "id": 1212,
+                "id": 1222,
                 "name": "EXPIRED",
                 "nodeType": "EnumValue",
                 "src": "1724:7:11"
               },
               {
-                "id": 1213,
+                "id": 1223,
                 "name": "FULLY_FILLED",
                 "nodeType": "EnumValue",
                 "src": "1790:12:11"
               },
               {
-                "id": 1214,
+                "id": 1224,
                 "name": "CANCELLED",
                 "nodeType": "EnumValue",
                 "src": "1852:9:11"
@@ -2174,14 +2174,14 @@
           },
           {
             "canonicalName": "LibOrder.Order",
-            "id": 1240,
+            "id": 1250,
             "members": [
               {
                 "constant": false,
-                "id": 1217,
+                "id": 1227,
                 "name": "makerAddress",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "1982:20:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2190,7 +2190,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1216,
+                  "id": 1226,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1982:7:11",
@@ -2205,10 +2205,10 @@
               },
               {
                 "constant": false,
-                "id": 1219,
+                "id": 1229,
                 "name": "takerAddress",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2063:20:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2217,7 +2217,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1218,
+                  "id": 1228,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2063:7:11",
@@ -2232,10 +2232,10 @@
               },
               {
                 "constant": false,
-                "id": 1221,
+                "id": 1231,
                 "name": "feeRecipientAddress",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2214:27:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2244,7 +2244,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1220,
+                  "id": 1230,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2214:7:11",
@@ -2259,10 +2259,10 @@
               },
               {
                 "constant": false,
-                "id": 1223,
+                "id": 1233,
                 "name": "senderAddress",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2316:21:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2271,7 +2271,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1222,
+                  "id": 1232,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2316:7:11",
@@ -2286,10 +2286,10 @@
               },
               {
                 "constant": false,
-                "id": 1225,
+                "id": 1235,
                 "name": "makerAssetAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2500:24:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2298,7 +2298,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1224,
+                  "id": 1234,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2500:7:11",
@@ -2312,10 +2312,10 @@
               },
               {
                 "constant": false,
-                "id": 1227,
+                "id": 1237,
                 "name": "takerAssetAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2620:24:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2324,7 +2324,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1226,
+                  "id": 1236,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2620:7:11",
@@ -2338,10 +2338,10 @@
               },
               {
                 "constant": false,
-                "id": 1229,
+                "id": 1239,
                 "name": "makerFee",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2739:16:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2350,7 +2350,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1228,
+                  "id": 1238,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2739:7:11",
@@ -2364,10 +2364,10 @@
               },
               {
                 "constant": false,
-                "id": 1231,
+                "id": 1241,
                 "name": "takerFee",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "2926:16:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2376,7 +2376,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1230,
+                  "id": 1240,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2926:7:11",
@@ -2390,10 +2390,10 @@
               },
               {
                 "constant": false,
-                "id": 1233,
+                "id": 1243,
                 "name": "expirationTimeSeconds",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "3113:29:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2402,7 +2402,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1232,
+                  "id": 1242,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "3113:7:11",
@@ -2416,10 +2416,10 @@
               },
               {
                 "constant": false,
-                "id": 1235,
+                "id": 1245,
                 "name": "salt",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "3211:12:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2428,7 +2428,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1234,
+                  "id": 1244,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "3211:7:11",
@@ -2442,10 +2442,10 @@
               },
               {
                 "constant": false,
-                "id": 1237,
+                "id": 1247,
                 "name": "makerAssetData",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "3322:20:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2454,7 +2454,7 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1236,
+                  "id": 1246,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
                   "src": "3322:5:11",
@@ -2468,10 +2468,10 @@
               },
               {
                 "constant": false,
-                "id": 1239,
+                "id": 1249,
                 "name": "takerAssetData",
                 "nodeType": "VariableDeclaration",
-                "scope": 1240,
+                "scope": 1250,
                 "src": "3505:20:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2480,7 +2480,7 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 1238,
+                  "id": 1248,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
                   "src": "3505:5:11",
@@ -2495,20 +2495,20 @@
             ],
             "name": "Order",
             "nodeType": "StructDefinition",
-            "scope": 1295,
+            "scope": 1305,
             "src": "1959:1726:11",
             "visibility": "public"
           },
           {
             "canonicalName": "LibOrder.OrderInfo",
-            "id": 1247,
+            "id": 1257,
             "members": [
               {
                 "constant": false,
-                "id": 1242,
+                "id": 1252,
                 "name": "orderStatus",
                 "nodeType": "VariableDeclaration",
-                "scope": 1247,
+                "scope": 1257,
                 "src": "3756:17:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2517,7 +2517,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 1241,
+                  "id": 1251,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "3756:5:11",
@@ -2531,10 +2531,10 @@
               },
               {
                 "constant": false,
-                "id": 1244,
+                "id": 1254,
                 "name": "orderHash",
                 "nodeType": "VariableDeclaration",
-                "scope": 1247,
+                "scope": 1257,
                 "src": "3861:17:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2543,7 +2543,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 1243,
+                  "id": 1253,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "3861:7:11",
@@ -2557,10 +2557,10 @@
               },
               {
                 "constant": false,
-                "id": 1246,
+                "id": 1256,
                 "name": "orderTakerAssetFilledAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1247,
+                "scope": 1257,
                 "src": "3964:35:11",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2569,7 +2569,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1245,
+                  "id": 1255,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "3964:7:11",
@@ -2584,31 +2584,31 @@
             ],
             "name": "OrderInfo",
             "nodeType": "StructDefinition",
-            "scope": 1295,
+            "scope": 1305,
             "src": "3729:327:11",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1264,
+              "id": 1274,
               "nodeType": "Block",
               "src": "4323:90:11",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1260,
+                    "id": 1270,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1254,
+                      "id": 1264,
                       "name": "orderHash",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1252,
+                      "referencedDeclaration": 1262,
                       "src": "4333:9:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -2625,14 +2625,14 @@
                           "arguments": [
                             {
                               "argumentTypes": null,
-                              "id": 1257,
+                              "id": 1267,
                               "name": "order",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1249,
+                              "referencedDeclaration": 1259,
                               "src": "4373:5:11",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                                "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                                 "typeString": "struct LibOrder.Order memory"
                               }
                             }
@@ -2640,22 +2640,22 @@
                           "expression": {
                             "argumentTypes": [
                               {
-                                "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                                "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                                 "typeString": "struct LibOrder.Order memory"
                               }
                             ],
-                            "id": 1256,
+                            "id": 1266,
                             "name": "hashOrder",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1294,
+                            "referencedDeclaration": 1304,
                             "src": "4363:9:11",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_function_internal_pure$_t_struct$_Order_$1240_memory_ptr_$returns$_t_bytes32_$",
+                              "typeIdentifier": "t_function_internal_pure$_t_struct$_Order_$1250_memory_ptr_$returns$_t_bytes32_$",
                               "typeString": "function (struct LibOrder.Order memory) pure returns (bytes32)"
                             }
                           },
-                          "id": 1258,
+                          "id": 1268,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2677,18 +2677,18 @@
                             "typeString": "bytes32"
                           }
                         ],
-                        "id": 1255,
+                        "id": 1265,
                         "name": "hashEIP712Message",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1106,
+                        "referencedDeclaration": 1116,
                         "src": "4345:17:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bytes32_$",
                           "typeString": "function (bytes32) view returns (bytes32)"
                         }
                       },
-                      "id": 1259,
+                      "id": 1269,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2708,64 +2708,64 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 1261,
+                  "id": 1271,
                   "nodeType": "ExpressionStatement",
                   "src": "4333:47:11"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1262,
+                    "id": 1272,
                     "name": "orderHash",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1252,
+                    "referencedDeclaration": 1262,
                     "src": "4397:9:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 1253,
-                  "id": 1263,
+                  "functionReturnParameters": 1263,
+                  "id": 1273,
                   "nodeType": "Return",
                   "src": "4390:16:11"
                 }
               ]
             },
             "documentation": "@dev Calculates Keccak-256 hash of the order.\n @param order The order structure.\n @return Keccak-256 EIP712 hash of the order.",
-            "id": 1265,
+            "id": 1275,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getOrderHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1250,
+              "id": 1260,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1249,
+                  "id": 1259,
                   "name": "order",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1265,
+                  "scope": 1275,
                   "src": "4233:18:11",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                    "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                     "typeString": "struct LibOrder.Order"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1248,
+                    "id": 1258,
                     "name": "Order",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1240,
+                    "referencedDeclaration": 1250,
                     "src": "4233:5:11",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Order_$1240_storage_ptr",
+                      "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
                       "typeString": "struct LibOrder.Order"
                     }
                   },
@@ -2776,15 +2776,15 @@
               "src": "4232:20:11"
             },
             "returnParameters": {
-              "id": 1253,
+              "id": 1263,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1252,
+                  "id": 1262,
                   "name": "orderHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1265,
+                  "scope": 1275,
                   "src": "4300:17:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2793,7 +2793,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1251,
+                    "id": 1261,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "4300:7:11",
@@ -2808,7 +2808,7 @@
               ],
               "src": "4299:19:11"
             },
-            "scope": 1295,
+            "scope": 1305,
             "src": "4211:202:11",
             "stateMutability": "view",
             "superFunction": null,
@@ -2816,21 +2816,21 @@
           },
           {
             "body": {
-              "id": 1293,
+              "id": 1303,
               "nodeType": "Block",
               "src": "4659:1572:11",
               "statements": [
                 {
                   "assignments": [
-                    1273
+                    1283
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1273,
+                      "id": 1283,
                       "name": "schemaHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1293,
+                      "scope": 1303,
                       "src": "4669:18:11",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2839,7 +2839,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1272,
+                        "id": 1282,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "4669:7:11",
@@ -2852,14 +2852,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1275,
+                  "id": 1285,
                   "initialValue": {
                     "argumentTypes": null,
-                    "id": 1274,
+                    "id": 1284,
                     "name": "EIP712_ORDER_SCHEMA_HASH",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1207,
+                    "referencedDeclaration": 1217,
                     "src": "4690:24:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
@@ -2871,15 +2871,15 @@
                 },
                 {
                   "assignments": [
-                    1277
+                    1287
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1277,
+                      "id": 1287,
                       "name": "makerAssetDataHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1293,
+                      "scope": 1303,
                       "src": "4724:26:11",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2888,7 +2888,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1276,
+                        "id": 1286,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "4724:7:11",
@@ -2901,7 +2901,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1282,
+                  "id": 1292,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -2909,25 +2909,25 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1279,
+                          "id": 1289,
                           "name": "order",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1267,
+                          "referencedDeclaration": 1277,
                           "src": "4763:5:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                            "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                             "typeString": "struct LibOrder.Order memory"
                           }
                         },
-                        "id": 1280,
+                        "id": 1290,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "makerAssetData",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1237,
+                        "referencedDeclaration": 1247,
                         "src": "4763:20:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory",
@@ -2942,18 +2942,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 1278,
+                      "id": 1288,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1529,
+                      "referencedDeclaration": 1539,
                       "src": "4753:9:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 1281,
+                    "id": 1291,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2972,15 +2972,15 @@
                 },
                 {
                   "assignments": [
-                    1284
+                    1294
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1284,
+                      "id": 1294,
                       "name": "takerAssetDataHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1293,
+                      "scope": 1303,
                       "src": "4794:26:11",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2989,7 +2989,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1283,
+                        "id": 1293,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "4794:7:11",
@@ -3002,7 +3002,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1289,
+                  "id": 1299,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -3010,25 +3010,25 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1286,
+                          "id": 1296,
                           "name": "order",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1267,
+                          "referencedDeclaration": 1277,
                           "src": "4833:5:11",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                            "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                             "typeString": "struct LibOrder.Order memory"
                           }
                         },
-                        "id": 1287,
+                        "id": 1297,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "takerAssetData",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1239,
+                        "referencedDeclaration": 1249,
                         "src": "4833:20:11",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory",
@@ -3043,18 +3043,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 1285,
+                      "id": 1295,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1529,
+                      "referencedDeclaration": 1539,
                       "src": "4823:9:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 1288,
+                    "id": 1298,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3075,7 +3075,7 @@
                   "externalReferences": [
                     {
                       "order": {
-                        "declaration": 1267,
+                        "declaration": 1277,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5624:5:11",
@@ -3084,7 +3084,7 @@
                     },
                     {
                       "order": {
-                        "declaration": 1267,
+                        "declaration": 1277,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5663:5:11",
@@ -3093,7 +3093,7 @@
                     },
                     {
                       "order": {
-                        "declaration": 1267,
+                        "declaration": 1277,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5703:5:11",
@@ -3102,7 +3102,7 @@
                     },
                     {
                       "result": {
-                        "declaration": 1270,
+                        "declaration": 1280,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "6030:6:11",
@@ -3111,7 +3111,7 @@
                     },
                     {
                       "schemaHash": {
-                        "declaration": 1273,
+                        "declaration": 1283,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5916:10:11",
@@ -3120,7 +3120,7 @@
                     },
                     {
                       "makerAssetDataHash": {
-                        "declaration": 1277,
+                        "declaration": 1287,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5953:18:11",
@@ -3129,7 +3129,7 @@
                     },
                     {
                       "takerAssetDataHash": {
-                        "declaration": 1284,
+                        "declaration": 1294,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "5998:18:11",
@@ -3137,7 +3137,7 @@
                       }
                     }
                   ],
-                  "id": 1290,
+                  "id": 1300,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let pos1 := sub(order, 32)\n    let pos2 := add(order, 320)\n    let pos3 := add(order, 352)\n    let temp1 := mload(pos1)\n    let temp2 := mload(pos2)\n    let temp3 := mload(pos3)\n    mstore(pos1, schemaHash)\n    mstore(pos2, makerAssetDataHash)\n    mstore(pos3, takerAssetDataHash)\n    result := keccak256(pos1, 416)\n    mstore(pos1, temp1)\n    mstore(pos2, temp2)\n    mstore(pos3, temp3)\n}",
                   "src": "5503:714:11"
@@ -3145,57 +3145,57 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1291,
+                    "id": 1301,
                     "name": "result",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1270,
+                    "referencedDeclaration": 1280,
                     "src": "6218:6:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 1271,
-                  "id": 1292,
+                  "functionReturnParameters": 1281,
+                  "id": 1302,
                   "nodeType": "Return",
                   "src": "6211:13:11"
                 }
               ]
             },
             "documentation": "@dev Calculates EIP712 hash of the order.\n @param order The order structure.\n @return EIP712 hash of the order.",
-            "id": 1294,
+            "id": 1304,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "hashOrder",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1268,
+              "id": 1278,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1267,
+                  "id": 1277,
                   "name": "order",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1294,
+                  "scope": 1304,
                   "src": "4572:18:11",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Order_$1240_memory_ptr",
+                    "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
                     "typeString": "struct LibOrder.Order"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1266,
+                    "id": 1276,
                     "name": "Order",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1240,
+                    "referencedDeclaration": 1250,
                     "src": "4572:5:11",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Order_$1240_storage_ptr",
+                      "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
                       "typeString": "struct LibOrder.Order"
                     }
                   },
@@ -3206,15 +3206,15 @@
               "src": "4571:20:11"
             },
             "returnParameters": {
-              "id": 1271,
+              "id": 1281,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1270,
+                  "id": 1280,
                   "name": "result",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1294,
+                  "scope": 1304,
                   "src": "4639:14:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3223,7 +3223,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1269,
+                    "id": 1279,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "4639:7:11",
@@ -3238,14 +3238,14 @@
               ],
               "src": "4638:16:11"
             },
-            "scope": 1295,
+            "scope": 1305,
             "src": "4553:1678:11",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 1296,
+        "scope": 1306,
         "src": "633:5600:11"
       }
     ],
@@ -3257,7 +3257,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-08-13T03:25:22.847Z",
+  "updatedAt": "2019-08-14T21:28:40.275Z",
   "devdoc": {
     "methods": {}
   },

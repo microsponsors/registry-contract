@@ -116,14 +116,7 @@ contract Whitelist is
 
         }
 
-        // Push new addresses into registrants array
-        bool hasRegistered = false;
-        for (uint i=0; i<registrants.length; i++) {
-            if (registrants[i] == target) {
-                hasRegistered = true;
-            }
-        }
-        if (!hasRegistered) {
+        if (!hasRegistered(target)) {
             registrants.push(target);
         }
 
@@ -435,8 +428,25 @@ contract Whitelist is
     }
 
 
-
     /***  Helpers  ***/
+
+
+    function hasRegistered (
+        address target
+    )
+        public
+        view
+        returns(bool)
+    {
+
+        bool hasRegistered = false;
+        for (uint i=0; i<registrants.length; i++) {
+            if (registrants[i] == target) {
+                return hasRegistered = true;
+            }
+        }
+
+    }
 
 
     function stringsMatch (
@@ -450,12 +460,13 @@ contract Whitelist is
         return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))) );
     }
 
+
     function getNumContentIds (
         address target
     )
         private
         view
-        returns (uint16 result)
+        returns (uint16)
     {
 
         ContentIdStruct[] memory m = addressToContentIds[target];
