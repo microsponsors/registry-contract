@@ -9,7 +9,7 @@ Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x's Whi
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
 
-## Install, Compile & Deploy
+## Install, Compile & Deploy, etc
 
 * Install 0x dependencies: `$ npm install`
 * Start Ganache in another terminal: `$ ganache-cli -p 8545`
@@ -20,19 +20,19 @@ _Note:_ In `/migrations/2_deploy_contracts.js`, the second argument to `.deploy(
 
 _Note:_ Dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
-#### Versioning
-This stack seems to be sensitive to versioning, so capturing details of local setup here:
-
-* truffle v5.0.21
-* ganache-cli v6.4.3
-* solc compiler 0.5.5, specified in truffle-config.js
-
 #### Linter
 Install [solhint](https://www.npmjs.com/package/solhint) globally and run the linter:
 ```
 $ npm install -g solhint
 $ npm run lint
 ```
+
+#### Versioning
+This stack seems to be sensitive to versioning, so capturing details of local setup here:
+
+* truffle v5.0.21
+* ganache-cli v6.4.3
+* solc compiler 0.5.5, specified in truffle-config.js
 
 #### Original Setup
 How this repo was originally put together:
