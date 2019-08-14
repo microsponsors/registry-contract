@@ -11,15 +11,14 @@ For doc purposes, things here marked `Admin` refer to the `owner` of this smart 
 
 ## Install, Compile & Deploy
 
-Install 0x dependencies: `$ npm install`
-Start Ganache in another terminal: `$ ganache-cli -p 8545`
-Compile: `$ npm run compile`
-Deploy to local ganache instance: `$ truffle migrate --network development `
-Or... Compile & Deploy in one step: `$ npm run deploy`
+* Install 0x dependencies: `$ npm install`
+* Start Ganache in another terminal: `$ ganache-cli -p 8545`
+* Compile: `$ npm run compile`. Deploy to local ganache instance: `$ truffle migrate --network development `
+* Or... Compile & Deploy in one step: `$ npm run deploy`
 
-Note that in `/migrations/2_deploy_contracts.js`, the second argument to `.deploy()` must be the 0x Exchange contract that the Whitelist forwards the order to after whitelist validation. Latest [0x smart contract addresses can be found here](https://github.com/0xProject/0x-monorepo/tree/development/packages/contract-addresses).
+_Note:_ In `/migrations/2_deploy_contracts.js`, the second argument to `.deploy()` must be the 0x Exchange contract that the Whitelist forwards the order to after whitelist validation. Latest [0x smart contract addresses can be found here](https://github.com/0xProject/0x-monorepo/tree/development/packages/contract-addresses).
 
-* Note: dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
+_Note:_ Dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
 #### Versioning
 This stack seems to be sensitive to versioning, so capturing details of local setup here:
