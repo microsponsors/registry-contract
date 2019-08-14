@@ -1,7 +1,7 @@
 /*
 
-  Copyright 2019 Microsponsors, Inc.
-  This work has been modified for use by Microsponsors, Inc.
+  Copyright 2019 Niche Networks, Inc. (owns & operates Microsponsors.io)
+  This work has been modified for use by Microsponsors.io
   This derivative work is licensed under the Apache License, Version 2.0
   Original license notice below:
 
