@@ -1,7 +1,7 @@
 /*
 
-  Copyright 2019 Microsponsors, Inc.
-  This work has been modified for use by Microsponsors, Inc.
+  Copyright 2019 Niche Networks, Inc. (owns & operates Microsponsors.io)
+  This work has been modified for use by Microsponsors.io
   This derivative work is licensed under the Apache License, Version 2.0
   Original license notice below:
 
@@ -37,13 +37,16 @@ contract Whitelist is
     /***  Microsponsors Registry Data:  ***/
 
 
-    // Array of registrant addresses
+    // Array of registrant addresses,
+    // regardless of isWhitelisted status
     address[] private registrants;
 
-    // Map address => whitelist status
+    // Map address => whitelist status.
+    // Addresses authorized to transact.
     mapping (address => bool) public isWhitelisted;
 
-    // Map address => array of ContentId structs
+    // Map address => array of ContentId structs.
+    // Using struct because there is not mapping to an array of strings in Solidity at this time.
     struct ContentIdStruct {
         string contentId;
     }
@@ -82,9 +85,9 @@ contract Whitelist is
     /***  Admin functions (onlyOwner) that mutate contract state  ***/
 
 
-    /// @dev Admin registers an address with a contentId
+    /// @dev Admin registers an address with a contentId.
     /// @param target Address to add or remove from whitelist.
-    /// @param contentId To map the address to.
+    /// @param contentId To map the address to. Hex-encoded UTF8 string.
     /// @param isApproved Whitelist status to assign to the address.
     function adminUpdate(
         address target,
@@ -95,9 +98,6 @@ contract Whitelist is
         onlyOwner
         whenNotPaused
     {
-
-        // TODO:
-        // Set max length of content ids by checking bytes(contentId).length
 
         if (contentIdToAddress[contentId] != target) {
 
@@ -157,7 +157,7 @@ contract Whitelist is
 
     }
 
-    /// @dev Admin updates whitelist status for a given address.
+    /// @dev Admin removes a contentId from a given address.
     function adminRemoveContentIdFromAddress(
         address target,
         string calldata contentId
@@ -175,6 +175,7 @@ contract Whitelist is
         contentIdToAddress[contentId] = address(0x0000000000000000000000000000000000000000);
 
         // Remove content id from addressToContentIds mapping
+        // by replacing it with empty string
         ContentIdStruct[] memory m = addressToContentIds[target];
         for (uint i = 0; i < m.length; i++) {
             if (stringsMatch(contentId, m[i].contentId)) {
@@ -304,6 +305,7 @@ contract Whitelist is
         contentIdToAddress[contentId] = address(0x0000000000000000000000000000000000000000);
 
         // Remove content id from addressToContentIds mapping
+        // by replacing it with empty string
         ContentIdStruct[] memory m = addressToContentIds[msg.sender];
         for (uint i = 0; i < m.length; i++) {
             if (stringsMatch(contentId, m[i].contentId)) {
@@ -472,6 +474,8 @@ contract Whitelist is
         ContentIdStruct[] memory m = addressToContentIds[target];
         uint16 counter = 0;
         for (uint i = 0; i < m.length; i++) {
+            // Omit entries that are empty strings
+            // (from contentIds that were removed by admin or user)
             if (!stringsMatch('', m[i].contentId)) {
                 counter++;
             }
