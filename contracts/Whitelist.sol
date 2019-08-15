@@ -99,14 +99,16 @@ contract Whitelist is
         whenNotPaused
     {
 
-        if (contentIdToAddress[contentId] != target) {
+        address previousOwner = contentIdToAddress[contentId];
+
+        if (previousOwner != target) {
 
             // If contentId already belongs to another owner address
             // it must be explicitly removed by admin remove fn
             // which will also remove that address from whitelist
             // if this was its only contentId
-            if (contentIdToAddress[contentId] != 0x0000000000000000000000000000000000000000) {
-                adminRemoveContentIdFromAddress(target, contentId);
+            if (previousOwner != 0x0000000000000000000000000000000000000000) {
+                adminRemoveContentIdFromAddress(previousOwner, contentId);
             }
 
             // Assign content id to new registrant address
@@ -159,7 +161,7 @@ contract Whitelist is
     /// @dev Admin removes a contentId from a given address.
     function adminRemoveContentIdFromAddress(
         address target,
-        string calldata contentId
+        string memory contentId
     )
         public
         onlyOwner
@@ -440,10 +442,10 @@ contract Whitelist is
         returns(bool)
     {
 
-        bool hasRegistered = false;
+        bool _hasRegistered = false;
         for (uint i=0; i<registrants.length; i++) {
             if (registrants[i] == target) {
-                return hasRegistered = true;
+                return _hasRegistered = true;
             }
         }
 

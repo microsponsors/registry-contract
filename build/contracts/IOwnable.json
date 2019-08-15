@@ -27,14 +27,14 @@
     "absolutePath": "@0x/contracts-utils/contracts/src/interfaces/IOwnable.sol",
     "exportedSymbols": {
       "IOwnable": [
-        1530
+        1535
       ]
     },
-    "id": 1531,
+    "id": 1536,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1524,
+        "id": 1529,
         "literals": [
           "solidity",
           "^",
@@ -50,9 +50,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1530,
+        "id": 1535,
         "linearizedBaseContracts": [
-          1530
+          1535
         ],
         "name": "IOwnable",
         "nodeType": "ContractDefinition",
@@ -60,22 +60,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1529,
+            "id": 1534,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "transferOwnership",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1527,
+              "id": 1532,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1526,
+                  "id": 1531,
                   "name": "newOwner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1529,
+                  "scope": 1534,
                   "src": "78:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -84,7 +84,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1525,
+                    "id": 1530,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "78:7:14",
@@ -101,19 +101,19 @@
               "src": "77:18:14"
             },
             "returnParameters": {
-              "id": 1528,
+              "id": 1533,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "110:0:14"
             },
-            "scope": 1530,
+            "scope": 1535,
             "src": "51:60:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1531,
+        "scope": 1536,
         "src": "26:87:14"
       }
     ],
@@ -123,14 +123,14 @@
     "absolutePath": "@0x/contracts-utils/contracts/src/interfaces/IOwnable.sol",
     "exportedSymbols": {
       "IOwnable": [
-        1530
+        1535
       ]
     },
-    "id": 1531,
+    "id": 1536,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1524,
+        "id": 1529,
         "literals": [
           "solidity",
           "^",
@@ -146,9 +146,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1530,
+        "id": 1535,
         "linearizedBaseContracts": [
-          1530
+          1535
         ],
         "name": "IOwnable",
         "nodeType": "ContractDefinition",
@@ -156,22 +156,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1529,
+            "id": 1534,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "transferOwnership",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1527,
+              "id": 1532,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1526,
+                  "id": 1531,
                   "name": "newOwner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1529,
+                  "scope": 1534,
                   "src": "78:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -180,7 +180,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1525,
+                    "id": 1530,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "78:7:14",
@@ -197,19 +197,19 @@
               "src": "77:18:14"
             },
             "returnParameters": {
-              "id": 1528,
+              "id": 1533,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "110:0:14"
             },
-            "scope": 1530,
+            "scope": 1535,
             "src": "51:60:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1531,
+        "scope": 1536,
         "src": "26:87:14"
       }
     ],
@@ -221,7 +221,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-08-14T21:28:40.284Z",
+  "updatedAt": "2019-08-15T00:46:56.655Z",
   "devdoc": {
     "methods": {}
   },

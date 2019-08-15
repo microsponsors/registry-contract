@@ -1047,7 +1047,7 @@
         "id": 137,
         "nodeType": "ImportDirective",
         "scope": 271,
-        "sourceUnit": 1306,
+        "sourceUnit": 1311,
         "src": "634:64:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1058,7 +1058,7 @@
         "id": 138,
         "nodeType": "ImportDirective",
         "scope": 271,
-        "sourceUnit": 1192,
+        "sourceUnit": 1197,
         "src": "699:70:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1099,7 +1099,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
+                    "typeIdentifier": "t_struct$_Order_$1255_memory_ptr",
                     "typeString": "struct LibOrder.Order"
                   },
                   "typeName": {
@@ -1107,10 +1107,10 @@
                     "id": 139,
                     "name": "LibOrder.Order",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1250,
+                    "referencedDeclaration": 1255,
                     "src": "1145:14:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                      "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                       "typeString": "struct LibOrder.Order"
                     }
                   },
@@ -1186,7 +1186,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -1194,10 +1194,10 @@
                     "id": 146,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "1281:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -1236,7 +1236,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
+                    "typeIdentifier": "t_struct$_Order_$1255_memory_ptr",
                     "typeString": "struct LibOrder.Order"
                   },
                   "typeName": {
@@ -1244,10 +1244,10 @@
                     "id": 150,
                     "name": "LibOrder.Order",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1250,
+                    "referencedDeclaration": 1255,
                     "src": "1798:14:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                      "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                       "typeString": "struct LibOrder.Order"
                     }
                   },
@@ -1323,7 +1323,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -1331,10 +1331,10 @@
                     "id": 157,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "1934:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -1373,7 +1373,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -1382,10 +1382,10 @@
                       "id": 161,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "2374:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -1394,7 +1394,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "2374:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -1490,7 +1490,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -1498,10 +1498,10 @@
                     "id": 171,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "2526:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -1540,7 +1540,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -1549,10 +1549,10 @@
                       "id": 175,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "2978:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -1561,7 +1561,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "2978:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -1657,7 +1657,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -1665,10 +1665,10 @@
                     "id": 185,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "3130:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -1707,7 +1707,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -1716,10 +1716,10 @@
                       "id": 189,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "3662:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -1728,7 +1728,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "3662:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -1824,7 +1824,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -1832,10 +1832,10 @@
                     "id": 199,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "3814:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -1874,7 +1874,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -1883,10 +1883,10 @@
                       "id": 203,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "4289:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -1895,7 +1895,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "4289:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -1981,7 +1981,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -1989,10 +1989,10 @@
                     "id": 212,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "4431:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -2031,7 +2031,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -2040,10 +2040,10 @@
                       "id": 216,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "4982:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -2052,7 +2052,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "4982:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -2138,7 +2138,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -2146,10 +2146,10 @@
                     "id": 225,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "5124:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -2188,7 +2188,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -2197,10 +2197,10 @@
                       "id": 229,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "5598:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -2209,7 +2209,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "5598:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -2295,7 +2295,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -2303,10 +2303,10 @@
                     "id": 238,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "5740:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -2345,7 +2345,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -2354,10 +2354,10 @@
                       "id": 242,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "6294:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -2366,7 +2366,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "6294:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -2452,7 +2452,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -2460,10 +2460,10 @@
                     "id": 251,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "6436:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -2502,7 +2502,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -2511,10 +2511,10 @@
                       "id": 255,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "6650:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -2523,7 +2523,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "6650:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -2568,7 +2568,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -2577,10 +2577,10 @@
                       "id": 261,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "6913:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -2589,7 +2589,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "6913:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -2613,7 +2613,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_OrderInfo_$1257_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_OrderInfo_$1262_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.OrderInfo[]"
                   },
                   "typeName": {
@@ -2622,10 +2622,10 @@
                       "id": 265,
                       "name": "LibOrder.OrderInfo",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1257,
+                      "referencedDeclaration": 1262,
                       "src": "6990:18:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_OrderInfo_$1257_storage_ptr",
+                        "typeIdentifier": "t_struct$_OrderInfo_$1262_storage_ptr",
                         "typeString": "struct LibOrder.OrderInfo"
                       }
                     },
@@ -2634,7 +2634,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "6990:20:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_OrderInfo_$1257_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_OrderInfo_$1262_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.OrderInfo[]"
                     }
                   },
@@ -2693,7 +2693,7 @@
         "id": 137,
         "nodeType": "ImportDirective",
         "scope": 271,
-        "sourceUnit": 1306,
+        "sourceUnit": 1311,
         "src": "634:64:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2704,7 +2704,7 @@
         "id": 138,
         "nodeType": "ImportDirective",
         "scope": 271,
-        "sourceUnit": 1192,
+        "sourceUnit": 1197,
         "src": "699:70:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2745,7 +2745,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
+                    "typeIdentifier": "t_struct$_Order_$1255_memory_ptr",
                     "typeString": "struct LibOrder.Order"
                   },
                   "typeName": {
@@ -2753,10 +2753,10 @@
                     "id": 139,
                     "name": "LibOrder.Order",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1250,
+                    "referencedDeclaration": 1255,
                     "src": "1145:14:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                      "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                       "typeString": "struct LibOrder.Order"
                     }
                   },
@@ -2832,7 +2832,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -2840,10 +2840,10 @@
                     "id": 146,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "1281:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -2882,7 +2882,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Order_$1250_memory_ptr",
+                    "typeIdentifier": "t_struct$_Order_$1255_memory_ptr",
                     "typeString": "struct LibOrder.Order"
                   },
                   "typeName": {
@@ -2890,10 +2890,10 @@
                     "id": 150,
                     "name": "LibOrder.Order",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1250,
+                    "referencedDeclaration": 1255,
                     "src": "1798:14:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                      "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                       "typeString": "struct LibOrder.Order"
                     }
                   },
@@ -2969,7 +2969,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -2977,10 +2977,10 @@
                     "id": 157,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "1934:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -3019,7 +3019,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -3028,10 +3028,10 @@
                       "id": 161,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "2374:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -3040,7 +3040,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "2374:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -3136,7 +3136,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -3144,10 +3144,10 @@
                     "id": 171,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "2526:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -3186,7 +3186,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -3195,10 +3195,10 @@
                       "id": 175,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "2978:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -3207,7 +3207,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "2978:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -3303,7 +3303,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -3311,10 +3311,10 @@
                     "id": 185,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "3130:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -3353,7 +3353,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -3362,10 +3362,10 @@
                       "id": 189,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "3662:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -3374,7 +3374,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "3662:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -3470,7 +3470,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -3478,10 +3478,10 @@
                     "id": 199,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "3814:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -3520,7 +3520,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -3529,10 +3529,10 @@
                       "id": 203,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "4289:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -3541,7 +3541,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "4289:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -3627,7 +3627,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -3635,10 +3635,10 @@
                     "id": 212,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "4431:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -3677,7 +3677,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -3686,10 +3686,10 @@
                       "id": 216,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "4982:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -3698,7 +3698,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "4982:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -3784,7 +3784,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -3792,10 +3792,10 @@
                     "id": 225,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "5124:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -3834,7 +3834,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -3843,10 +3843,10 @@
                       "id": 229,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "5598:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -3855,7 +3855,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "5598:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -3941,7 +3941,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -3949,10 +3949,10 @@
                     "id": 238,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "5740:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -3991,7 +3991,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -4000,10 +4000,10 @@
                       "id": 242,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "6294:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -4012,7 +4012,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "6294:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -4098,7 +4098,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FillResults_$1131_memory_ptr",
+                    "typeIdentifier": "t_struct$_FillResults_$1136_memory_ptr",
                     "typeString": "struct LibFillResults.FillResults"
                   },
                   "typeName": {
@@ -4106,10 +4106,10 @@
                     "id": 251,
                     "name": "LibFillResults.FillResults",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1131,
+                    "referencedDeclaration": 1136,
                     "src": "6436:26:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FillResults_$1131_storage_ptr",
+                      "typeIdentifier": "t_struct$_FillResults_$1136_storage_ptr",
                       "typeString": "struct LibFillResults.FillResults"
                     }
                   },
@@ -4148,7 +4148,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -4157,10 +4157,10 @@
                       "id": 255,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "6650:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -4169,7 +4169,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "6650:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -4214,7 +4214,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Order_$1250_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Order_$1255_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.Order[]"
                   },
                   "typeName": {
@@ -4223,10 +4223,10 @@
                       "id": 261,
                       "name": "LibOrder.Order",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1250,
+                      "referencedDeclaration": 1255,
                       "src": "6913:14:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Order_$1250_storage_ptr",
+                        "typeIdentifier": "t_struct$_Order_$1255_storage_ptr",
                         "typeString": "struct LibOrder.Order"
                       }
                     },
@@ -4235,7 +4235,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "6913:16:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Order_$1250_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Order_$1255_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.Order[]"
                     }
                   },
@@ -4259,7 +4259,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_OrderInfo_$1257_memory_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_OrderInfo_$1262_memory_$dyn_memory_ptr",
                     "typeString": "struct LibOrder.OrderInfo[]"
                   },
                   "typeName": {
@@ -4268,10 +4268,10 @@
                       "id": 265,
                       "name": "LibOrder.OrderInfo",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1257,
+                      "referencedDeclaration": 1262,
                       "src": "6990:18:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_OrderInfo_$1257_storage_ptr",
+                        "typeIdentifier": "t_struct$_OrderInfo_$1262_storage_ptr",
                         "typeString": "struct LibOrder.OrderInfo"
                       }
                     },
@@ -4280,7 +4280,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "6990:20:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_OrderInfo_$1257_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_OrderInfo_$1262_storage_$dyn_storage_ptr",
                       "typeString": "struct LibOrder.OrderInfo[]"
                     }
                   },
@@ -4309,7 +4309,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-08-14T21:28:40.246Z",
+  "updatedAt": "2019-08-15T00:46:56.624Z",
   "devdoc": {
     "methods": {
       "batchCancelOrders((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[])": {
