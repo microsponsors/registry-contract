@@ -101,16 +101,15 @@ contract Whitelist is
 
         if (contentIdToAddress[contentId] != target) {
 
-            // If content id already belongs to another owner address
-            // it must be explicitly removed from that owner address
-            // via user-facing remove method OR via admin remove method
-            // before it is re-assigned to new address
-            require(
-                contentIdToAddress[contentId] == 0x0000000000000000000000000000000000000000,
-                "REMOVE_CONTENT_ID_FROM_PREVIOUS_OWNER_ADDRESS"
-            );
+            // If contentId already belongs to another owner address
+            // it must be explicitly removed by admin remove fn
+            // which will also remove that address from whitelist
+            // if this was its only contentId
+            if (contentIdToAddress[contentId] != 0x0000000000000000000000000000000000000000) {
+                adminRemoveContentIdFromAddress(target, contentId);
+            }
 
-            // Assign content id to registrant address
+            // Assign content id to new registrant address
             addressToContentIds[target].push( ContentIdStruct(contentId) );
             contentIdToAddress[contentId] = target;
 
@@ -162,7 +161,7 @@ contract Whitelist is
         address target,
         string calldata contentId
     )
-        external
+        public
         onlyOwner
         whenNotPaused
     {
