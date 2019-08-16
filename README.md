@@ -9,7 +9,7 @@ Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x's Whi
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
 
-## Install, Compile & Deploy, etc
+## Install, Compile & Local Dev Deploy, etc
 
 * Install 0x dependencies: `$ npm install`
 * Start Ganache in another terminal: `$ ganache-cli -p 8545`

@@ -324,10 +324,7 @@ contract Whitelist is
 
     /*** Transaction validation & Execution ***/
 
-
-    /// @dev Verifies signer is same as signer of current Ethereum transaction.
-    ///      NOTE: This function can currently be used to validate signatures coming from outside of this contract.
-    ///      Extra safety checks can be added for a production contract.
+    /// @param hash Message hash that is signed.
     /// @param signerAddress Address that should have signed the given hash.
     /// @param signature Proof of signing.
     /// @return Validity of order signature.
@@ -341,8 +338,15 @@ contract Whitelist is
         view
         returns (bool isValid)
     {
-        // solhint-disable-next-line avoid-tx-origin
-        return signerAddress == tx.origin;
+
+        // Check if signer is on the whitelist.
+        require(
+            isWhitelisted[signerAddress],
+            "MAKER_NOT_WHITELISTED"
+        );
+
+        return EXCHANGE.isValidSignature(hash, signerAddress, signature);
+
     }
     // solhint-enable no-unused-vars
 
