@@ -9,23 +9,29 @@ Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x's Whi
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
 
-## Install, Compile & Local Dev Deploy, etc
+## Install & Setup
 
+#### Install
 * Install 0x dependencies: `$ npm install`
-* Start Ganache in another terminal: `$ ganache-cli -p 8545`
-* Compile: `$ npm run compile`. Deploy to local ganache instance: `$ truffle migrate --network development `
-* Or... Compile & Deploy in one step: `$ npm run deploy`
 
 _Note:_ In `/migrations/2_deploy_contracts.js`, the second argument to `.deploy()` must be the 0x Exchange contract that the Whitelist forwards the order to after whitelist validation. Latest [0x smart contract addresses can be found here](https://github.com/0xProject/0x-monorepo/tree/development/packages/contract-addresses).
 
 _Note:_ Dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
-#### Linter
+#### Lint
 Install [solhint](https://www.npmjs.com/package/solhint) globally and run the linter:
 ```
 $ npm install -g solhint
 $ npm run lint
 ```
+
+#### Local Deploy
+* Start Ganache in another terminal: `$ ganache-cli -p 8545`
+* Compile: `$ npm run compile`. Deploy to local ganache instance: `$ truffle migrate --network development `
+* Or... Compile & Deploy in one step: `$ npm run deploy`
+
+#### Flatten for Remix Deploy
+* `npm run flatten`
 
 #### Versioning
 This stack seems to be sensitive to versioning, so capturing details of local setup here:
