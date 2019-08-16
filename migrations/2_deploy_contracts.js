@@ -10,3 +10,10 @@ module.exports = function(deployer) {
   // TODO: process.env Exchange contract argument
   deployer.deploy(Whitelist, "0x080bf510fcbf18b91105470639e9561022937712");
 };
+
+// 0x Exchange contract
+// Kovan:
+// 0x30589010550762d2f0d06f650D8e8B6Ade6DBf4b
+
+// Prod:
+// 0x080bf510fcbf18b91105470639e9561022937712
