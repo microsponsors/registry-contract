@@ -39,6 +39,7 @@ This stack seems to be sensitive to versioning, so capturing details of local se
 * truffle v5.0.21
 * ganache-cli v6.4.3
 * solc compiler 0.5.5, specified in truffle-config.js
+* for Remix: use compiler 0.5.5 + EVM version `byzantium`
 
 #### Original Setup
 How this repo was originally put together:
