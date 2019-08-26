@@ -19029,15 +19029,21 @@
     "version": "0.5.5+commit.47a71e8f.Emscripten.clang"
   },
   "networks": {
-    "1565923597427": {
+    "1566590108056": {
       "events": {},
       "links": {},
-      "address": "0xD3920c6789A97f7e36941C1394FF763525Ea3efC",
-      "transactionHash": "0xd80b707acd51eab5cd81a9be7c252dbf01891fd31d28d1e2462f523a1799e0fc"
+      "address": "0x0d5E36800cA5496A566ea8fbdfC516E46FBA304f",
+      "transactionHash": "0xf787928e571b58d6f108f452b8dbaa7d7a75ff9c4c3580f6eccedcf836fca7bf"
+    },
+    "1566849932580": {
+      "events": {},
+      "links": {},
+      "address": "0x1170E480E34B576AD164b83e22af87cB68a235C1",
+      "transactionHash": "0x7bae4db95a0c5e6695b8a48d23aa891e710bf1829b528e066d0b5121d31199bb"
     }
   },
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-08-16T02:47:06.560Z",
+  "updatedAt": "2019-08-26T20:06:54.373Z",
   "devdoc": {
     "methods": {
       "adminGetContentIdsByAddress(address)": {
