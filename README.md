@@ -1,10 +1,10 @@
 # Proof-of-Content Registry Contract
 
-[WIP] On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and any `contentId` they wish to associate with that address, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
+On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and any `contentId` they wish to associate with that address, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
 
 Bids and order fills in the [0x Protocol](https://0x.org) format will be validated by this contract.
 
-Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
+Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x V2's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
@@ -187,6 +187,7 @@ Example 0x Protocol V2 `order` object that is submitted as first argument to `fi
 
 ```javascript
 interface Order {
+    // For Microsponsors, this Registry (Whitelist) contract's address
     senderAddress: string;
     // Ethereum address of the Maker
     makerAddress: string;
