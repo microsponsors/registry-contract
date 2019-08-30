@@ -183,7 +183,7 @@ Does not stop reads or signature validation!
 
 
 ## Ox orders
-Example 0x Protocol `order` object that is submitted as first argument to `fillOrderIfWhitelisted()`:
+Example 0x Protocol V2 `order` object that is submitted as first argument to `fillOrderIfWhitelisted()`:
 
 ```javascript
 interface Order {
