@@ -180,38 +180,3 @@ Does not stop reads or signature validation!
 
 #### pause()
 #### unpause()
-
-
-## Ox orders
-Example 0x Protocol V2 `order` object that is submitted as first argument to `fillOrderIfWhitelisted()`:
-
-```javascript
-interface Order {
-    // For Microsponsors, this Registry (Whitelist) contract's address
-    senderAddress: string;
-    // Ethereum address of the Maker
-    makerAddress: string;
-    // Ethereum address of the Taker. If no address specified, anyone can fill the order.
-    takerAddress: string;
-    // How many ZRX the Maker will pay as a fee to the relayer
-    makerFee: BigNumber;
-    // How many ZRX the Taker will pay as a fee to the relayer
-    takerFee: BigNumber;
-    // The amount of an asset the Maker is offering to exchange
-    makerAssetAmount: BigNumber;
-    // The amount of an asset the Maker is willing to accept in return
-    takerAssetAmount: BigNumber;
-    // The identifying data about the asset the Maker is offering
-    makerAssetData: string;
-    // The identifying data about the asset the Maker is requesting in return
-    takerAssetData: string;
-    // A salt to guarantee OrderHash uniqueness. Usually a milisecond timestamp of when order was made
-    salt: BigNumber;
-    // The address of the 0x protocol exchange smart contract
-    exchangeAddress: string;
-    // The address (user or smart contract) that will receive the fees
-    feeRecipientAddress: string;
-    // When the order will expire (unix timestamp in seconds)
-    expirationTimeSeconds: BigNumber;
-}
-```
