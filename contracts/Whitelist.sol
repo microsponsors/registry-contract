@@ -290,10 +290,10 @@ contract Whitelist is
     ///      In practice, this will be used by Microsponsors' ERC-721 for
     ///      validating that an address is authorized to mint() a time slot
     ///      for a given content id.
-    function isContentIdRegisteredToCaller(string memory contentId)
+    function isContentIdRegisteredToCaller(string calldata contentId)
         external
         view
-        returns(string memory)
+        returns(bool)
     {
 
         // Check tx.origin vs msg.sender since this will be invoked by
