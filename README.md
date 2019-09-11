@@ -55,12 +55,6 @@ $ truffle migrate --network development
 ```
 ...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
 
-## Running locally
-Start ganache in one terminal, truffle console in another.
-```
-$ ganache-cli -p 8545
-$ truffle console --network development
-```
 
 ## Writes to Whitelist + Content Registry State
 This assumes you're querying from truffle console.
@@ -169,7 +163,7 @@ wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 
 #### isContentIdRegisteredToCaller()
 Valid whitelisted address confirms registration of its own single content id.
-Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the minting process to confirm that the address has the right to mint tokens against a contentId.
+Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the token minting process to confirm that the calling address has the right to mint tokens against a contentId.
 * @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`
 ```
 wi.isContentIdRegisteredToCaller("0x666f6f2e636f6d")
