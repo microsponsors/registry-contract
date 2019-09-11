@@ -286,7 +286,8 @@ contract Whitelist is
 
     }
 
-    /// @dev Valid whitelisted address can validate registration of its own single contentId.
+    /// @dev Valid whitelisted address validates registration of its own
+    ///      single contentId.
     ///      In practice, this will be used by Microsponsors' ERC-721 for
     ///      validating that an address is authorized to mint() a time slot
     ///      for a given content id.

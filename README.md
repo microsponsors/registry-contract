@@ -9,7 +9,7 @@ Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x V2's 
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
 
-## Install & Setup
+## Install, Develop, Deploy
 
 #### Install
 * Install 0x dependencies: `$ npm install`
@@ -27,7 +27,8 @@ $ npm run lint
 
 #### Local Deploy
 * Start Ganache in another terminal: `$ ganache-cli -p 8545`
-* Compile: `$ npm run compile`. Deploy to local ganache instance: `$ truffle migrate --network development `
+* Compile: `$ npm run compile`. Rebuilds `/build` dir.
+* Deploy to local ganache instance: `$ truffle migrate --network development `
 * Or... Compile & Deploy in one step: `$ npm run deploy`
 
 #### Flatten for Remix Deploy
@@ -41,8 +42,11 @@ This stack seems to be sensitive to versioning, so capturing details of local se
 * solc compiler 0.5.5, specified in truffle-config.js
 * for Remix: use compiler 0.5.5 + EVM version `byzantium`
 
+#### Git tag + DEPLOYS.md
+Each public network deployment is git tagged (starting with `v0.1`) and recorded in [DEPLOYS.md](deploys.md)
+
 #### Original Setup
-How this repo was originally put together:
+Just for posterity: how this repo was originally put together:
 ```
 $ truffle init
 $ npm install @0x/contracts-exchange --save`
@@ -51,7 +55,6 @@ $ truffle migrate --network development
 ```
 ...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
 
-
 ## Running locally
 Start ganache in one terminal, truffle console in another.
 ```
@@ -59,8 +62,8 @@ $ ganache-cli -p 8545
 $ truffle console --network development
 ```
 
-
 ## Writes to Whitelist + Content Registry State
+This assumes you're querying from truffle console.
 ```
 > Whitelist.deployed().then(inst => { wi = inst })
 ```
@@ -164,6 +167,12 @@ Only if msg.sender is asking for own mappings.
 wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 ```
 
+#### isContentIdRegisteredToCaller()
+Valid whitelisted address confirms registration of its own single content id.
+Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the minting process to confirm that the address has the right to mint tokens against a contentId.
+```
+wi.isContentIdRegisteredToCaller("0x666f6f2e636f6d")
+```
 
 ## 0x Exchange Functions
 
