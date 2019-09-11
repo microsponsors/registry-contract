@@ -162,7 +162,7 @@ wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 
 #### getContentIdsByAddress()
 Get contentIds for valid whitelist address.
-Only if msg.sender is asking for own mappings.
+Only if `msg.sender` is asking for own mappings.
 ```
 wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 ```
@@ -170,6 +170,7 @@ wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 #### isContentIdRegisteredToCaller()
 Valid whitelisted address confirms registration of its own single content id.
 Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the minting process to confirm that the address has the right to mint tokens against a contentId.
+* @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`
 ```
 wi.isContentIdRegisteredToCaller("0x666f6f2e636f6d")
 ```
