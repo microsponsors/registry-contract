@@ -43,7 +43,7 @@ This stack seems to be sensitive to versioning, so capturing details of local se
 * for Remix: use compiler 0.5.5 + EVM version `byzantium`
 
 #### Git tag + DEPLOYS.md
-Each public network deployment is git tagged (starting with `v0.1`) and recorded in [DEPLOYS.md](deploys.md)
+Each public network deployment is git tagged (starting with `v0.1`) and recorded in [DEPLOYS.md](DEPLOYS.md)
 
 #### Original Setup
 Just for posterity: how this repo was originally put together:
