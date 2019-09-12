@@ -469,6 +469,8 @@ contract Whitelist is
     /***  Helpers  ***/
 
 
+    /// @dev Check if an address has *ever* registered,
+    /// regardless of isWhitelisted status
     function hasRegistered (
         address target
     )
