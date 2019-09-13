@@ -45,6 +45,14 @@ This stack seems to be sensitive to versioning, so capturing details of local se
 #### Git tag + DEPLOYS.md
 Each public network deployment is git tagged (starting with `v0.1`) and recorded in [DEPLOYS.md](DEPLOYS.md)
 
+
+---
+
+#### Note on ABIEncoderV2
+This contract is using `pragma experimental ABIEncoderV2`. Because both [0x](https://0x.org) and [dydx](https://dydx.exchange/) have been using it for many months, and critical bugs were fixed as far back as Solidity 0.5.4, we think its probably ok to use in production. Remarks on this [from the dydx team via Open Zeppelin blog](https://blog.openzeppelin.com/solo-margin-protocol-audit-30ac2aaf6b10/).
+
+---
+
 #### Original Setup
 Just for posterity: how this repo was originally put together:
 ```
@@ -54,7 +62,6 @@ $ truffle compile
 $ truffle migrate --network development
 ```
 ...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
-
 
 ## Writes to Whitelist + Content Registry State
 This assumes you're querying from truffle console.
