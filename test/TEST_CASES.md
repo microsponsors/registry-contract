@@ -2,7 +2,9 @@
 
 ## Registration Admin
 
-#### adminUpdate()
+#### adminUpdate(
+"0xcf63f2a7321bffca76f9cfa4ab3b5aaa4a034c93", "dns:foo.com", true
+)
 #### adminUpdateWhitelistStatus()
 #### adminGetRegistrantByIndex()
 #### pause()
