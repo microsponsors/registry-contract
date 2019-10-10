@@ -71,7 +71,7 @@ contract LibEIP712 {
         // keccak256(abi.encodePacked(
         //     EIP191_HEADER,
         //     EIP712_DOMAIN_HASH,
-        //     hashStruct    
+        //     hashStruct
         // ));
 
         assembly {
@@ -148,16 +148,16 @@ contract LibOrder is
 
     // solhint-disable max-line-length
     struct Order {
-        address makerAddress;           // Address that created the order.      
-        address takerAddress;           // Address that is allowed to fill the order. If set to 0, any address is allowed to fill the order.          
-        address feeRecipientAddress;    // Address that will recieve fees when order is filled.      
+        address makerAddress;           // Address that created the order.
+        address takerAddress;           // Address that is allowed to fill the order. If set to 0, any address is allowed to fill the order.
+        address feeRecipientAddress;    // Address that will recieve fees when order is filled.
         address senderAddress;          // Address that is allowed to call Exchange contract methods that affect this order. If set to 0, any address is allowed to call these methods.
-        uint256 makerAssetAmount;       // Amount of makerAsset being offered by maker. Must be greater than 0.        
-        uint256 takerAssetAmount;       // Amount of takerAsset being bid on by maker. Must be greater than 0.        
+        uint256 makerAssetAmount;       // Amount of makerAsset being offered by maker. Must be greater than 0.
+        uint256 takerAssetAmount;       // Amount of takerAsset being bid on by maker. Must be greater than 0.
         uint256 makerFee;               // Amount of ZRX paid to feeRecipient by maker when order is filled. If set to 0, no transfer of ZRX from maker to feeRecipient will be attempted.
         uint256 takerFee;               // Amount of ZRX paid to feeRecipient by taker when order is filled. If set to 0, no transfer of ZRX from taker to feeRecipient will be attempted.
-        uint256 expirationTimeSeconds;  // Timestamp in seconds at which order expires.          
-        uint256 salt;                   // Arbitrary number to facilitate uniqueness of the order's hash.     
+        uint256 expirationTimeSeconds;  // Timestamp in seconds at which order expires.
+        uint256 salt;                   // Arbitrary number to facilitate uniqueness of the order's hash.
         bytes makerAssetData;           // Encoded data that can be decoded by a specified proxy contract when transferring makerAsset. The last byte references the id of this proxy.
         bytes takerAssetData;           // Encoded data that can be decoded by a specified proxy contract when transferring takerAsset. The last byte references the id of this proxy.
     }
@@ -220,13 +220,13 @@ contract LibOrder is
             let temp1 := mload(pos1)
             let temp2 := mload(pos2)
             let temp3 := mload(pos3)
-            
+
             // Hash in place
             mstore(pos1, schemaHash)
             mstore(pos2, makerAssetDataHash)
             mstore(pos3, takerAssetDataHash)
             result := keccak256(pos1, 416)
-            
+
             // Restore
             mstore(pos1, temp1)
             mstore(pos2, temp2)
@@ -463,9 +463,6 @@ contract IExchangeCore {
 
 */
 
-pragma solidity ^0.5.5;
-pragma experimental ABIEncoderV2;
-
 
 
 
@@ -543,11 +540,11 @@ contract ISignatureValidator {
     function isValidSignature(
         bytes32 hash,
         address signerAddress,
-        bytes memory signature
+        bytes calldata signature
     )
-        public
+        external
         view
-        returns (bool isValid);
+        returns (bytes4);
 }
 
 // File: contracts/ITransactions.sol
@@ -643,9 +640,6 @@ contract IAssetProxyDispatcher {
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-
-pragma solidity ^0.5.5;
-pragma experimental ABIEncoderV2;
 
 
 
@@ -801,9 +795,6 @@ contract IWrapperFunctions {
   limitations under the License.
 */
 
-pragma solidity ^0.5.5;
-pragma experimental ABIEncoderV2;
-
 
 
 
@@ -891,10 +882,6 @@ contract Ownable is
   limitations under the License.
 
 */
-
-pragma solidity ^0.5.5;
-pragma experimental ABIEncoderV2;
-
 
 
 
@@ -1156,7 +1143,8 @@ contract Whitelist is
 
     }
 
-    /// @dev Valid whitelisted address can validate registration of its own single contentId.
+    /// @dev Valid whitelisted address validates registration of its own
+    ///      single contentId.
     ///      In practice, this will be used by Microsponsors' ERC-721 for
     ///      validating that an address is authorized to mint() a time slot
     ///      for a given content id.
@@ -1236,16 +1224,12 @@ contract Whitelist is
     )
         external
         view
-        returns (bool isValid)
+        returns (bytes4)
     {
 
-        // Check if signer is on the whitelist.
-        require(
-            isWhitelisted[signerAddress],
-            "MAKER_NOT_WHITELISTED"
-        );
-
-        return EXCHANGE.isValidSignature(hash, signerAddress, signature);
+        require(signerAddress == tx.origin, "INVALID_SIGNER");
+        bytes4 magicValue = bytes4(keccak256("isValidValidatorSignature(address,bytes32,address,bytes)"));
+        return magicValue;
 
     }
     // solhint-enable no-unused-vars
@@ -1338,6 +1322,8 @@ contract Whitelist is
     /***  Helpers  ***/
 
 
+    /// @dev Check if an address has *ever* registered,
+    /// regardless of isWhitelisted status
     function hasRegistered (
         address target
     )

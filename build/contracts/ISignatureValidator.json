@@ -60,8 +60,8 @@
       "name": "isValidSignature",
       "outputs": [
         {
-          "name": "isValid",
-          "type": "bool"
+          "name": "",
+          "type": "bytes4"
         }
       ],
       "payable": false,
@@ -69,12 +69,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.5+commit.47a71e8f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"},{\"name\":\"signerAddress\",\"type\":\"address\"},{\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"preSign\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"validatorAddress\",\"type\":\"address\"},{\"name\":\"approval\",\"type\":\"bool\"}],\"name\":\"setSignatureValidatorApproval\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"},{\"name\":\"signerAddress\",\"type\":\"address\"},{\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"isValidSignature\",\"outputs\":[{\"name\":\"isValid\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"isValidSignature(bytes32,address,bytes)\":{\"details\":\"Verifies that a signature is valid.\",\"params\":{\"hash\":\"Message hash that is signed.\",\"signature\":\"Proof of signing.\",\"signerAddress\":\"Address of signer.\"},\"return\":\"Validity of order signature.\"},\"preSign(bytes32,address,bytes)\":{\"details\":\"Approves a hash on-chain using any valid signature type.      After presigning a hash, the preSign signature type will become valid for that hash and signer.\",\"params\":{\"signature\":\"Proof that the hash has been signed by signer.\",\"signerAddress\":\"Address that should have signed the given hash.\"}},\"setSignatureValidatorApproval(address,bool)\":{\"details\":\"Approves/unnapproves a Validator contract to verify signatures on signer's behalf.\",\"params\":{\"approval\":\"Approval or disapproval of  Validator contract.\",\"validatorAddress\":\"Address of Validator contract.\"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/lauren/github/registry-contract/contracts/ISignatureValidator.sol\":\"ISignatureValidator\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/lauren/github/registry-contract/contracts/ISignatureValidator.sol\":{\"keccak256\":\"0x90b44476bb95906ed861b3d038aa9578b6dead3283f5ec192c0985180dba7eee\",\"urls\":[\"bzzr://95730ccaa6602bffdaba8be7bafb18936a1eb711fd3c9b7bc66530602ff87fab\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.5+commit.47a71e8f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"},{\"name\":\"signerAddress\",\"type\":\"address\"},{\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"preSign\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"validatorAddress\",\"type\":\"address\"},{\"name\":\"approval\",\"type\":\"bool\"}],\"name\":\"setSignatureValidatorApproval\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"},{\"name\":\"signerAddress\",\"type\":\"address\"},{\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"isValidSignature\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes4\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"isValidSignature(bytes32,address,bytes)\":{\"details\":\"Verifies that a signature is valid.\",\"params\":{\"hash\":\"Message hash that is signed.\",\"signature\":\"Proof of signing.\",\"signerAddress\":\"Address of signer.\"},\"return\":\"Validity of order signature.\"},\"preSign(bytes32,address,bytes)\":{\"details\":\"Approves a hash on-chain using any valid signature type.      After presigning a hash, the preSign signature type will become valid for that hash and signer.\",\"params\":{\"signature\":\"Proof that the hash has been signed by signer.\",\"signerAddress\":\"Address that should have signed the given hash.\"}},\"setSignatureValidatorApproval(address,bool)\":{\"details\":\"Approves/unnapproves a Validator contract to verify signatures on signer's behalf.\",\"params\":{\"approval\":\"Approval or disapproval of  Validator contract.\",\"validatorAddress\":\"Address of Validator contract.\"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/lauren/github/registry-contract/contracts/ISignatureValidator.sol\":\"ISignatureValidator\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/lauren/github/registry-contract/contracts/ISignatureValidator.sol\":{\"keccak256\":\"0x3ab71ced766d922e08a9f92f543fbdb7f016a6f83672dc6b09cfd77384263f38\",\"urls\":[\"bzzr://f0c23da19cad9f9081fb849c7f208ae11141d3326c8e3003271d7dad590b8acf\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "/*\n\n  Copyright 2018 ZeroEx Intl.\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n\n*/\n\npragma solidity ^0.5.5;\n\n\ncontract ISignatureValidator {\n\n    /// @dev Approves a hash on-chain using any valid signature type.\n    ///      After presigning a hash, the preSign signature type will become valid for that hash and signer.\n    /// @param signerAddress Address that should have signed the given hash.\n    /// @param signature Proof that the hash has been signed by signer.\n    function preSign(\n        bytes32 hash,\n        address signerAddress,\n        bytes calldata signature\n    )\n        external;\n\n    /// @dev Approves/unnapproves a Validator contract to verify signatures on signer's behalf.\n    /// @param validatorAddress Address of Validator contract.\n    /// @param approval Approval or disapproval of  Validator contract.\n    function setSignatureValidatorApproval(\n        address validatorAddress,\n        bool approval\n    )\n        external;\n\n    /// @dev Verifies that a signature is valid.\n    /// @param hash Message hash that is signed.\n    /// @param signerAddress Address of signer.\n    /// @param signature Proof of signing.\n    /// @return Validity of order signature.\n    function isValidSignature(\n        bytes32 hash,\n        address signerAddress,\n        bytes memory signature\n    )\n        public\n        view\n        returns (bool isValid);\n}\n",
+  "source": "/*\n\n  Copyright 2018 ZeroEx Intl.\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n\n*/\n\npragma solidity ^0.5.5;\n\n\ncontract ISignatureValidator {\n\n    /// @dev Approves a hash on-chain using any valid signature type.\n    ///      After presigning a hash, the preSign signature type will become valid for that hash and signer.\n    /// @param signerAddress Address that should have signed the given hash.\n    /// @param signature Proof that the hash has been signed by signer.\n    function preSign(\n        bytes32 hash,\n        address signerAddress,\n        bytes calldata signature\n    )\n        external;\n\n    /// @dev Approves/unnapproves a Validator contract to verify signatures on signer's behalf.\n    /// @param validatorAddress Address of Validator contract.\n    /// @param approval Approval or disapproval of  Validator contract.\n    function setSignatureValidatorApproval(\n        address validatorAddress,\n        bool approval\n    )\n        external;\n\n    /// @dev Verifies that a signature is valid.\n    /// @param hash Message hash that is signed.\n    /// @param signerAddress Address of signer.\n    /// @param signature Proof of signing.\n    /// @return Validity of order signature.\n    function isValidSignature(\n        bytes32 hash,\n        address signerAddress,\n        bytes calldata signature\n    )\n        external\n        view\n        returns (bytes4);\n}\n",
   "sourcePath": "/Users/lauren/github/registry-contract/contracts/ISignatureValidator.sol",
   "ast": {
     "absolutePath": "/Users/lauren/github/registry-contract/contracts/ISignatureValidator.sol",
@@ -370,11 +370,11 @@
                   "name": "signature",
                   "nodeType": "VariableDeclaration",
                   "scope": 118,
-                  "src": "1781:22:4",
+                  "src": "1781:24:4",
                   "stateVariable": false,
-                  "storageLocation": "memory",
+                  "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeIdentifier": "t_bytes_calldata_ptr",
                     "typeString": "bytes"
                   },
                   "typeName": {
@@ -391,7 +391,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1718:91:4"
+              "src": "1718:93:4"
             },
             "returnParameters": {
               "id": 117,
@@ -400,44 +400,44 @@
                 {
                   "constant": false,
                   "id": 116,
-                  "name": "isValid",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 118,
-                  "src": "1855:12:4",
+                  "src": "1859:6:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
                   },
                   "typeName": {
                     "id": 115,
-                    "name": "bool",
+                    "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1855:4:4",
+                    "src": "1859:6:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "1854:14:4"
+              "src": "1858:8:4"
             },
             "scope": 119,
-            "src": "1693:176:4",
+            "src": "1693:174:4",
             "stateMutability": "view",
             "superFunction": null,
-            "visibility": "public"
+            "visibility": "external"
           }
         ],
         "scope": 120,
-        "src": "606:1265:4"
+        "src": "606:1263:4"
       }
     ],
-    "src": "580:1292:4"
+    "src": "580:1290:4"
   },
   "legacyAST": {
     "absolutePath": "/Users/lauren/github/registry-contract/contracts/ISignatureValidator.sol",
@@ -733,11 +733,11 @@
                   "name": "signature",
                   "nodeType": "VariableDeclaration",
                   "scope": 118,
-                  "src": "1781:22:4",
+                  "src": "1781:24:4",
                   "stateVariable": false,
-                  "storageLocation": "memory",
+                  "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeIdentifier": "t_bytes_calldata_ptr",
                     "typeString": "bytes"
                   },
                   "typeName": {
@@ -754,7 +754,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1718:91:4"
+              "src": "1718:93:4"
             },
             "returnParameters": {
               "id": 117,
@@ -763,44 +763,44 @@
                 {
                   "constant": false,
                   "id": 116,
-                  "name": "isValid",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 118,
-                  "src": "1855:12:4",
+                  "src": "1859:6:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
                   },
                   "typeName": {
                     "id": 115,
-                    "name": "bool",
+                    "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1855:4:4",
+                    "src": "1859:6:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "1854:14:4"
+              "src": "1858:8:4"
             },
             "scope": 119,
-            "src": "1693:176:4",
+            "src": "1693:174:4",
             "stateMutability": "view",
             "superFunction": null,
-            "visibility": "public"
+            "visibility": "external"
           }
         ],
         "scope": 120,
-        "src": "606:1265:4"
+        "src": "606:1263:4"
       }
     ],
-    "src": "580:1292:4"
+    "src": "580:1290:4"
   },
   "compiler": {
     "name": "solc",
@@ -808,7 +808,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-09-11T04:58:20.084Z",
+  "updatedAt": "2019-10-10T22:08:07.515Z",
   "devdoc": {
     "methods": {
       "isValidSignature(bytes32,address,bytes)": {
