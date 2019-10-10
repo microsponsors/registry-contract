@@ -49,9 +49,9 @@ contract ISignatureValidator {
     function isValidSignature(
         bytes32 hash,
         address signerAddress,
-        bytes memory signature
+        bytes calldata signature
     )
-        public
+        external
         view
-        returns (bool isValid);
+        returns (bytes4);
 }
