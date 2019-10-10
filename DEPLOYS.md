@@ -1,5 +1,10 @@
 # DEPLOYS
 
+### 2019.10.19
+git tag: v0.3
+* Kovan: [0x80273a5969c3afdee0110c200e487d2e6e1a2ad4](https://kovan.etherscan.io/address/0x80273a5969c3afdee0110c200e487d2e6e1a2ad4)
+
+  - Update isValidSignature() to return bytes4
 
 ### 2019.09.13
 git tag: v0.2
