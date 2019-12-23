@@ -78,7 +78,7 @@ Admin only: Pauses updating of contract state for registry whitelist, content re
 
 ---
 
-## Registry Admin
+## Registry Admin: Write Operations
 The following assumes you're querying from truffle console.
 ```
 > Whitelist.deployed().then(inst => { wi = inst })
@@ -130,8 +130,8 @@ Is pausable.
 wi.removeContentIdFromAddress("dns%3Afoo.com");
 ```
 
-#### removeAllContentIdsFromAddress()
-Admin removes *all* contentId from a given address.
+#### adminRemoveAllContentIdsFromAddress()
+Admin removes *all* contentIds from a given address.
 Is pausable.
 @param `target`: Address to remove all content ids from
 ```
@@ -140,7 +140,17 @@ wi.adminRemoveAllContentIdsFromAddress(
 );
 ```
 
-## Read from Whitelist + Content Registry State
+#### removeAllContentIdsFromAddress()
+Valid whitelisted address can remove *all* contentIds from itself.
+Is pausable.
+@param `target`: Address to remove all content ids from
+```
+wi.removeAllContentIdsFromAddress(
+  "0xc835cf67962948128157de5ca5b55a4e75f572d2"
+);
+```
+
+## Registry Admin: Read Operations
 
 #### isWhitelisted()
 Check isWhitelisted status boolean for an address.

@@ -170,7 +170,7 @@ contract Registry is
 
     }
 
-    /// @dev Admin removes *all* contentId from a given address.
+    /// @dev Admin removes *all* contentIds from a given address.
     function adminRemoveAllContentIdsFromAddress(
         address target
     )
@@ -353,6 +353,33 @@ contract Registry is
         }
 
     }
+
+
+    /// @dev Valid whitelisted address can remove *all* contentIds from itself.
+    function removeAllContentIdsFromAddress(
+        address target
+    )
+        external
+        whenNotPaused
+    {
+
+        require(
+            isWhitelisted[msg.sender],
+            'INVALID_SENDER'
+        );
+
+        // Loop thru content ids from addressToContentIds mapping
+        // by replacing each with empty string
+        ContentIdStruct[] memory m = addressToContentIds[target];
+        for (uint i = 0; i < m.length; i++) {
+            addressToContentIds[target][i] = ContentIdStruct('');
+        }
+
+        // Remove from whitelist
+        isWhitelisted[target] = false;
+
+    }
+
 
 
     /*** Pausable: Adapted from OpenZeppelin (via Cryptokitties) ***/
