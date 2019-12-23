@@ -237,8 +237,8 @@ contract Registry is
     }
 
 
-    /// @dev Admin gets contentIds mapped to a valid whitelisted address.
-    /// @param target Ethereum address to validate & return contentIds for.
+    /// @dev Admin gets contentIds mapped to any address, regardless of whitelist status.
+    /// @param target Ethereum address to return contentIds for.
     function adminGetContentIdsByAddress(
         address target
     )
@@ -263,21 +263,22 @@ contract Registry is
     /*** User-facing functions ***/
 
 
-    /// @dev Valid whitelisted address can query its own contentIds.
-    ///      In practice, this is called from the Microsponsors dapp so a
-    ///      user can view their own content ids.
-    function getContentIdsByAddress()
+    /// @dev *Any* address can query a valid whitelisted account's contentIds.
+    ///      In practice, this is called from the Microsponsors dapp.
+    function getContentIdsByAddress(
+        address target
+    )
         external
         view
         returns (string[] memory)
     {
 
         require(
-            isWhitelisted[msg.sender],
-            'INVALID_SENDER'
+            isWhitelisted[target],
+            'INVALID_ADDRESS'
         );
 
-        ContentIdStruct[] memory m = addressToContentIds[msg.sender];
+        ContentIdStruct[] memory m = addressToContentIds[target];
         string[] memory r = new string[](m.length);
 
         for (uint i = 0; i < m.length; i++) {
@@ -293,14 +294,16 @@ contract Registry is
     ///      In practice, this will be used by Microsponsors' ERC-721 for
     ///      validating that an address is authorized to mint() a time slot
     ///      for a given content id.
-    function isContentIdRegisteredToCaller(string calldata contentId)
+    function isContentIdRegisteredToCaller(
+        string calldata contentId
+    )
         external
         view
         returns(bool)
     {
 
-        // Check tx.origin vs msg.sender since this will be invoked by
-        // Microsponsors' ERC-721 contract
+        // Check tx.origin (vs msg.sender) since this *is likely* invoked by
+        // another contract
         require(
             isWhitelisted[tx.origin],
             'INVALID_SENDER'

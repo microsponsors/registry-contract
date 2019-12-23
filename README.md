@@ -189,16 +189,15 @@ wi.adminGetAddressByContentId("dns%3Afoo.com")
 ```
 
 #### adminGetContentIdsByAddress()
-Admin: Get the contentId mapped to the valid whitelist address.
+Admin: Get the contentId mapped to any address, regardless of whitelist status.
 ```
 wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### getContentIdsByAddress()
-Get contentIds for valid whitelist address.
-Only if `msg.sender` is asking for own mappings.
+Any address can get the contentIds mapped to a valid whitelisted address.
 ```
-wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
+wi.getContentIdsByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 ```
 
 #### isContentIdRegisteredToCaller()
