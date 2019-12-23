@@ -368,6 +368,11 @@ contract Registry is
             'INVALID_SENDER'
         );
 
+        require(
+            target == msg.sender,
+            'INVALID_SENDER'
+        );
+
         // Loop thru content ids from addressToContentIds mapping
         // by replacing each with empty string
         ContentIdStruct[] memory m = addressToContentIds[target];
