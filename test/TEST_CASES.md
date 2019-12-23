@@ -22,6 +22,7 @@
 #### hasRegistered()
 #### getContentIdsByAddress()
 #### removeContentIdFromAddress()
+#### removeAllContentIdsFromAddress()
 
 ## Integration with ERC-721 + 0x Protocol Exchange Fns
 #### isContentIdRegisteredToCaller()
