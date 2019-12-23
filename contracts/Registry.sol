@@ -1,11 +1,6 @@
 /*
 
   Copyright 2019 Niche Networks, Inc. (owns & operates Microsponsors.io)
-  This work has been modified for use by Microsponsors.io
-  This derivative work is licensed under the Apache License, Version 2.0
-  Original license notice below:
-
-  Copyright 2018 ZeroEx Intl.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
