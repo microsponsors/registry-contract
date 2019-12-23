@@ -2,9 +2,7 @@
 
 On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and any `contentId` they wish to associate with that address, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
 
-Bids and order fills in the [0x Protocol V2](https://0x.org) format will be validated by this contract.
-
-Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x V2's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
+Boilerplate source code was more or less copy-pasted from [0x V2's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
 
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
@@ -13,8 +11,6 @@ For doc purposes, things here marked `Admin` refer to the `owner` of this smart 
 
 #### Install
 * Install 0x dependencies: `$ npm install`
-
-_Note:_ In `/migrations/2_deploy_contracts.js`, the second argument to `.deploy()` must be the 0x Exchange contract that the Whitelist forwards the order to after whitelist validation. Latest [0x smart contract addresses can be found here](https://github.com/0xProject/0x-monorepo/tree/development/packages/contract-addresses).
 
 _Note:_ Dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
@@ -26,6 +22,8 @@ $ npm run lint
 ```
 
 #### Local Deploy
+See `/migrations/2_deploy_contracts.js` and `./truffle-config.js`
+
 * Start Ganache in another terminal: `$ ganache-cli -p 8545`
 * Compile: `$ npm run compile`. Rebuilds `/build` dir.
 * Deploy to local ganache instance: `$ truffle migrate --network development `
@@ -63,8 +61,25 @@ $ truffle migrate --network development
 ```
 ...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
 
-## Writes to Whitelist + Content Registry State
-This assumes you're querying from truffle console.
+---
+
+## Contract Admin
+
+## Pause contract
+Admin only: Pauses updating of contract state for registry whitelist, content registry and filling of orders. Does not stop reads or content id validation in `isContentIdRegisteredToCaller()` used by our ERC-721s.
+
+#### pause()
+#### unpause()
+
+## Transfer Ownership
+
+#### transferOwnership()
+* @param `newOwner`: Address to transfer ownership of contract to
+
+---
+
+## Registry Admin
+The following assumes you're querying from truffle console.
 ```
 > Whitelist.deployed().then(inst => { wi = inst })
 ```
@@ -74,12 +89,12 @@ This assumes you're querying from truffle console.
 Admin: Add/remove address to whitelist, map it to contentId.
 Is pausable.
 * @param `target`: Address to add or remove from whitelist.
-* @param `contentId`: Hex-encoded, Ex: web3.utils.utf8ToHex('foo.com')
+* @param `contentId`: UTF8 encoded Microsponsors contentId (see utils.js)
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
 wi.adminUpdate(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
-  "0x666f6f2e636f6d",
+  "dns%3Afoo.com",
   true)
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
@@ -103,7 +118,7 @@ Is pausable.
 ```
 wi.adminRemoveContentIdFromAddress(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
-  "0x666f6f2e636f6d"
+  "dns%3Afoo.com"
 );
 ```
 
@@ -112,7 +127,7 @@ Valid whitelisted address can remove its own content id.
 Is pausable.
 * @param `contentId`: Content id to remove.
 ```
-wi.removeContentIdFromAddress("0x666f6f2e636f6d");
+wi.removeContentIdFromAddress("dns%3Afoo.com");
 ```
 
 
@@ -149,14 +164,13 @@ Returns error if index does not exist.
 
 #### adminGetAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId.
-* @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`
+* @param `contentId`
 ```
-wi.adminGetAddressByContentId("0x666f6f2e636f6d")
+wi.adminGetAddressByContentId("dns%3Afoo.com")
 ```
 
 #### adminGetContentIdsByAddress()
 Admin: Get the contentId mapped to the valid whitelist address.
-Handle hex-encoded return value: `web3.toUtf8(<return value>)`
 ```
 wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
@@ -171,23 +185,8 @@ wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
 #### isContentIdRegisteredToCaller()
 Valid whitelisted address confirms registration of its own single content id.
 Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the token minting process to confirm that the calling address has the right to mint tokens against a contentId.
-* @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`
+* @param `contentId`: UTF8 encoded Microsponsors SRN (see utils.js lib).
 ```
-wi.isContentIdRegisteredToCaller("0x666f6f2e636f6d")
+wi.isContentIdRegisteredToCaller("dns%3Afoo.com")
 ```
 
-## 0x Exchange Functions
-
-#### isValidSignature()
-Verifies current signer is same as signer of incoming bid or order fill.
-
-#### fillOrderIfWhitelisted()
-Is pausable.
-
-
-## Pause contract
-Admin: Pauses updating of contract state for whitelist, content registry and filling of orders.
-Does not stop reads or signature validation!
-
-#### pause()
-#### unpause()
