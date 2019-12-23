@@ -8,7 +8,7 @@
     "lint": "solhint \"contracts/**/*.sol\"",
     "compile": "rm -rf build && truffle compile",
     "deploy": "rm -rf build && truffle migrate --reset --compile-all",
-    "flatten": "truffle-flattener ./contracts/Whitelist.sol > flattened/Whitelist.sol",
+    "flatten": "truffle-flattener ./contracts/Registry.sol > flattened/Registry.sol",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
