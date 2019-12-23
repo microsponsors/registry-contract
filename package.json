@@ -16,6 +16,6 @@
     "@0x/contracts-utils": "3.2.1"
   },
   "devDependencies": {
-    "truffle-flattener": "^1.4.0"
+    "truffle-flattener": "^1.4.2"
   }
 }
