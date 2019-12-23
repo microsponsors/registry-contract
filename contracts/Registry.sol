@@ -170,10 +170,33 @@ contract Registry is
 
     }
 
+    /// @dev Admin removes *all* contentId from a given address.
+    function adminRemoveAllContentIdsFromAddress(
+        address target
+    )
+        public
+        onlyOwner
+        whenNotPaused
+    {
+
+        // Loop thru content ids from addressToContentIds mapping
+        // by replacing each with empty string
+        ContentIdStruct[] memory m = addressToContentIds[target];
+        for (uint i = 0; i < m.length; i++) {
+            addressToContentIds[target][i] = ContentIdStruct('');
+        }
+
+        // Remove from whitelist
+        isWhitelisted[target] = false;
+
+    }
+
 
     /*** Admin read-only functions ***/
 
 
+    /// @dev Returns count of all addresses that have *ever* registered,
+    /// regardless of isWhitelisted status
     function adminGetRegistrantCount ()
         external
         view

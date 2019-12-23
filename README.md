@@ -130,6 +130,15 @@ Is pausable.
 wi.removeContentIdFromAddress("dns%3Afoo.com");
 ```
 
+#### removeAllContentIdsFromAddress()
+Admin removes *all* contentId from a given address.
+Is pausable.
+@param `target`: Address to remove all content ids from
+```
+wi.adminRemoveAllContentIdsFromAddress(
+  "0xc835cf67962948128157de5ca5b55a4e75f572d2"
+);
+```
 
 ## Read from Whitelist + Content Registry State
 

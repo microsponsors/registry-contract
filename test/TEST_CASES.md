@@ -15,6 +15,7 @@
 #### adminGetRegistrantCount()
 #### adminGetAddressByContentId()
 #### adminGetContentIdsByAddress()
+#### adminRemoveAllContentIdsFromAddress()
 
 ## Content Id Registration - User-facing
 #### isWhitelisted()
