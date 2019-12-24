@@ -8,14 +8,13 @@
     "lint": "solhint \"contracts/**/*.sol\"",
     "compile": "rm -rf build && truffle compile",
     "deploy": "rm -rf build && truffle migrate --reset --compile-all",
-    "flatten": "truffle-flattener ./contracts/Whitelist.sol > flattened/Whitelist.sol",
+    "flatten": "truffle-flattener ./contracts/Registry.sol > flattened/Registry.sol",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Lauren Garcia <lauren.garcia@gmail.com> (https://github.com/laurengarcia)",
   "dependencies": {
-    "@0x/contracts-exchange": "2.1.11"
+    "@0x/contracts-utils": "3.2.1"
   },
   "devDependencies": {
-    "truffle-flattener": "^1.4.0"
+    "truffle-flattener": "^1.4.2"
   }
 }

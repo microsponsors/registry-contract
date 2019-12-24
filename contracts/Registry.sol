@@ -1,11 +1,6 @@
 /*
 
   Copyright 2019 Niche Networks, Inc. (owns & operates Microsponsors.io)
-  This work has been modified for use by Microsponsors.io
-  This derivative work is licensed under the Apache License, Version 2.0
-  Original license notice below:
-
-  Copyright 2018 ZeroEx Intl.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -24,12 +19,10 @@
 pragma solidity ^0.5.5;
 pragma experimental ABIEncoderV2;
 
-import "./IExchange.sol";
-import "@0x/contracts-exchange-libs/contracts/src/LibOrder.sol";
 import "@0x/contracts-utils/contracts/src/Ownable.sol";
 
 
-contract Whitelist is
+contract Registry is
     Ownable
 {
 
@@ -41,9 +34,16 @@ contract Whitelist is
     // regardless of isWhitelisted status
     address[] private registrants;
 
-    // Map address => whitelist status.
+    // Map registrant's address => isWhitelisted status.
     // Addresses authorized to transact.
     mapping (address => bool) public isWhitelisted;
+
+    // Map each registrant's address to the `block.timestamp`
+    // when the address was first registered
+    mapping (address => uint) public registrantTimestamp;
+
+    // Map each registrant's address to the address that referred them.
+    mapping (address => address) public registrantToReferrer;
 
     // Map address => array of ContentId structs.
     // Using struct because there is not mapping to an array of strings in Solidity at this time.
@@ -59,26 +59,12 @@ contract Whitelist is
     bool public paused = false;
 
 
-    /***  0x Exchange Details:  ***/
-
-
-    // 0x Exchange contract.
-    // solhint-disable var-name-mixedcase
-    IExchange internal EXCHANGE;
-    bytes internal TX_ORIGIN_SIGNATURE;
-    // solhint-enable var-name-mixedcase
-
-    byte constant internal VALIDATOR_SIGNATURE_BYTE = "\x05";
-
-
     /***  Constructor  ***/
 
-    /// @param _exchange 0x Exchange contract address to direct order fills to
-    constructor (address _exchange)
+    constructor ()
         public
     {
-        EXCHANGE = IExchange(_exchange);
-        TX_ORIGIN_SIGNATURE = abi.encodePacked(address(this), VALIDATOR_SIGNATURE_BYTE);
+
     }
 
 
@@ -87,14 +73,14 @@ contract Whitelist is
 
     /// @dev Admin registers an address with a contentId.
     /// @param target Address to add or remove from whitelist.
-    /// @param contentId To map the address to. Hex-encoded UTF8 string.
+    /// @param contentId To map the target's address to. UTF8-encoded SRN (a string).
     /// @param isApproved Whitelist status to assign to the address.
     function adminUpdate(
         address target,
-        string calldata contentId,
+        string memory contentId,
         bool isApproved
     )
-        external
+        public
         onlyOwner
         whenNotPaused
     {
@@ -119,12 +105,65 @@ contract Whitelist is
 
         if (!hasRegistered(target)) {
             registrants.push(target);
+            registrantTimestamp[target] = block.timestamp;
         }
 
         isWhitelisted[target] = isApproved;
 
     }
 
+
+    function adminUpdateWithReferrer(
+        address target,
+        string memory contentId,
+        bool isApproved,
+        address referrer
+    )
+        public
+        onlyOwner
+        whenNotPaused
+    {
+
+        // Revert transaction (refund gas) if
+        // the referrer is not whitelisted
+        require(
+            isWhitelisted[referrer],
+            'INVALID_REFERRER'
+        );
+
+        adminUpdate(target, contentId, isApproved);
+
+        adminUpdateRegistrantToReferrer(target, referrer);
+
+    }
+
+
+    function adminUpdateRegistrantToReferrer(
+        address target,
+        address referrer
+    )
+        public
+        onlyOwner
+        whenNotPaused
+    {
+
+        // Revert transaction (refund gas) if
+        // the target address has never registered
+        require(
+            hasRegistered(target),
+            'INVALID_TARGET'
+        );
+
+        // Revert transaction (refund gas) if
+        // the referrer is not whitelisted
+        require(
+            isWhitelisted[referrer],
+            'INVALID_REFERRER'
+        );
+
+        registrantToReferrer[target] = referrer;
+
+    }
 
     /// @dev Admin updates whitelist status for a given address.
     /// @param target Address to update.
@@ -191,10 +230,33 @@ contract Whitelist is
 
     }
 
+    /// @dev Admin removes *all* contentIds from a given address.
+    function adminRemoveAllContentIdsFromAddress(
+        address target
+    )
+        public
+        onlyOwner
+        whenNotPaused
+    {
+
+        // Loop thru content ids from addressToContentIds mapping
+        // by replacing each with empty string
+        ContentIdStruct[] memory m = addressToContentIds[target];
+        for (uint i = 0; i < m.length; i++) {
+            addressToContentIds[target][i] = ContentIdStruct('');
+        }
+
+        // Remove from whitelist
+        isWhitelisted[target] = false;
+
+    }
+
 
     /*** Admin read-only functions ***/
 
 
+    /// @dev Returns count of all addresses that have *ever* registered,
+    /// regardless of isWhitelisted status
     function adminGetRegistrantCount ()
         external
         view
@@ -235,8 +297,8 @@ contract Whitelist is
     }
 
 
-    /// @dev Admin gets contentIds mapped to a valid whitelisted address.
-    /// @param target Ethereum address to validate & return contentIds for.
+    /// @dev Admin gets contentIds mapped to any address, regardless of whitelist status.
+    /// @param target Ethereum address to return contentIds for.
     function adminGetContentIdsByAddress(
         address target
     )
@@ -261,21 +323,22 @@ contract Whitelist is
     /*** User-facing functions ***/
 
 
-    /// @dev Valid whitelisted address can query its own contentIds.
-    ///      In practice, this is called from the Microsponsors dapp so a
-    ///      user can view their own content ids.
-    function getContentIdsByAddress()
+    /// @dev *Any* address can query a valid whitelisted account's contentIds.
+    ///      In practice, this is called from the Microsponsors dapp.
+    function getContentIdsByAddress(
+        address target
+    )
         external
         view
         returns (string[] memory)
     {
 
         require(
-            isWhitelisted[msg.sender],
-            'INVALID_SENDER'
+            isWhitelisted[target],
+            'INVALID_ADDRESS'
         );
 
-        ContentIdStruct[] memory m = addressToContentIds[msg.sender];
+        ContentIdStruct[] memory m = addressToContentIds[target];
         string[] memory r = new string[](m.length);
 
         for (uint i = 0; i < m.length; i++) {
@@ -283,35 +346,6 @@ contract Whitelist is
         }
 
         return r;
-
-    }
-
-    /// @dev Valid whitelisted address validates registration of its own
-    ///      single contentId.
-    ///      In practice, this will be used by Microsponsors' ERC-721 for
-    ///      validating that an address is authorized to mint() a time slot
-    ///      for a given content id.
-    function isContentIdRegisteredToCaller(string calldata contentId)
-        external
-        view
-        returns(bool)
-    {
-
-        // Check tx.origin vs msg.sender since this will be invoked by
-        // Microsponsors' ERC-721 contract
-        require(
-            isWhitelisted[tx.origin],
-            'INVALID_SENDER'
-        );
-
-        address registrantAddress = contentIdToAddress[contentId];
-
-        require(
-            registrantAddress == tx.origin,
-            'INVALID_SENDER'
-        );
-
-        return true;
 
     }
 
@@ -353,87 +387,70 @@ contract Whitelist is
     }
 
 
-    /*** Transaction validation & Execution ***/
+    /// @dev Valid whitelisted address can remove *all* contentIds from itself.
+    function removeAllContentIdsFromAddress(
+        address target
+    )
+        external
+        whenNotPaused
+    {
 
-    /// @param hash Message hash that is signed.
-    /// @param signerAddress Address that should have signed the given hash.
-    /// @param signature Proof of signing.
-    /// @return Validity of order signature.
-    // solhint-disable no-unused-vars
-    function isValidSignature(
-        bytes32 hash,
-        address signerAddress,
-        bytes calldata signature
+        require(
+            isWhitelisted[msg.sender],
+            'INVALID_SENDER'
+        );
+
+        require(
+            target == msg.sender,
+            'INVALID_SENDER'
+        );
+
+        // Loop thru content ids from addressToContentIds mapping
+        // by replacing each with empty string
+        ContentIdStruct[] memory m = addressToContentIds[target];
+        for (uint i = 0; i < m.length; i++) {
+            addressToContentIds[target][i] = ContentIdStruct('');
+        }
+
+        // Remove from whitelist
+        isWhitelisted[target] = false;
+
+    }
+
+
+    /// @dev Valid whitelisted address validates registration of its own
+    ///      single contentId.
+    ///      In practice, this will be used by Microsponsors' ERC-721 for
+    ///      validating that an address is authorized to mint() a time slot
+    ///      for a given content id.
+    function isContentIdRegisteredToCaller(
+        string calldata contentId
     )
         external
         view
-        returns (bytes4)
+        returns(bool)
     {
 
-        require(signerAddress == tx.origin, "INVALID_SIGNER");
-        bytes4 magicValue = bytes4(keccak256("isValidValidatorSignature(address,bytes32,address,bytes)"));
-        return magicValue;
-
-    }
-    // solhint-enable no-unused-vars
-
-    /// @dev Fills an order using `msg.sender` as the taker.
-    ///      The transaction will revert if both the maker and taker are not whitelisted.
-    ///      Orders should specify this contract as the `senderAddress` in order to gaurantee
-    ///      that both maker and taker have been whitelisted.
-    /// @param order Order struct containing order specifications.
-    /// @param takerAssetFillAmount Desired amount of takerAsset to sell.
-    /// @param salt Arbitrary value to gaurantee uniqueness of 0x transaction hash.
-    /// @param orderSignature Proof that order has been created by maker.
-    function fillOrderIfWhitelisted(
-        LibOrder.Order memory order,
-        uint256 takerAssetFillAmount,
-        uint256 salt,
-        bytes memory orderSignature
-    )
-        public
-        whenNotPaused
-    {
-        address takerAddress = msg.sender;
-
-        // This contract must be the entry point for the transaction.
+        // Check tx.origin (vs msg.sender) since this *is likely* invoked by
+        // another contract
         require(
-            // solhint-disable-next-line avoid-tx-origin
-            takerAddress == tx.origin,
-            "INVALID_SENDER"
+            isWhitelisted[tx.origin],
+            'INVALID_SENDER'
         );
 
-        // Check if maker is on the whitelist.
+        address registrantAddress = contentIdToAddress[contentId];
+
         require(
-            isWhitelisted[order.makerAddress],
-            "MAKER_NOT_WHITELISTED"
+            registrantAddress == tx.origin,
+            'INVALID_SENDER'
         );
 
-        // Check if taker is on the whitelist.
-        require(
-            isWhitelisted[takerAddress],
-            "TAKER_NOT_WHITELISTED"
-        );
+        return true;
 
-        // Encode arguments into byte array.
-        bytes memory data = abi.encodeWithSelector(
-            EXCHANGE.fillOrder.selector,
-            order,
-            takerAssetFillAmount,
-            orderSignature
-        );
-
-        // Call `fillOrder` via `executeTransaction`.
-        EXCHANGE.executeTransaction(
-            salt,
-            takerAddress,
-            data,
-            TX_ORIGIN_SIGNATURE
-        );
     }
 
 
-    /*** Pausable adapted from OpenZeppelin via Cryptokitties ***/
+    /*** Pausable: Adapted from OpenZeppelin (via Cryptokitties) ***/
 
 
     /// @dev Modifier to allow actions only when the contract IS NOT paused

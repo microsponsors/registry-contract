@@ -1,31 +1,32 @@
 # Test Cases and Scenarios
 
-## Registration Admin
-
-#### adminUpdate(
-"0xcf63f2a7321bffca76f9cfa4ab3b5aaa4a034c93", "dns:foo.com", true
-)
-#### adminUpdateWhitelistStatus()
-#### adminGetRegistrantByIndex()
+## Contract Admin:
 #### pause()
 #### unpause()
+#### transferOwnership()
 
-## Content Id Registration Admin
+## Registry Admin:
+#### adminUpdate()
+#### adminUpdateWithReferrer()
+#### adminUpdateRegistrantToReferrer()
+#### adminUpdateWhitelistStatus()
+#### adminGetRegistrantByIndex()
 
+## Content Id Registration Admin:
 #### adminRemoveContentIdFromAddress()
 #### adminGetRegistrantCount()
 #### adminGetAddressByContentId()
 #### adminGetContentIdsByAddress()
+#### adminRemoveAllContentIdsFromAddress()
 
-## Content Id Registration - User-facing
-
+## Content Id Registration: Public or User-facing
 #### isWhitelisted()
 #### hasRegistered()
+#### registantTimestamp()
+#### registrantToReferrer()
 #### getContentIdsByAddress()
 #### removeContentIdFromAddress()
+#### removeAllContentIdsFromAddress()
 
-## Integration with ERC-721 + 0x Protocol Exchange Fns
-
+## Integration with ERC-721 and/or 0x Exchange fns:
 #### isContentIdRegisteredToCaller()
-#### isValidSignature()
-#### fillOrderIfWhitelisted()

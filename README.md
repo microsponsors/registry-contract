@@ -2,9 +2,7 @@
 
 On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and any `contentId` they wish to associate with that address, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
 
-Bids and order fills in the [0x Protocol V2](https://0x.org) format will be validated by this contract.
-
-Boilerplate Whitelist.sol source code is more or less copy-pasted from [0x V2's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
+Also maps a registrant to the address that referred them, plus the timestamp of when they were referred so we can reward the referrer for a period of time.
 
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
@@ -13,8 +11,6 @@ For doc purposes, things here marked `Admin` refer to the `owner` of this smart 
 
 #### Install
 * Install 0x dependencies: `$ npm install`
-
-_Note:_ In `/migrations/2_deploy_contracts.js`, the second argument to `.deploy()` must be the 0x Exchange contract that the Whitelist forwards the order to after whitelist validation. Latest [0x smart contract addresses can be found here](https://github.com/0xProject/0x-monorepo/tree/development/packages/contract-addresses).
 
 _Note:_ Dependency versions are locked for safety/ consistency. Updates to package dependencies will happen manually on a case-by-case basis.
 
@@ -26,6 +22,8 @@ $ npm run lint
 ```
 
 #### Local Deploy
+See `/migrations/2_deploy_contracts.js` and `./truffle-config.js`
+
 * Start Ganache in another terminal: `$ ganache-cli -p 8545`
 * Compile: `$ npm run compile`. Rebuilds `/build` dir.
 * Deploy to local ganache instance: `$ truffle migrate --network development `
@@ -63,26 +61,48 @@ $ truffle migrate --network development
 ```
 ...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
 
-## Writes to Whitelist + Content Registry State
-This assumes you're querying from truffle console.
+
+---
+
+## Registry Admin: Write Operations
+Start truffle console:
 ```
-> Whitelist.deployed().then(inst => { wi = inst })
+$ truffle console --network development
 ```
-`wi` = whitelist instance
+The following assumes you're querying from truffle console.
+```
+> Registry.deployed().then(inst => { r = inst })
+```
+`r` = registry instance
 
 #### adminUpdate()
 Admin: Add/remove address to whitelist, map it to contentId.
 Is pausable.
 * @param `target`: Address to add or remove from whitelist.
-* @param `contentId`: Hex-encoded, Ex: web3.utils.utf8ToHex('foo.com')
+* @param `contentId`: UTF8 encoded Microsponsors contentId (see utils.js)
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
-wi.adminUpdate(
+r.adminUpdate(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
-  "0x666f6f2e636f6d",
+  "dns%3Afoo.com",
   true)
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
+
+#### adminUpdateWithReferrer()
+Admin: Same params as `adminUpdate` with one additional, below:
+Is pausable.
+* @param `referrer`: the address referring the target, only if `isWhitelisted`
+```
+r.adminUpdateWithReferrer("0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30", "dns%3Abaz.com", true, "0xc835cf67962948128157de5ca5b55a4e75f572d2");
+```
+
+#### adminUpdateRegistrantToReferrer()
+Admin: Update the `registrantToReferrer` mapping.
+Only if target has registered (whitelist status does not matter) and referrer `isWhitelisted`.
+Is pausable.
+* @param `target`: the registrant, regardless of their `isWhitelisted` status.
+* @param `referrer`: the address referring the target, only if `isWhitelisted`
 
 #### adminUpdateWhitelistStatus()
 Admin: Add or remove address from whitelist (set isWhitelisted to false).
@@ -90,7 +110,7 @@ Is pausable.
 * @param `target`: Address to add or remove from whitelist.
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
-wi.adminUpdateWhitelistStatus(
+r.adminUpdateWhitelistStatus(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
   false
 );
@@ -101,9 +121,9 @@ Is pausable.
 * @param `target`: Address to remove content id from.
 * @param `contentId`: Content id to remove.
 ```
-wi.adminRemoveContentIdFromAddress(
+r.adminRemoveContentIdFromAddress(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
-  "0x666f6f2e636f6d"
+  "dns%3Afoo.com"
 );
 ```
 
@@ -112,82 +132,111 @@ Valid whitelisted address can remove its own content id.
 Is pausable.
 * @param `contentId`: Content id to remove.
 ```
-wi.removeContentIdFromAddress("0x666f6f2e636f6d");
+r.removeContentIdFromAddress("dns%3Afoo.com");
 ```
 
+#### adminRemoveAllContentIdsFromAddress()
+Admin removes *all* contentIds from a given address.
+Is pausable.
+@param `target`: Address to remove all content ids from
+```
+r.adminRemoveAllContentIdsFromAddress(
+  "0xc835cf67962948128157de5ca5b55a4e75f572d2"
+);
+```
 
-## Read from Whitelist + Content Registry State
+#### removeAllContentIdsFromAddress()
+Valid whitelisted address can remove *all* contentIds from itself.
+Is pausable.
+@param `target`: Address to remove all content ids from
+```
+r.removeAllContentIdsFromAddress(
+  "0xc835cf67962948128157de5ca5b55a4e75f572d2"
+);
+```
+
+## Registry Admin: Read Operations
 
 #### isWhitelisted()
 Check isWhitelisted status boolean for an address.
 Returns boolean.
 ```
-> wi.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+> r.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### hasRegistered()
-Check if address has ever registered, regardless of isWhitelisted status.
+Any address can check if any address has ever registered, regardless of isWhitelisted status of either.
 Returns boolean.
 ```
-> wi.hasRegistered("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+> r.hasRegistered("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+```
+
+#### registantTimestamp()
+Any address can check the `block.timestamp` of when a registrant was registered, regardless of `isWhitelisted` status.
+```
+> r.registrantTimestamp("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+```
+
+#### registrantToReferrer()
+Any address can get the address that referred a registrant, regardless of `isWhitelisted` status of either.
+```
+> r.registrantToReferrer("0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30");
 ```
 
 #### adminGetRegistrantCount()
-Get number of addresses that have ever registered, regardless of isWhitelisted status.
+Admin: Get number of addresses that have ever registered, regardless of isWhitelisted status.
 Returns Big Number.
 ```
-> wi.adminGetRegistrantCount()
+> r.adminGetRegistrantCount()
 ```
 
 #### adminGetRegistrantByIndex()
-Return registrant address by index (integer), regardless of isWhitelisted status.
+Admin: Return registrant address by index (integer), regardless of isWhitelisted status.
 * @param `index` represents the slot in public `registrants` array.
 Returns error if index does not exist.
 ```
-> wi.adminGetRegistrantByIndex(0)
+> r.adminGetRegistrantByIndex(0)
 ```
 
 #### adminGetAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId.
-* @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`
+* @param `contentId`
 ```
-wi.adminGetAddressByContentId("0x666f6f2e636f6d")
+r.adminGetAddressByContentId("dns%3Afoo.com")
 ```
 
 #### adminGetContentIdsByAddress()
-Admin: Get the contentId mapped to the valid whitelist address.
-Handle hex-encoded return value: `web3.toUtf8(<return value>)`
+Admin: Get the contentId mapped to any address, regardless of whitelist status.
 ```
-wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+r.adminGetContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### getContentIdsByAddress()
-Get contentIds for valid whitelist address.
-Only if `msg.sender` is asking for own mappings.
+Any address can get the contentIds mapped to a valid whitelisted address.
 ```
-wi.getContentIdByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
+r.getContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2", {from: "0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30"})
 ```
 
 #### isContentIdRegisteredToCaller()
 Valid whitelisted address confirms registration of its own single content id.
 Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the token minting process to confirm that the calling address has the right to mint tokens against a contentId.
-* @param `contentId`: Hex-encoded. Ex: `web3.toHex('foo.com')`
+* @param `contentId`: UTF8 encoded Microsponsors SRN (see utils.js lib).
 ```
-wi.isContentIdRegisteredToCaller("0x666f6f2e636f6d")
+r.isContentIdRegisteredToCaller("dns%3Afoo.com")
 ```
 
-## 0x Exchange Functions
+---
 
-#### isValidSignature()
-Verifies current signer is same as signer of incoming bid or order fill.
-
-#### fillOrderIfWhitelisted()
-Is pausable.
-
+## Contract Admin
 
 ## Pause contract
-Admin: Pauses updating of contract state for whitelist, content registry and filling of orders.
-Does not stop reads or signature validation!
+Admin only: Pauses updating of contract state for registry whitelist, content registry and filling of orders. Does not stop reads or content id validation in `isContentIdRegisteredToCaller()` used by our ERC-721s.
 
 #### pause()
 #### unpause()
+
+## Transfer Ownership
+
+#### transferOwnership()
+* @param `newOwner`: Address to transfer ownership of contract to
+
