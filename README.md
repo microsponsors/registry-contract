@@ -61,20 +61,6 @@ $ truffle migrate --network development
 ```
 ...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
 
----
-
-## Contract Admin
-
-## Pause contract
-Admin only: Pauses updating of contract state for registry whitelist, content registry and filling of orders. Does not stop reads or content id validation in `isContentIdRegisteredToCaller()` used by our ERC-721s.
-
-#### pause()
-#### unpause()
-
-## Transfer Ownership
-
-#### transferOwnership()
-* @param `newOwner`: Address to transfer ownership of contract to
 
 ---
 
@@ -231,4 +217,19 @@ Uses `tx.origin` (vs `msg.sender`) because this function will be called by the M
 ```
 wi.isContentIdRegisteredToCaller("dns%3Afoo.com")
 ```
+
+---
+
+## Contract Admin
+
+## Pause contract
+Admin only: Pauses updating of contract state for registry whitelist, content registry and filling of orders. Does not stop reads or content id validation in `isContentIdRegisteredToCaller()` used by our ERC-721s.
+
+#### pause()
+#### unpause()
+
+## Transfer Ownership
+
+#### transferOwnership()
+* @param `newOwner`: Address to transfer ownership of contract to
 
