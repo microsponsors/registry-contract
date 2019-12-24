@@ -1,30 +1,32 @@
 # Test Cases and Scenarios
 
-## Contract Admin
+## Contract Admin:
 #### pause()
 #### unpause()
 #### transferOwnership()
 
-## Registry Admin
+## Registry Admin:
 #### adminUpdate()
 #### adminUpdateWithReferrer()
-#### adminUpdateWhitelistStatus()
 #### adminUpdateRegistrantToReferrer()
+#### adminUpdateWhitelistStatus()
 #### adminGetRegistrantByIndex()
 
-## Content Id Registration Admin
+## Content Id Registration Admin:
 #### adminRemoveContentIdFromAddress()
 #### adminGetRegistrantCount()
 #### adminGetAddressByContentId()
 #### adminGetContentIdsByAddress()
 #### adminRemoveAllContentIdsFromAddress()
 
-## Content Id Registration - User-facing
+## Content Id Registration: Public or User-facing
 #### isWhitelisted()
 #### hasRegistered()
+#### registantTimestamp()
+#### registrantToReferrer()
 #### getContentIdsByAddress()
 #### removeContentIdFromAddress()
 #### removeAllContentIdsFromAddress()
 
-## Integration with ERC-721 + 0x Protocol Exchange Fns
+## Integration with ERC-721 and/or 0x Exchange fns:
 #### isContentIdRegisteredToCaller()

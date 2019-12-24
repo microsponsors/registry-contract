@@ -172,21 +172,33 @@ Returns boolean.
 ```
 
 #### hasRegistered()
-Check if address has ever registered, regardless of isWhitelisted status.
+Any address can check if any address has ever registered, regardless of isWhitelisted status of either.
 Returns boolean.
 ```
 > wi.hasRegistered("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
+#### registantTimestamp()
+Any address can check the `block.timestamp` of when a registrant was registered, regardless of `isWhitelisted` status.
+```
+> wi.registrantTimestamp("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+```
+
+#### registrantToReferrer()
+Any address can get the address that referred a registrant, regardless of `isWhitelisted` status of either.
+```
+> wi.registrantToReferrer("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+```
+
 #### adminGetRegistrantCount()
-Get number of addresses that have ever registered, regardless of isWhitelisted status.
+Admin: Get number of addresses that have ever registered, regardless of isWhitelisted status.
 Returns Big Number.
 ```
 > wi.adminGetRegistrantCount()
 ```
 
 #### adminGetRegistrantByIndex()
-Return registrant address by index (integer), regardless of isWhitelisted status.
+Admin: Return registrant address by index (integer), regardless of isWhitelisted status.
 * @param `index` represents the slot in public `registrants` array.
 Returns error if index does not exist.
 ```
@@ -209,7 +221,7 @@ wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 #### getContentIdsByAddress()
 Any address can get the contentIds mapped to a valid whitelisted address.
 ```
-wi.getContentIdsByAddress({from: "0xc835cf67962948128157de5ca5b55a4e75f572d2"})
+wi.getContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### isContentIdRegisteredToCaller()
