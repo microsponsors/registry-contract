@@ -1,3 +1,52 @@
+
+// File: @0x/contracts-utils/contracts/src/interfaces/IOwnable.sol
+
+pragma solidity ^0.5.5;
+
+
+contract IOwnable {
+
+    function transferOwnership(address newOwner)
+        public;
+}
+
+// File: @0x/contracts-utils/contracts/src/Ownable.sol
+
+pragma solidity ^0.5.5;
+
+
+
+contract Ownable is
+    IOwnable
+{
+    address public owner;
+
+    constructor ()
+        public
+    {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner() {
+        require(
+            msg.sender == owner,
+            "ONLY_CONTRACT_OWNER"
+        );
+        _;
+    }
+
+    function transferOwnership(address newOwner)
+        public
+        onlyOwner
+    {
+        if (newOwner != address(0)) {
+            owner = newOwner;
+        }
+    }
+}
+
+// File: contracts/Registry.sol
+
 /*
 
   Copyright 2019 Niche Networks, Inc. (owns & operates Microsponsors.io)
@@ -19,7 +68,6 @@
 pragma solidity ^0.5.5;
 pragma experimental ABIEncoderV2;
 
-import "@0x/contracts-utils/contracts/src/Ownable.sol";
 
 
 contract Registry is
