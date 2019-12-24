@@ -229,14 +229,19 @@ r.isContentIdRegisteredToCaller("dns%3Afoo.com")
 
 ## Contract Admin
 
+## Contract Owner
+#### owner()
+Public function that returns contract owner (aka "Admin" here).
+```
+r.owner()
+```
+
 ## Pause contract
 Admin only: Pauses updating of contract state for registry whitelist, content registry and filling of orders. Does not stop reads or content id validation in `isContentIdRegisteredToCaller()` used by our ERC-721s.
-
 #### pause()
 #### unpause()
 
 ## Transfer Ownership
-
 #### transferOwnership()
 * @param `newOwner`: Address to transfer ownership of contract to
 
