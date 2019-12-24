@@ -34,13 +34,16 @@ contract Registry is
     // regardless of isWhitelisted status
     address[] private registrants;
 
-    // Map address => whitelist status.
+    // Map registrant's address => isWhitelisted status.
     // Addresses authorized to transact.
     mapping (address => bool) public isWhitelisted;
 
-    // Maps each registrant's address to the `block.timestamp`
-    // of when the address was first registered
+    // Map each registrant's address to the `block.timestamp`
+    // when the address was first registered
     mapping (address => uint) public registrantTimestamp;
+
+    // Map each registrant's address to the address that referred them.
+    mapping (address => address) public registrantToReferrer;
 
     // Map address => array of ContentId structs.
     // Using struct because there is not mapping to an array of strings in Solidity at this time.
@@ -70,14 +73,14 @@ contract Registry is
 
     /// @dev Admin registers an address with a contentId.
     /// @param target Address to add or remove from whitelist.
-    /// @param contentId To map the address to. UTF8-encoded SRN (a string).
+    /// @param contentId To map the target's address to. UTF8-encoded SRN (a string).
     /// @param isApproved Whitelist status to assign to the address.
     function adminUpdate(
         address target,
         string calldata contentId,
         bool isApproved
     )
-        external
+        public
         onlyOwner
         whenNotPaused
     {
@@ -109,6 +112,51 @@ contract Registry is
 
     }
 
+
+    function adminUpdateWithReferrer(
+        address target,
+        string calldata contentId,
+        bool isApproved,
+        address referrer
+    )
+        public
+        onlyOwner
+        whenNotPaused
+    {
+
+        // Revert transaction (refund gas) if
+        // the referrer is not whitelisted
+        require(
+            isWhitelisted[referrer],
+            'INVALID_REFERRER'
+        );
+
+        adminUpdate(target, contentId, isApproved);
+
+        adminSetReferrer(referrer);
+
+    }
+
+
+    function adminSetReferrer(
+        address target,
+        address referrer
+    )
+        public
+        onlyOwner
+        whenNotPaused
+    {
+
+        // Revert transaction (refund gas) if
+        // the referrer is not whitelisted
+        require(
+            isWhitelisted[referrer],
+            'INVALID_REFERRER'
+        );
+
+        registrantToReferrer[target] = referrer;
+
+    }
 
     /// @dev Admin updates whitelist status for a given address.
     /// @param target Address to update.
