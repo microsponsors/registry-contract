@@ -38,6 +38,10 @@ contract Registry is
     // Addresses authorized to transact.
     mapping (address => bool) public isWhitelisted;
 
+    // Maps each registrant's address to the `block.timestamp`
+    // of when the address was first registered
+    mapping (address => uint) public registrantTimestamp;
+
     // Map address => array of ContentId structs.
     // Using struct because there is not mapping to an array of strings in Solidity at this time.
     struct ContentIdStruct {
@@ -66,7 +70,7 @@ contract Registry is
 
     /// @dev Admin registers an address with a contentId.
     /// @param target Address to add or remove from whitelist.
-    /// @param contentId To map the address to. Hex-encoded UTF8 string.
+    /// @param contentId To map the address to. UTF8-encoded SRN (a string).
     /// @param isApproved Whitelist status to assign to the address.
     function adminUpdate(
         address target,
@@ -98,6 +102,7 @@ contract Registry is
 
         if (!hasRegistered(target)) {
             registrants.push(target);
+            registrantTimestamp[target] = block.timestamp;
         }
 
         isWhitelisted[target] = isApproved;
