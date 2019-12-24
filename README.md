@@ -67,7 +67,7 @@ $ truffle migrate --network development
 ## Registry Admin: Write Operations
 The following assumes you're querying from truffle console.
 ```
-> Whitelist.deployed().then(inst => { wi = inst })
+> Registry.deployed().then(inst => { r = inst })
 ```
 `wi` = whitelist instance
 
@@ -78,7 +78,7 @@ Is pausable.
 * @param `contentId`: UTF8 encoded Microsponsors contentId (see utils.js)
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
-wi.adminUpdate(
+r.adminUpdate(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
   "dns%3Afoo.com",
   true)
@@ -103,7 +103,7 @@ Is pausable.
 * @param `target`: Address to add or remove from whitelist.
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
-wi.adminUpdateWhitelistStatus(
+r.adminUpdateWhitelistStatus(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
   false
 );
@@ -114,7 +114,7 @@ Is pausable.
 * @param `target`: Address to remove content id from.
 * @param `contentId`: Content id to remove.
 ```
-wi.adminRemoveContentIdFromAddress(
+r.adminRemoveContentIdFromAddress(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2",
   "dns%3Afoo.com"
 );
@@ -125,7 +125,7 @@ Valid whitelisted address can remove its own content id.
 Is pausable.
 * @param `contentId`: Content id to remove.
 ```
-wi.removeContentIdFromAddress("dns%3Afoo.com");
+r.removeContentIdFromAddress("dns%3Afoo.com");
 ```
 
 #### adminRemoveAllContentIdsFromAddress()
@@ -133,7 +133,7 @@ Admin removes *all* contentIds from a given address.
 Is pausable.
 @param `target`: Address to remove all content ids from
 ```
-wi.adminRemoveAllContentIdsFromAddress(
+r.adminRemoveAllContentIdsFromAddress(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2"
 );
 ```
@@ -143,7 +143,7 @@ Valid whitelisted address can remove *all* contentIds from itself.
 Is pausable.
 @param `target`: Address to remove all content ids from
 ```
-wi.removeAllContentIdsFromAddress(
+r.removeAllContentIdsFromAddress(
   "0xc835cf67962948128157de5ca5b55a4e75f572d2"
 );
 ```
@@ -154,33 +154,33 @@ wi.removeAllContentIdsFromAddress(
 Check isWhitelisted status boolean for an address.
 Returns boolean.
 ```
-> wi.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+> r.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### hasRegistered()
 Any address can check if any address has ever registered, regardless of isWhitelisted status of either.
 Returns boolean.
 ```
-> wi.hasRegistered("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+> r.hasRegistered("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### registantTimestamp()
 Any address can check the `block.timestamp` of when a registrant was registered, regardless of `isWhitelisted` status.
 ```
-> wi.registrantTimestamp("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+> r.registrantTimestamp("0xc835cf67962948128157de5ca5b55a4e75f572d2");
 ```
 
 #### registrantToReferrer()
 Any address can get the address that referred a registrant, regardless of `isWhitelisted` status of either.
 ```
-> wi.registrantToReferrer("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+> r.registrantToReferrer("0xc835cf67962948128157de5ca5b55a4e75f572d2");
 ```
 
 #### adminGetRegistrantCount()
 Admin: Get number of addresses that have ever registered, regardless of isWhitelisted status.
 Returns Big Number.
 ```
-> wi.adminGetRegistrantCount()
+> r.adminGetRegistrantCount()
 ```
 
 #### adminGetRegistrantByIndex()
@@ -188,26 +188,26 @@ Admin: Return registrant address by index (integer), regardless of isWhitelisted
 * @param `index` represents the slot in public `registrants` array.
 Returns error if index does not exist.
 ```
-> wi.adminGetRegistrantByIndex(0)
+> r.adminGetRegistrantByIndex(0)
 ```
 
 #### adminGetAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId.
 * @param `contentId`
 ```
-wi.adminGetAddressByContentId("dns%3Afoo.com")
+r.adminGetAddressByContentId("dns%3Afoo.com")
 ```
 
 #### adminGetContentIdsByAddress()
 Admin: Get the contentId mapped to any address, regardless of whitelist status.
 ```
-wi.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+r.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### getContentIdsByAddress()
 Any address can get the contentIds mapped to a valid whitelisted address.
 ```
-wi.getContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+r.getContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### isContentIdRegisteredToCaller()
@@ -215,7 +215,7 @@ Valid whitelisted address confirms registration of its own single content id.
 Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the token minting process to confirm that the calling address has the right to mint tokens against a contentId.
 * @param `contentId`: UTF8 encoded Microsponsors SRN (see utils.js lib).
 ```
-wi.isContentIdRegisteredToCaller("dns%3Afoo.com")
+r.isContentIdRegisteredToCaller("dns%3Afoo.com")
 ```
 
 ---
