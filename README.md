@@ -65,11 +65,15 @@ $ truffle migrate --network development
 ---
 
 ## Registry Admin: Write Operations
+Start truffle console:
+```
+$ truffle console --network development
+```
 The following assumes you're querying from truffle console.
 ```
 > Registry.deployed().then(inst => { r = inst })
 ```
-`wi` = whitelist instance
+`r` = registry instance
 
 #### adminUpdate()
 Admin: Add/remove address to whitelist, map it to contentId.
