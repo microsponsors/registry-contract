@@ -2,7 +2,7 @@
 
 On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and any `contentId` they wish to associate with that address, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
 
-Boilerplate source code was more or less copy-pasted from [0x V2's Whitelist.sol example contract](https://github.com/0xProject/0x-monorepo/blob/development/contracts/exchange/contracts/examples/Whitelist.sol)
+Also maps a registrant to the address that referred them, plus the timestamp of when they were referred so we can reward the referrer for a period of time.
 
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
@@ -98,6 +98,18 @@ wi.adminUpdate(
   true)
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
+
+#### adminUpdateWithReferrer()
+Admin: Same params as `adminUpdate` with one additional, below:
+Is pausable.
+* @param `referrer`: the address referring the target, only if `isWhitelisted`
+
+#### adminUpdateRegistrantToReferrer()
+Admin: Update the `registrantToReferrer` mapping.
+Only if target has registered (whitelist status does not matter) and referrer `isWhitelisted`.
+Is pausable.
+* @param `target`: the registrant, regardless of their `isWhitelisted` status.
+* @param `referrer`: the address referring the target, only if `isWhitelisted`
 
 #### adminUpdateWhitelistStatus()
 Admin: Add or remove address from whitelist (set isWhitelisted to false).

@@ -133,12 +133,12 @@ contract Registry is
 
         adminUpdate(target, contentId, isApproved);
 
-        adminSetReferrer(referrer);
+        adminUpdateRegistrantToReferrer(target, referrer);
 
     }
 
 
-    function adminSetReferrer(
+    function adminUpdateRegistrantToReferrer(
         address target,
         address referrer
     )
@@ -146,6 +146,13 @@ contract Registry is
         onlyOwner
         whenNotPaused
     {
+
+        // Revert transaction (refund gas) if
+        // the target address has never registered
+        require(
+            hasRegistered(target),
+            'INVALID_TARGET'
+        );
 
         // Revert transaction (refund gas) if
         // the referrer is not whitelisted

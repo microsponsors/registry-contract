@@ -7,7 +7,9 @@
 
 ## Registry Admin
 #### adminUpdate()
+#### adminUpdateWithReferrer()
 #### adminUpdateWhitelistStatus()
+#### adminUpdateRegistrantToReferrer()
 #### adminGetRegistrantByIndex()
 
 ## Content Id Registration Admin
