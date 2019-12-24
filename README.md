@@ -93,6 +93,9 @@ The `contentId` is designed to be pretty flexible in this contract (just a simpl
 Admin: Same params as `adminUpdate` with one additional, below:
 Is pausable.
 * @param `referrer`: the address referring the target, only if `isWhitelisted`
+```
+r.adminUpdateWithReferrer("0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30", "dns%3Abaz.com", true, "0xc835cf67962948128157de5ca5b55a4e75f572d2");
+```
 
 #### adminUpdateRegistrantToReferrer()
 Admin: Update the `registrantToReferrer` mapping.
@@ -177,7 +180,7 @@ Any address can check the `block.timestamp` of when a registrant was registered,
 #### registrantToReferrer()
 Any address can get the address that referred a registrant, regardless of `isWhitelisted` status of either.
 ```
-> r.registrantToReferrer("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+> r.registrantToReferrer("0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30");
 ```
 
 #### adminGetRegistrantCount()
@@ -205,13 +208,13 @@ r.adminGetAddressByContentId("dns%3Afoo.com")
 #### adminGetContentIdsByAddress()
 Admin: Get the contentId mapped to any address, regardless of whitelist status.
 ```
-r.adminGetContentIdByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+r.adminGetContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
 ```
 
 #### getContentIdsByAddress()
 Any address can get the contentIds mapped to a valid whitelisted address.
 ```
-r.getContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+r.getContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2", {from: "0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30"})
 ```
 
 #### isContentIdRegisteredToCaller()
