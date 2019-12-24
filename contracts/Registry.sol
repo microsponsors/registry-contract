@@ -294,37 +294,6 @@ contract Registry is
 
     }
 
-    /// @dev Valid whitelisted address validates registration of its own
-    ///      single contentId.
-    ///      In practice, this will be used by Microsponsors' ERC-721 for
-    ///      validating that an address is authorized to mint() a time slot
-    ///      for a given content id.
-    function isContentIdRegisteredToCaller(
-        string calldata contentId
-    )
-        external
-        view
-        returns(bool)
-    {
-
-        // Check tx.origin (vs msg.sender) since this *is likely* invoked by
-        // another contract
-        require(
-            isWhitelisted[tx.origin],
-            'INVALID_SENDER'
-        );
-
-        address registrantAddress = contentIdToAddress[contentId];
-
-        require(
-            registrantAddress == tx.origin,
-            'INVALID_SENDER'
-        );
-
-        return true;
-
-    }
-
 
     /// @dev Valid whitelisted address can remove its own content id.
     function removeContentIdFromAddress(
@@ -393,6 +362,37 @@ contract Registry is
 
     }
 
+
+    /// @dev Valid whitelisted address validates registration of its own
+    ///      single contentId.
+    ///      In practice, this will be used by Microsponsors' ERC-721 for
+    ///      validating that an address is authorized to mint() a time slot
+    ///      for a given content id.
+    function isContentIdRegisteredToCaller(
+        string calldata contentId
+    )
+        external
+        view
+        returns(bool)
+    {
+
+        // Check tx.origin (vs msg.sender) since this *is likely* invoked by
+        // another contract
+        require(
+            isWhitelisted[tx.origin],
+            'INVALID_SENDER'
+        );
+
+        address registrantAddress = contentIdToAddress[contentId];
+
+        require(
+            registrantAddress == tx.origin,
+            'INVALID_SENDER'
+        );
+
+        return true;
+
+    }
 
 
     /*** Pausable: Adapted from OpenZeppelin (via Cryptokitties) ***/
