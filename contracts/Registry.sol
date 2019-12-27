@@ -68,7 +68,7 @@ contract Registry is
     }
 
 
-    /***  Admin functions (onlyOwner) that mutate contract state  ***/
+    /***  Admin functions (onlyOwner) that mutate registry state  ***/
 
 
     /// @dev Admin registers an address with a contentId.
@@ -255,34 +255,8 @@ contract Registry is
     /*** Admin read-only functions ***/
 
 
-    /// @dev Returns count of all addresses that have *ever* registered,
-    /// regardless of isWhitelisted status
-    function adminGetRegistrantCount ()
-        external
-        view
-        onlyOwner
-        returns (uint)
-    {
-
-        return registrants.length;
-
-    }
-
-    function adminGetRegistrantByIndex (
-        uint index
-    )
-        external
-        view
-        onlyOwner
-        returns (address)
-    {
-
-        // Will throw error if specified index does not exist
-        return registrants[index];
-
-    }
-
-
+    /// @dev Admin gets address mapped to a contentId,
+    ///      regardless of isWhitelist status.
     function adminGetAddressByContentId(
         string calldata contentId
     )
@@ -296,8 +270,10 @@ contract Registry is
 
     }
 
-
-    /// @dev Admin gets contentIds mapped to any address, regardless of whitelist status.
+    /// @dev Admin gets contentIds mapped to any address,
+    ///      regardless of whitelist status. There is a
+    ///      public-facing version of this below that only returns
+    ///      content ids for whitelisted accounts.
     /// @param target Ethereum address to return contentIds for.
     function adminGetContentIdsByAddress(
         address target
@@ -320,11 +296,81 @@ contract Registry is
     }
 
 
-    /*** User-facing functions ***/
+    /// @dev Returns valid whitelisted account address by registrant index number,
+    ///      regardless of whitelist status.
+    function adminGetRegistrantByIndex (
+        uint index
+    )
+        external
+        view
+        returns (address)
+    {
+
+        // Will throw error if specified index does not exist
+        return registrants[index];
+
+    }
 
 
-    /// @dev *Any* address can query a valid whitelisted account's contentIds.
-    ///      In practice, this is called from the Microsponsors dapp.
+    /*** User-facing functions for reading registry status ***/
+
+
+    /// @dev Any address can check if an address has *ever* registered,
+    /// regardless of isWhitelisted status
+    function hasRegistered (
+        address target
+    )
+        public
+        view
+        returns(bool)
+    {
+
+        bool _hasRegistered = false;
+        for (uint i=0; i<registrants.length; i++) {
+            if (registrants[i] == target) {
+                return _hasRegistered = true;
+            }
+        }
+
+    }
+
+
+    /// @dev Returns count of all addresses that have *ever* registered,
+    /// regardless of their isWhitelisted status
+    function getRegistrantCount ()
+        external
+        view
+        returns (uint)
+    {
+
+        return registrants.length;
+
+    }
+
+
+    /// @dev Returns valid whitelisted account address by registrant index number.
+    function getRegistrantByIndex (
+        uint index
+    )
+        external
+        view
+        returns (address target)
+    {
+
+        // Will throw error if specified index does not exist
+        address target = registrants[index];
+
+        require(
+            isWhitelisted[target],
+            'INVALID_ADDRESS'
+        );
+
+        return target;
+    }
+
+
+    /// @dev *Any* address can get a valid whitelisted account's contentIds.
+    ///      In practice, this is called from dapp(s).
     function getContentIdsByAddress(
         address target
     )
@@ -348,6 +394,29 @@ contract Registry is
         return r;
 
     }
+
+    /// @dev *Any* address can get a valid whitelisted account's
+    ///      address if they pass in (one of) its contentId(s).
+    function getAddressByContentId(
+        string calldata contentId
+    )
+        external
+        view
+        returns (address target)
+    {
+
+        address target = contentIdToAddress[contentId];
+
+        require(
+            isWhitelisted[registrantAddress],
+            'INVALID_ADDRESS'
+        );
+
+        return target;
+    }
+
+
+    /*** User-facing functions to update an account's own registry status ***/
 
 
     /// @dev Valid whitelisted address can remove its own content id.
@@ -418,6 +487,9 @@ contract Registry is
     }
 
 
+    /*** Contract-to-contract read function  ***/
+
+
     /// @dev Valid whitelisted address validates registration of its own
     ///      single contentId.
     ///      In practice, this will be used by Microsponsors' ERC-721 for
@@ -480,26 +552,6 @@ contract Registry is
 
 
     /***  Helpers  ***/
-
-
-    /// @dev Check if an address has *ever* registered,
-    /// regardless of isWhitelisted status
-    function hasRegistered (
-        address target
-    )
-        public
-        view
-        returns(bool)
-    {
-
-        bool _hasRegistered = false;
-        for (uint i=0; i<registrants.length; i++) {
-            if (registrants[i] == target) {
-                return _hasRegistered = true;
-            }
-        }
-
-    }
 
 
     function stringsMatch (
