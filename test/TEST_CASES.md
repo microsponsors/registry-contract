@@ -57,15 +57,12 @@ Is pausable.
 * @param `contentId`: UTF8 encoded Microsponsors contentId (see utils.js)
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
-r.adminUpdate(
-  "0xc835cf67962948128157de5ca5b55a4e75f572d2",
-  "dns%3Afoo.com",
-  true)
+r.adminUpdate("0xc835cf67962948128157de5ca5b55a4e75f572d2","dns%3Afoo.com",true)
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
 
 #### adminUpdateWithReferrer()
-Admin: Same params as `adminUpdate` with one additional, below:
+Admin: Same params as `adminUpdate` with the additional param for `referrer` address. All-or-nothing operation -- will *not* update the `target` address with `contentId` or `isApproved` boolean if something goes wrong with setting the `referrer` (ex: `target` has never registered, or `referrer` !isWhitelisted, or the `target` and the `referrer` are the same). Note that the `target` only needs to have registered (does not need to be whitelisted at time referrer is set).
 Is pausable.
 * @param `referrer`: the address referring the target, only if `isWhitelisted`
 ```
@@ -85,10 +82,7 @@ Is pausable.
 * @param `target`: Address to add or remove from whitelist.
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```
-r.adminUpdateWhitelistStatus(
-  "0xc835cf67962948128157de5ca5b55a4e75f572d2",
-  false
-);
+r.adminUpdateWhitelistStatus("0xc835cf67962948128157de5ca5b55a4e75f572d2",false);
 ```
 
 #### adminRemoveContentIdFromAddress()
@@ -96,10 +90,7 @@ Is pausable.
 * @param `target`: Address to remove content id from.
 * @param `contentId`: Content id to remove.
 ```
-r.adminRemoveContentIdFromAddress(
-  "0xc835cf67962948128157de5ca5b55a4e75f572d2",
-  "dns%3Afoo.com"
-);
+r.adminRemoveContentIdFromAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2","dns%3Afoo.com");
 ```
 
 #### adminRemoveAllContentIdsFromAddress()
