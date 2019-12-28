@@ -161,6 +161,13 @@ contract Registry is
             'INVALID_REFERRER'
         );
 
+        // Revert transaction (refund gas) if
+        // the target and referrer are the same
+        require(
+            target != referrer,
+            'INVALID_REFERRER'
+        );
+
         registrantToReferrer[target] = referrer;
 
     }
