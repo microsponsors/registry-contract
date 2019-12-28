@@ -354,7 +354,7 @@ contract Registry is
     )
         external
         view
-        returns (address target)
+        returns (address)
     {
 
         // Will throw error if specified index does not exist
@@ -402,13 +402,13 @@ contract Registry is
     )
         external
         view
-        returns (address target)
+        returns (address)
     {
 
         address target = contentIdToAddress[contentId];
 
         require(
-            isWhitelisted[registrantAddress],
+            isWhitelisted[target],
             'INVALID_ADDRESS'
         );
 

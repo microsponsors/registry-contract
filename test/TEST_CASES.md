@@ -37,7 +37,7 @@
 
 ## Local Setup
 
-Start ganache, then truffle console locally:
+Start ganache in one terminal locally, then truffle console in another:
 ```
 $ ganache-cli -p 8545
 $ truffle console --network development
@@ -174,7 +174,7 @@ Get number of addresses that have ever registered, regardless of isWhitelisted s
 #### getRegistrantByIndex()
 Any address can get a valid whitelisted account address by registrant index number.
 * @param `index` number
-* @returns `target` address
+* @returns address
 ```
 r.getRegistrantByIndex(0);
 ```
@@ -190,7 +190,7 @@ r.getContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2", {from: "0
 #### getAddressByContentId()
 Admin: Get valid whitelist address mapped to a contentId.
 * @param `contentId`
-* @returns `target` address
+* @returns address
 ```
 r.adminGetAddressByContentId("dns%3Afoo.com")
 ```
