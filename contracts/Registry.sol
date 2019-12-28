@@ -131,9 +131,9 @@ contract Registry is
             'INVALID_REFERRER'
         );
 
-        adminUpdateRegistrantToReferrer(target, referrer);
-
         adminUpdate(target, contentId, isApproved);
+
+        adminUpdateRegistrantToReferrer(target, referrer);
 
     }
 
