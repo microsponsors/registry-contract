@@ -1,5 +1,9 @@
 # DEPLOYS
 
+### 2019.12.27
+git tag: v1.1
+* Ropsten: [0xf7f61b1023eb57f47380a7402629ed55911fbca4](https://ropsten.etherscan.io/address/0xf7f61b1023eb57f47380a7402629ed55911fbca4)
+
 ### 2019.12.23
 git tag: v1.0
 * Ropsten: [0xbc2bbaf356d1a31f464d22aa742eef30aadf7e97](https://ropsten.etherscan.io/address/0xbc2bbaf356d1a31f464d22aa742eef30aadf7e97)
