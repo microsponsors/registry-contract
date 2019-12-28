@@ -1,8 +1,8 @@
 # Proof-of-Content Registry Contract
 
-On-chain registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean and any `contentId` they wish to associate with that address, as defined in our [utils.js library here](https://github.com/microsponsors/utils.js#contentid).
+The on-chain Registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean, the timestamp of the block the account was registered in, and any `contentId` the account wishes to associate with their address, as defined in our utils.js library [here](https://github.com/microsponsors/utils.js#contentid).
 
-Also maps a registrant to the address that referred them, plus the timestamp of when they were referred so we can reward the referrer for a period of time.
+The Registry also records which address acted as the `referrer` for each registered address so we can reward them.
 
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
@@ -43,6 +43,10 @@ This stack seems to be sensitive to versioning, so capturing details of local se
 #### Git tag + DEPLOYS.md
 Each public network deployment is git tagged (starting with `v0.1`) and recorded in [DEPLOYS.md](DEPLOYS.md)
 
+---
+
+## How To Use
+See `test/TEST_CASES.md`
 
 ---
 
@@ -60,4 +64,7 @@ $ truffle compile
 $ truffle migrate --network development
 ```
 ...per instructions in [0x Monorepo here](https://github.com/0xProject/0x-monorepo/tree/development/contracts/exchange)
+
+
+
 
