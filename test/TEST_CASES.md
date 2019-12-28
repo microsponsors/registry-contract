@@ -37,9 +37,10 @@
 
 ## Local Setup
 
-Start ganache in one terminal locally, then truffle console in another:
+Start ganache in one terminal locally, then deploy and start truffle console in another:
 ```
 $ ganache-cli -p 8545
+$ npm run deploy
 $ truffle console --network development
 > Registry.deployed().then(inst => { r = inst })
 ```
