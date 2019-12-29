@@ -1,16 +1,23 @@
 
-// File: @0x/contracts-utils/contracts/src/interfaces/IOwnable.sol
+// File: contracts/IOwnable.sol
+
+// Adaped from "@0x/contracts-utils/contracts/src/interfaces/IOwnable.sol";
 
 pragma solidity ^0.5.5;
 
 
 contract IOwnable {
 
-    function transferOwnership(address newOwner)
+    function transferOwnership1(address newOwner)
+        public;
+
+    function transferOwnership2(address newOwner)
         public;
 }
 
-// File: @0x/contracts-utils/contracts/src/Ownable.sol
+// File: contracts/Ownable.sol
+
+// Adaped from "@0x/contracts-utils/contracts/src/Ownable.sol";
 
 pragma solidity ^0.5.5;
 
@@ -19,30 +26,42 @@ pragma solidity ^0.5.5;
 contract Ownable is
     IOwnable
 {
-    address public owner;
+    address public owner1;
+    address public owner2;
 
     constructor ()
         public
     {
-        owner = msg.sender;
+        owner1 = msg.sender;
+        owner2 = msg.sender;
     }
 
     modifier onlyOwner() {
         require(
-            msg.sender == owner,
+            (msg.sender == owner1) || (msg.sender == owner2),
             "ONLY_CONTRACT_OWNER"
         );
         _;
     }
 
-    function transferOwnership(address newOwner)
+    function transferOwnership1(address newOwner)
         public
         onlyOwner
     {
         if (newOwner != address(0)) {
-            owner = newOwner;
+            owner1 = newOwner;
         }
     }
+
+    function transferOwnership2(address newOwner)
+        public
+        onlyOwner
+    {
+        if (newOwner != address(0)) {
+            owner2 = newOwner;
+        }
+    }
+
 }
 
 // File: contracts/Registry.sol

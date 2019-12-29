@@ -218,30 +218,40 @@ r.isContentIdRegisteredToCaller("dns%3Afoo.com")
 
 ## Contract Admin
 
-### Contract Owner
+### Contract Owners
+There are two contract owners which have equivalent Admin roles in this contract. Both are set during contract creation to the `msg.sender` and can be updated at any time (regardless of whether contract is paused or not).
 
-#### owner()
-Public function that returns contract owner (aka "Admin" here).
+#### owner1()
+Public function that returns contract owner1 ("Admin" role #1).
 ```
-r.owner()
+r.owner1()
+```
+#### owner2()
+Public function that returns contract owner2 ("Admin" role #2).
+```
+r.owner2()
 ```
 
 ### Transfer Ownership
 
-#### transferOwnership()
-* @param `newOwner`: Address to transfer ownership of contract to
+#### transferOwnership1()
+* @param `newOwner`: Address to transfer Owner/Admin role of contract to
+
+#### transferOwnership2()
+* @param `newOwner`: Address to transfer Owner/Admin role of contract to
+
 
 ### Pause Contract
 
 #### paused()
-Public function for querying if this registry contract is paused or not.
+Public function for querying status registry contract is paused or not.
 * @returns boolean
 
 #### pause()
-Admin only: Pauses updating of contract state (updating whitelist statuses, content registrations, referrals, etc). Does not stop reads or content id validation in `isContentIdRegisteredToCaller()` used by our ERC-721s.
+Owner/Admin only: Pauses updating of contract state (updating whitelist statuses, content registrations, referrals, etc). Does not stop reads or content id validation in `isContentIdRegisteredToCaller()` used by our ERC-721s.
 
 #### unpause()
-Admin only: Unpause updating of registry contract state.
+Owner/Admin only: Unpause updating of registry contract state.
 
 
 
