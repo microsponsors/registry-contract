@@ -43,6 +43,11 @@ $ ganache-cli -p 8545
 $ npm run deploy
 $ truffle console --network development
 > Registry.deployed().then(inst => { r = inst })
+> admin = "<paste 1st address from ganache>"
+> account1 = "<paste from ganache>"
+> account2 = "<paste from ganache>"
+> account3 = "<paste from ganache>"
+> contractAddr = "<paste from ganache>"
 ```
 The following test scenarios assume you're querying from truffle console.
 `r` = registry instance created when you deployed the Registry (above).
@@ -56,8 +61,12 @@ Is pausable.
 * @param `target`: Address to add or remove from whitelist.
 * @param `contentId`: UTF8 encoded Microsponsors contentId (see utils.js)
 * @param `isApproved`: isWhitelisted status boolean for address.
-```
-r.adminUpdate("0xc835cf67962948128157de5ca5b55a4e75f572d2","dns%3Afoo.com",true)
+```javascript
+r.adminUpdate(account1, "dns%3Afoo.com", true);
+r.adminUpdate(account2, "dns%3Abar.com", true);
+r.adminUpdate(account2, "dns%3Abaz.com", true, {from: account2});
+// --> should error "ONLY_CONTRACT_OWNER"
+r.adminUpdate(account3, "dns%3Azap.com", true);
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
 
@@ -65,8 +74,8 @@ The `contentId` is designed to be pretty flexible in this contract (just a simpl
 Admin: Same params as `adminUpdate` with the additional param for `referrer` address. All-or-nothing operation -- will *not* update the `target` address with `contentId` or `isApproved` boolean if something goes wrong with setting the `referrer` (ex: `target` has never registered, or `referrer` !isWhitelisted, or the `target` and the `referrer` are the same). Note that the `target` only needs to have registered (does not need to be whitelisted at time referrer is set).
 Is pausable.
 * @param `referrer`: the address referring the target, only if `isWhitelisted`
-```
-r.adminUpdateWithReferrer("0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30", "dns%3Abaz.com", true, "0xc835cf67962948128157de5ca5b55a4e75f572d2");
+```javascript
+r.adminUpdateWithReferrer(account2, "dns%3Abaz.com", true, account1);
 ```
 
 #### adminUpdateRegistrantToReferrer()
@@ -75,123 +84,148 @@ Only if target has registered (whitelist status does not matter) and referrer `i
 Is pausable.
 * @param `target`: the registrant, regardless of their `isWhitelisted` status.
 * @param `referrer`: the address referring the target, only if `isWhitelisted`
+```javascript
+r.adminUpdateRegistrantToReferrer(account2, account3);
+r.adminUpdateRegistrantToReferrer(account2, admin);
+// --> should error since admin acct is !isWhitelisted
+```
 
 #### adminUpdateWhitelistStatus()
 Admin: Add or remove address from whitelist (set isWhitelisted to false).
 Is pausable.
 * @param `target`: Address to add or remove from whitelist.
 * @param `isApproved`: isWhitelisted status boolean for address.
-```
-r.adminUpdateWhitelistStatus("0xc835cf67962948128157de5ca5b55a4e75f572d2",false);
+```javascript
+r.adminUpdateWhitelistStatus(account1, false);
+r.isWhitelisted(account1);
+// --> should return false
 ```
 
 #### adminRemoveContentIdFromAddress()
 Is pausable.
 * @param `target`: Address to remove content id from.
 * @param `contentId`: Content id to remove.
-```
-r.adminRemoveContentIdFromAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2","dns%3Afoo.com");
+```javascript
+r.adminRemoveContentIdFromAddress(account1, "dns%3Afoo.com");
 ```
 
 #### adminRemoveAllContentIdsFromAddress()
 Admin removes *all* contentIds from a given address, regardless of isWhitelisted status. Auto-removes account from isWhitelisted.
 Is pausable.
 @param `target`: Address to remove all content ids from
-```
-r.adminRemoveAllContentIdsFromAddress(
-  "0xc835cf67962948128157de5ca5b55a4e75f572d2"
-);
+```javascript
+r.adminRemoveAllContentIdsFromAddress(account1);
 ```
 
 #### adminGetAddressByContentId()
 Admin: Get any address mapped to a contentId, regardless of isWhitelisted status.
 * @param `contentId`
 * @returns `target` address
-```
-r.adminGetAddressByContentId("dns%3Afoo.com")
+```javascript
+r.adminGetAddressByContentId("dns%3Abar.com");
+// --> should return registrant address
+r.adminGetAddressByContentId("dns%3Afoo.com");
+// --> should return 0 address since it was removed earlier
+r.adminGetAddressByContentId("dns%3Abar.com", {from: account2});
+// --> should error 'ONLY_CONTRACT_OWNER'
 ```
 
 #### adminGetContentIdsByAddress()
 Admin: Get the contentId mapped to any address, regardless of whitelist status.
 * @param target
 * @returns array of contentId strings
-```
-r.adminGetContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+```javascript
+r.adminGetContentIdsByAddress(account1);
 ```
 
 #### adminGetRegistrantByIndex()
 Admin: Return registrant address by index (integer), regardless of isWhitelisted status.
 * @param `index` represents the slot in public `registrants` array.
 * @returns address or error if index does not exist.
-```
-> r.adminGetRegistrantByIndex(0)
+```javascript
+r.adminGetRegistrantByIndex(0);
 ```
 
 
-## External/public -facing Functions:
+## External/public-facing Registry Functions:
 
 #### isWhitelisted()
 Check isWhitelisted status boolean for an address.
 Returns boolean.
-```
-> r.isWhitelisted("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+```javascript
+r.isWhitelisted(account1, {from: account1 });
+// --> false (we removed all contentIds from acct1 so its not whitelisted)
+r.isWhitelisted(account2, {from: account1 });
+// --> true
 ```
 
 #### registantTimestamp()
 Any address can check the `block.timestamp` of when a registrant was registered, regardless of `isWhitelisted` status.
-```
-> r.registrantTimestamp("0xc835cf67962948128157de5ca5b55a4e75f572d2");
+```javascript
+r.registrantTimestamp(account1, {from: account2});
 ```
 
 #### registrantToReferrer()
 Any address can get the address that referred a registrant, regardless of `isWhitelisted` status of either.
-```
-> r.registrantToReferrer("0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30");
+```javascript
+r.registrantToReferrer(account1);
+r.registrantToReferrer(account2);
 ```
 
 #### hasRegistered()
 Any address can check if any address has ever registered, regardless of isWhitelisted status of either.
 Returns boolean.
-```
-> r.hasRegistered("0xc835cf67962948128157de5ca5b55a4e75f572d2")
+```javascript
+r.hasRegistered(account1);
 ```
 
 #### getRegistrantCount()
 Get number of addresses that have ever registered, regardless of isWhitelisted status.
 * @returns # of registrants as a Big Number
-```
-> r.getRegistrantCount()
+```javascript
+r.getRegistrantCount({ from: account2 });
+r.getRegistrantCount({ from: account1 });
+// --> both should return Big Number, regardless of `from` whitelisted status
 ```
 
 #### getRegistrantByIndex()
 Any address can get a valid whitelisted account address by registrant index number.
 * @param `index` number
 * @returns address
-```
+```javascript
+r.getRegistrantByIndex(1);
+// --> returns account address
 r.getRegistrantByIndex(0);
+// --> should error "INVALID_ADDRESS" since this acct is not whitelisted now
 ```
 
 #### getContentIdsByAddress()
 Any address can get the contentIds mapped to a valid whitelisted address.
 * @param `target` address
 * @returns array of contentId strings
-```
-r.getContentIdsByAddress("0xc835cf67962948128157de5ca5b55a4e75f572d2", {from: "0xa10d39dd0224f1c1b670a699cd85c1a794bcdf30"})
+```javascript
+r.getContentIdsByAddress(account3, {from: account2});
+// --> returns account3's contentIds
+r.getContentIdsByAddress(account1, {from: account2});
+// --> should error since account1 is no longer whitelisted
 ```
 
 #### getAddressByContentId()
-Admin: Get valid whitelist address mapped to a contentId.
+Any account can get valid whitelist address mapped to a contentId.
 * @param `contentId`
 * @returns address
-```
-r.adminGetAddressByContentId("dns%3Afoo.com")
+```javascript
+r.getAddressByContentId("dns%3Abaz.com", {from: account1});
+// --> should return registrant address
+r.getAddressByContentId("dns%3Afoo.com", {from: account2});
+// --> should error "INVALID_ADDRESS" since acct is not whitelisted
 ```
 
 #### removeContentIdFromAddress()
-Valid whitelisted address can remove its own content id. Auto-removes address from isWhitelisted.
+Valid whitelisted address can remove its own content id. Auto-removes address from `isWhitelisted`.
 Is pausable.
 * @param `contentId`: Content id to remove.
-```
+```javascript
 r.removeContentIdFromAddress("dns%3Afoo.com");
 ```
 
@@ -199,10 +233,8 @@ r.removeContentIdFromAddress("dns%3Afoo.com");
 Valid whitelisted address can remove *all* contentIds from itself. Auto-removes address from isWhitelisted.
 Is pausable.
 @param `target`: Address to remove all content ids from
-```
-r.removeAllContentIdsFromAddress(
-  "0xc835cf67962948128157de5ca5b55a4e75f572d2"
-);
+```javascript
+r.removeAllContentIdsFromAddress(account2);
 ```
 
 #### isContentIdRegisteredToCaller()
@@ -210,8 +242,14 @@ Valid whitelisted address confirms registration of its own single content id.
 Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the token minting process to confirm that the calling address has the right to mint tokens against a contentId.
 * @param `contentId`: UTF8 encoded Microsponsors SRN (see utils.js lib).
 * @returns boolean
-```
-r.isContentIdRegisteredToCaller("dns%3Afoo.com")
+```javascript
+r.isContentIdRegisteredToCaller("dns%3Azap.com", {from: account3 });
+// --> true
+r.isContentIdRegisteredToCaller("dns%3Azap.com", {from: account2 });
+// --> should error "INVALID_SENDER" since account2 doesn't have this contentId
+r.isContentIdRegisteredToCaller("dns%3Afoo.com", {from: account1 });
+// --> should error "INVALID SENDER" since account1 is not whitelisted anymore
+
 ```
 
 ---
@@ -236,10 +274,15 @@ r.owner2()
 
 #### transferOwnership1()
 * @param `newOwner`: Address to transfer Owner/Admin role of contract to
+```javascript
+ r.transferOwnership1(account1)
+```
 
 #### transferOwnership2()
 * @param `newOwner`: Address to transfer Owner/Admin role of contract to
-
+```javascript
+ r.transferOwnership2(account2)
+```
 
 ### Pause Contract
 
@@ -253,6 +296,15 @@ Owner/Admin only: Pauses updating of contract state (updating whitelist statuses
 #### unpause()
 Owner/Admin only: Unpause updating of registry contract state.
 
+---
 
+## Other Scenarios
 
-
+#### reject `sendTransaction()`
+We are rejecting all ETH from being sent here, to prevent accidents.
+```javascript
+web3.eth.sendTransaction({ from: admin, to: contractAddr, value: '1' });
+//  --> should throw error!
+web3.eth.getBalance(contractAddr);
+//  --> should still be 0
+```

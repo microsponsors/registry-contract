@@ -625,6 +625,20 @@ contract Registry is
     }
 
 
+    /*** Prevent Accidents! ***/
+
+
+    /// @notice No tipping!
+    /// @dev Reject all Ether from being sent here.
+    /// (Hopefully, we can prevent user accidents.)
+    ///  Hat-tip to Cryptokitties.
+    function() external payable {
+        require(
+            msg.sender == address(0)
+        );
+    }
+
+
     /***  Helpers  ***/
 
 
