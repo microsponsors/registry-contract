@@ -1,4 +1,4 @@
-# Proof-of-Content Registry Contract
+# Microsponsors Proof-of-Content Registry Contract
 
 The on-chain Registry that maps a users' Ethereum `address` to an `isWhitelisted` boolean, the timestamp of the block the account was registered in, and any `contentId` the account wishes to associate with their address, as defined in our utils.js library [here](https://github.com/microsponsors/utils.js#contentid).
 
@@ -6,6 +6,18 @@ The Registry also records which address acted as the `referrer` for each registe
 
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
+## Path to Federation
+The long-term plan is to create a path for Microsponsors to federate: encouraging other organizations to create their own exchange front-ends with their own set of granular rules about minting Micropsponsors tokens, selling and re-selling, cross-exchange arbitrage, etc etc.
+
+The functions in this contract that will enable federation are below; they are currently called directly by Microsponsors' ERC-721 token contract. When we are ready to federate, we can create another smart contract that keeps track of partner Registry addresses (this contract will become just one instance of a Microsponsors Registry among many), and forward the follwoing calls to the appropriate partner contract for each token:
+
+```javascript
+function isContentIdRegisteredToCaller(string calldata contentId) public view returns(bool);
+function isMinter(address account) public view returns (bool);
+function isTrader(address account) public view returns(bool);
+function isAuthorizedTransferFrom(address from, address to, uint256 tokenId) public view returns(bool);
+function isAuthorizedResale(address from, address to, uint256 tokenId) public view returns(bool);
+```
 
 ## Install, Develop, Deploy
 
