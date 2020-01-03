@@ -174,7 +174,7 @@ contract Registry is
         address previous = registrantToReferrer[registrant];
 
         if (previous != 0x0000000000000000000000000000000000000000) {
-            address[] a = referrerToRegistrants[previous];
+            address[] memory a = referrerToRegistrants[previous];
             for (uint i = 0; i < a.length; i++) {
                 if (a[i] == registrant) {
                     a[i] = 0x0000000000000000000000000000000000000000;
