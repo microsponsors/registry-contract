@@ -256,6 +256,34 @@ r.isContentIdRegisteredToCaller("dns%3Afoo.com", {from: account1 });
 
 ```
 
+#### isMinter()
+Public permissions check.
+```javascript
+r.isMinter(account1);
+r.isMinter(account3);
+```
+
+#### isTrader()
+Public permissions check.
+```javascript
+r.isTrader(account1);
+r.isTrader(account3);
+```
+
+#### isAuthorizedTransferFrom()
+Public permissions check.
+```javascript
+r.isAuthorizedTransferFrom(account2, account3, 1);
+r.isAuthorizedTransferFrom(account1, account3, 1);
+```
+
+#### isAuthorizeResale()
+Public permissions check.
+```javascript
+r.isAuthorizedResale(account2, account3, 1);
+r.isAuthorizedResale(account1, account3, 1);
+```
+
 ---
 
 ## Contract Admin
