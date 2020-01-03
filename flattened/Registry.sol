@@ -112,6 +112,9 @@ contract Registry is
     // Map each registrant's address to the address that referred them.
     mapping (address => address) public registrantToReferrer;
 
+    // Map each referrer's address to array of addresses they referred.
+    mapping (address => address[]) public referrerToRegistrants;
+
     // Map address => array of ContentId structs.
     // Using struct because there is not mapping to an array of strings in Solidity at this time.
     struct ContentIdStruct {
@@ -200,13 +203,13 @@ contract Registry is
 
         adminUpdate(target, contentId, isApproved);
 
-        adminUpdateRegistrantToReferrer(target, referrer);
+        adminUpdateReferrer(target, referrer);
 
     }
 
 
-    function adminUpdateRegistrantToReferrer(
-        address target,
+    function adminUpdateReferrer(
+        address registrant,
         address referrer
     )
         public
@@ -215,9 +218,9 @@ contract Registry is
     {
 
         // Revert transaction (refund gas) if
-        // the target address has never registered
+        // the registrant has never registered
         require(
-            hasRegistered(target),
+            hasRegistered(registrant),
             'INVALID_TARGET'
         );
 
@@ -231,11 +234,23 @@ contract Registry is
         // Revert transaction (refund gas) if
         // the target and referrer are the same
         require(
-            target != referrer,
+            registrant != referrer,
             'INVALID_REFERRER'
         );
 
-        registrantToReferrer[target] = referrer;
+        address previous = registrantToReferrer[registrant];
+
+        if (previous != 0x0000000000000000000000000000000000000000) {
+            address[] memory a = referrerToRegistrants[previous];
+            for (uint i = 0; i < a.length; i++) {
+                if (a[i] == registrant) {
+                    a[i] = 0x0000000000000000000000000000000000000000;
+                }
+            }
+        }
+
+        registrantToReferrer[registrant] = referrer;
+        referrerToRegistrants[referrer].push(registrant);
 
     }
 
