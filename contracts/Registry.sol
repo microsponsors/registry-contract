@@ -43,10 +43,10 @@ contract Registry is
     mapping (address => uint) public registrantTimestamp;
 
     // Map each registrant's address to the address that referred them.
-    mapping (address => address) public registrantToReferrer;
+    mapping (address => address) private registrantToReferrer;
 
     // Map each referrer's address to array of addresses they referred.
-    mapping (address => address[]) public referrerToRegistrants;
+    mapping (address => address[]) private referrerToRegistrants;
 
     // Map address => array of ContentId structs.
     // Using struct because there is not mapping to an array of strings in Solidity at this time.
@@ -154,7 +154,7 @@ contract Registry is
         // the registrant has never registered
         require(
             hasRegistered(registrant),
-            'INVALID_TARGET'
+            'INVALID_REGISTRANT'
         );
 
         // Revert transaction (refund gas) if
@@ -165,19 +165,26 @@ contract Registry is
         );
 
         // Revert transaction (refund gas) if
-        // the target and referrer are the same
+        // the registrant and referrer are the same
         require(
             registrant != referrer,
             'INVALID_REFERRER'
         );
 
-        address previous = registrantToReferrer[registrant];
+        require(
+            registrantToReferrer[registrant] != referrer,
+            'REFERRER_UPDATE_IS_REDUNDANT'
+        );
 
-        if (previous != 0x0000000000000000000000000000000000000000) {
-            address[] memory a = referrerToRegistrants[previous];
+        address previousReferrer = registrantToReferrer[registrant];
+
+        // If the registrant had a previous referrer, remove the registrant
+        // from referrerToRegistrants[previousReferrer] array
+        if (previousReferrer != 0x0000000000000000000000000000000000000000) {
+            address[] memory a = referrerToRegistrants[previousReferrer];
             for (uint i = 0; i < a.length; i++) {
                 if (a[i] == registrant) {
-                    a[i] = 0x0000000000000000000000000000000000000000;
+                    referrerToRegistrants[previousReferrer][i] = 0x0000000000000000000000000000000000000000;
                 }
             }
         }
@@ -356,7 +363,6 @@ contract Registry is
 
     }
 
-
     /// @dev Returns count of all addresses that have *ever* registered,
     /// regardless of their isWhitelisted status
     function getRegistrantCount ()
@@ -368,7 +374,6 @@ contract Registry is
         return registrants.length;
 
     }
-
 
     /// @dev Returns valid whitelisted account address by registrant index number.
     function getRegistrantByIndex (
@@ -390,6 +395,25 @@ contract Registry is
         return target;
     }
 
+    function getRegistrantToReferrer(address registrant)
+        external
+        view
+        returns (address)
+    {
+
+        return registrantToReferrer[registrant];
+
+    }
+
+    function getReferrerToRegistrants(address referrer)
+        external
+        view
+        returns (address[] memory)
+    {
+
+        return referrerToRegistrants[referrer];
+
+    }
 
     /// @dev *Any* address can get a valid whitelisted account's contentIds.
     ///      In practice, this is called from dapp(s).
@@ -476,7 +500,6 @@ contract Registry is
         }
 
     }
-
 
     /// @dev Valid whitelisted address can remove *all* contentIds from itself.
     function removeAllContentIdsFromAddress(

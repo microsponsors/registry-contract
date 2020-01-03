@@ -22,8 +22,8 @@
 #### getRegistrantCount()
 #### getRegistrantByIndex()
 #### registantTimestamp()
-#### registrantToReferrer()
-#### referrerToRegistrants()
+#### getRegistrantToReferrer()
+#### getReferrerToRegistrants()
 #### getAddressByContentId()
 #### getContentIdsByAddress()
 #### removeContentIdFromAddress()
@@ -170,14 +170,14 @@ Any address can check the `block.timestamp` of when a registrant was registered,
 r.registrantTimestamp(account1, {from: account2});
 ```
 
-#### registrantToReferrer()
+#### getRegistrantToReferrer()
 Any address can get the address that referred a registrant, regardless of `isWhitelisted` status of either.
 ```javascript
-r.registrantToReferrer(account1);
-r.registrantToReferrer(account2);
+r.getRegistrantToReferrer(account1);
+r.getRegistrantToReferrer(account2);
 ```
 
-#### referrerToRegistrants()
+#### getReferrerToRegistrants()
 Any address can get the addresses that were referred by a registrant, regardless of `isWhitelisted` status of either.
 ```javascript
 r.referrerToRegistrants(account1);
