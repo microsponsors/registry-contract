@@ -8,7 +8,7 @@
 ## Registry Admin Functions:
 #### adminUpdate()
 #### adminUpdateWithReferrer()
-#### adminUpdateRegistrantToReferrer()
+#### adminUpdateReferrer()
 #### adminUpdateWhitelistStatus()
 #### adminRemoveContentIdFromAddress()
 #### adminRemoveAllContentIdsFromAddress()
@@ -23,6 +23,7 @@
 #### getRegistrantByIndex()
 #### registantTimestamp()
 #### registrantToReferrer()
+#### referrerToRegistrants()
 #### getAddressByContentId()
 #### getContentIdsByAddress()
 #### removeContentIdFromAddress()
@@ -82,15 +83,15 @@ Is pausable.
 r.adminUpdateWithReferrer(account2, "dns%3Abaz.com", true, account1);
 ```
 
-#### adminUpdateRegistrantToReferrer()
-Admin: Update the `registrantToReferrer` mapping.
+#### adminUpdateReferrer()
+Admin: Update the `registrantToReferrer` and `referrerToRegistrants` mappings.
 Only if target has registered (whitelist status does not matter) and referrer `isWhitelisted`.
 Is pausable.
 * @param `target`: the registrant, regardless of their `isWhitelisted` status.
 * @param `referrer`: the address referring the target, only if `isWhitelisted`
 ```javascript
-r.adminUpdateRegistrantToReferrer(account2, account3);
-r.adminUpdateRegistrantToReferrer(account2, admin);
+r.adminUpdateReferrer(account2, account3);
+r.adminUpdateReferrer(account2, admin);
 // --> should error since admin acct is !isWhitelisted
 ```
 
@@ -174,6 +175,13 @@ Any address can get the address that referred a registrant, regardless of `isWhi
 ```javascript
 r.registrantToReferrer(account1);
 r.registrantToReferrer(account2);
+```
+
+#### referrerToRegistrants()
+Any address can get the addresses that were referred by a registrant, regardless of `isWhitelisted` status of either.
+```javascript
+r.referrerToRegistrants(account1);
+r.referrerToRegistrants(account2);
 ```
 
 #### hasRegistered()
