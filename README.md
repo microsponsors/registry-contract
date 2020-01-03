@@ -7,7 +7,7 @@ The Registry also records which address acted as the `referrer` for each registe
 For doc purposes, things here marked `Admin` refer to the `owner` of this smart contract.
 
 ## Path to Federation
-The long-term plan is to create a path for Microsponsors to federate: encouraging other organizations to create their own exchange front-ends with their own set of granular rules about minting Micropsponsors tokens, selling and re-selling, cross-exchange arbitrage, etc etc.
+The long-term plan is to create a path for Microsponsors to federate: encouraging other organizations to create their own exchange front-ends with their own set of granular rules about minting Microsponsors tokens, selling and re-selling, cross-exchange arbitrage, etc etc.
 
 The functions in this contract that will enable federation are below; they are currently called directly by Microsponsors' ERC-721 token contract. When we are ready to federate, we can create another smart contract that keeps track of partner Registry addresses (this contract will become just one instance of a Microsponsors Registry among many), and forward the follwoing calls to the appropriate partner contract for each token:
 
