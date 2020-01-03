@@ -68,7 +68,7 @@ contract Ownable is
 
 /*
 
-  Copyright 2019 Niche Networks, Inc. (owns & operates Microsponsors.io)
+  Copyright 2020 Niche Networks, Inc. (owns & operates Microsponsors.io)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -561,20 +561,29 @@ contract Registry is
     }
 
 
-    /*** Contract-to-contract read function  ***/
+    /*** User roles and authorizations: Contract-to-contract read functions  ***/
+
+
+    /**
+     * The following functions check user Roles and Authorizations.
+     * For now, most of them simply check `isWhitelisted()` in this contract.
+     * But the long-term idea here is to create a path for Microsponsors
+     * to federate: allowing other organizations to create their own
+     * exchange front-ends with their own set of granular rules about minting,
+     * selling and re-selling tokens, cross-exchange arbitrage, etc etc.
+     */
 
 
     /// @dev Valid whitelisted address validates registration of its own
-    ///      single contentId.
-    ///      In practice, this will be used by Microsponsors' ERC-721 for
-    ///      validating that an address is authorized to mint() a time slot
-    ///      for a given content id.
+    ///      Content ID. In practice, this will be used by Microsponsors'
+    ///      ERC-721 for validating that an address is authorized to mint()
+    ///      a time slot for a given content id.
     function isContentIdRegisteredToCaller(
-        string calldata contentId
+        string memory contentId
     )
-        external
+        public
         view
-        returns(bool)
+        returns (bool)
     {
 
         // Check tx.origin (vs msg.sender) since this *is likely* invoked by
@@ -589,6 +598,86 @@ contract Registry is
         require(
             registrantAddress == tx.origin,
             'INVALID_SENDER'
+        );
+
+        return true;
+
+    }
+
+    function isMinter(address account)
+        public
+        view
+        returns (bool)
+    {
+
+        require(
+            isWhitelisted[account],
+            'INVALID_MINTER'
+        );
+
+        return true;
+
+    }
+
+    function isTrader(address account)
+        public
+        view
+        returns (bool)
+    {
+
+        require(
+            isWhitelisted[account],
+            'INVALID_TRADER'
+        );
+
+        return true;
+
+    }
+
+    function isAuthorizedTransferFrom(address from, address to, uint256 tokenId)
+        public
+        view
+        returns (bool)
+    {
+
+        require(
+            isWhitelisted[from],
+            'INVALID_TRADER'
+        );
+
+        require(
+            isWhitelisted[to],
+            'INVALID_TRADER'
+        );
+
+        require(
+            tokenId > 0,
+            'INVALID_TOKEN_ID'
+        );
+
+        return true;
+
+    }
+
+    function isAuthorizedResale(address from, address to, uint256 tokenId)
+        public
+        view
+        returns (bool)
+    {
+
+        require(
+            isWhitelisted[from],
+            'INVALID_TRADER'
+        );
+
+        require(
+            isWhitelisted[to],
+            'INVALID_TRADER'
+        );
+
+        require(
+            tokenId > 0,
+            'INVALID_TOKEN_ID'
         );
 
         return true;
