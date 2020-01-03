@@ -512,7 +512,7 @@ contract Registry is
     ///      ERC-721 for validating that an address is authorized to mint()
     ///      a time slot for a given content id.
     function isContentIdRegisteredToCaller(
-        string calldata contentId
+        string memory contentId
     )
         public
         view
