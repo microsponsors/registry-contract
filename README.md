@@ -9,7 +9,7 @@ For doc purposes, things here marked `Admin` refer to the `owner` of this smart 
 ## Path to Federation
 The long-term plan is to create a path for Microsponsors to federate: encouraging other organizations to create their own exchange front-ends with their own set of granular rules about minting Microsponsors tokens, selling and re-selling, cross-exchange arbitrage, etc etc.
 
-The functions in this contract that will enable federation are below; they are currently called directly by Microsponsors' ERC-721 token contract. When we are ready to federate, we can create another smart contract that keeps track of partner Registry addresses (this contract will become just one instance of a Microsponsors Registry among many), and forward the follwoing calls to the appropriate partner contract for each token:
+The functions in this contract that will enable federation are below; they are currently called directly by Microsponsors' ERC-721 token contract. When we are ready to federate, we can create another smart contract that keeps track of Federation Registry addresses (this contract will become just one instance of a Microsponsors Registry among many), and forward the following calls to the appropriate contract address for each token according to its `federationId` mapping in the ERC-721 contract:
 
 ```javascript
 function isContentIdRegisteredToCaller(string calldata contentId) public view returns(bool);
