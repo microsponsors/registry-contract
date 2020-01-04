@@ -630,31 +630,6 @@ contract Registry is
 
     }
 
-    function isAuthorizedResale(address from, address to, uint256 tokenId)
-        public
-        view
-        returns (bool)
-    {
-
-        require(
-            isWhitelisted[from],
-            'INVALID_TRADER'
-        );
-
-        require(
-            isWhitelisted[to],
-            'INVALID_TRADER'
-        );
-
-        require(
-            tokenId > 0,
-            'INVALID_TOKEN_ID'
-        );
-
-        return true;
-
-    }
-
 
     /*** Pausable: Adapted from OpenZeppelin (via Cryptokitties) ***/
 
