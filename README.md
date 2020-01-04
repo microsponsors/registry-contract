@@ -14,7 +14,7 @@ Note that there *are* transfer restrictions on Microsponsors tokens that are enf
 3. When we do support token sales to third-parties, it needs to be third-parties approved by the minter (Creator) to ensure that Creators' time slots aren't sold to individuals or organizations they do not wish to represent.
 
 ## Path to Federation
-The long-term plan is to create a path for Microsponsors to federate (think: DAOs, game studios, media orgs, agencies, etc.). We will encourage other organizations to create their own exchange front-ends with their own set of rules about minting Microsponsors tokens, selling and re-selling, cross-exchange arbitrage, etc etc.
+The long-term plan is to create a path for Microsponsors to federate (think: game studios, media orgs, agencies, DAOs, etc.). We will encourage other organizations to create their own exchange front-ends with their own set of rules about minting Microsponsors tokens, selling and re-selling, cross-exchange arbitrage, etc etc.
 
 The functions in this contract that will enable federation as well as transfer restrictions are below; they are currently called directly by Microsponsors' ERC-721 token contract. When we are ready to federate, we can create another smart contract that keeps track of the Federation registry addresses (this contract will become just one instance of a Microsponsors Registry among many), and forward the following calls to the appropriate contract address for each token according to its `federationId` mapping in the ERC-721 contract:
 
