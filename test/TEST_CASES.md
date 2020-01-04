@@ -1,11 +1,21 @@
 # Test Cases
 
-## Contract Admin Functions:
+## Admin: Contract
 #### pause()
 #### unpause()
-#### transferOwnership()
 
-## Registry Admin Functions:
+## Admin: Ownership
+#### owner1()
+#### transferOwnership1()
+#### owner2()
+#### transferOwnership2()
+
+## Admin: Minting & Trade Restrictions
+#### isGlobalResaleEnabled()
+#### enableGlobalResale()
+#### disableGlobalResale()
+
+## Admin: Registry Mgmt
 #### adminUpdate()
 #### adminUpdateWithReferrer()
 #### adminUpdateReferrer()
@@ -34,7 +44,6 @@
 #### isMinter()
 #### isTrader()
 #### isAuthorizedTransferFrom()
-#### isAuthorizedResale
 
 ---
 

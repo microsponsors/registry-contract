@@ -27,6 +27,13 @@ contract Registry is
 {
 
 
+    // Pause. When true, Registry updates are paused.
+    bool public paused = false;
+
+    /// @dev isGlobalResaleEnabled Admin only. When false, token buyers cannot resell tokens.
+    bool public isGlobalResaleEnabled = false;
+
+
     /***  Microsponsors Registry Data:  ***/
 
 
@@ -58,9 +65,6 @@ contract Registry is
     // Map contentId => address (for reverse-lookups)
     mapping (string => address) private contentIdToAddress;
 
-    // Pause. When true, Registry state updates and 0x order fills are blocked.
-    bool public paused = false;
-
 
     /***  Constructor  ***/
 
@@ -71,7 +75,49 @@ contract Registry is
     }
 
 
-    /***  Admin functions (onlyOwner) that mutate registry state  ***/
+    /*** Admin Pause: Adapted from OpenZeppelin (via Cryptokitties) ***/
+
+
+    /// @dev Modifier to allow actions only when the contract IS NOT paused
+    modifier whenNotPaused() {
+        require(!paused);
+        _;
+    }
+
+    /// @dev Modifier to allow actions only when the contract IS paused
+    modifier whenPaused {
+        require(paused);
+        _;
+    }
+
+    /// @dev Called by contract owner to pause actions on this contract
+    function pause() external onlyOwner whenNotPaused {
+        paused = true;
+    }
+
+    /// @dev Called by contract owner to unpause the smart contract.
+    /// @notice This is public rather than external so it can be called by
+    ///  derived contracts.
+    function unpause() public onlyOwner whenPaused {
+        paused = false;
+    }
+
+
+    /** Admin: Minting & Trade Restrictions ***/
+
+
+    /// @dev Called by contract owner to enable token transfer (resale) by buyers.
+    function enableGlobalResale() public onlyOwner {
+        isGlobalResaleEnabled = true;
+    }
+
+    /// @dev Called by contract owner to disable token tranfer (resale) by buyers.
+    function disableGlobalResale() public onlyOwner {
+        isGlobalResaleEnabled = false;
+    }
+
+
+    /***  Admin: Registry Management  ***/
 
 
     /// @dev Admin registers an address with a contentId.
@@ -341,7 +387,7 @@ contract Registry is
     }
 
 
-    /*** User-facing functions for reading registry status ***/
+    /*** User-facing functions for reading registry state ***/
 
 
     /// @dev Any address can check if an address has *ever* registered,
@@ -462,7 +508,7 @@ contract Registry is
     }
 
 
-    /*** User-facing functions to update an account's own registry status ***/
+    /*** User-facing functions to update an account's own registry state ***/
 
 
     /// @dev Valid whitelisted address can remove its own content id.
@@ -605,7 +651,13 @@ contract Registry is
 
     }
 
-    function isAuthorizedTransferFrom(address from, address to, uint256 tokenId)
+    function isAuthorizedTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId,
+        address minter,
+        address owner
+    )
         public
         view
         returns (bool)
@@ -613,12 +665,12 @@ contract Registry is
 
         require(
             isWhitelisted[from],
-            'INVALID_TRADER'
+            'INVALID_TRANSFER_FROM'
         );
 
         require(
             isWhitelisted[to],
-            'INVALID_TRADER'
+            'INVALID_TRANSFER_TO'
         );
 
         require(
@@ -626,51 +678,18 @@ contract Registry is
             'INVALID_TOKEN_ID'
         );
 
+        // Flag to enforce restrictions on third-party trading
+        if (isGlobalResaleEnabled == false) {
+
+            require(
+                from == minter || to == minter,
+                'INVALID_TRANSFER'
+            );
+
+        }
+
         return true;
 
-    }
-
-
-    /*** Pausable: Adapted from OpenZeppelin (via Cryptokitties) ***/
-
-
-    /// @dev Modifier to allow actions only when the contract IS NOT paused
-    modifier whenNotPaused() {
-        require(!paused);
-        _;
-    }
-
-    /// @dev Modifier to allow actions only when the contract IS paused
-    modifier whenPaused {
-        require(paused);
-        _;
-    }
-
-    /// @dev Called by contract owner to pause actions on this contract
-    function pause() external onlyOwner whenNotPaused {
-        paused = true;
-    }
-
-    /// @dev Called by contract owner to unpause the smart contract.
-    /// @notice This is public rather than external so it can be called by
-    ///  derived contracts.
-    function unpause() public onlyOwner whenPaused {
-        // can't unpause if contract was upgraded
-        paused = false;
-    }
-
-
-    /*** Prevent Accidents! ***/
-
-
-    /// @notice No tipping!
-    /// @dev Reject all Ether from being sent here.
-    /// (Hopefully, we can prevent user accidents.)
-    ///  Hat-tip to Cryptokitties.
-    function() external payable {
-        require(
-            msg.sender == address(0)
-        );
     }
 
 
@@ -709,6 +728,20 @@ contract Registry is
 
         return counter;
 
+    }
+
+
+    /*** Prevent Accidents! ***/
+
+
+    /// @notice No tipping!
+    /// @dev Reject all Ether from being sent here.
+    /// (Hopefully, we can prevent user accidents.)
+    ///  Hat-tip to Cryptokitties.
+    function() external payable {
+        require(
+            msg.sender == address(0)
+        );
     }
 
 
