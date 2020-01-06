@@ -68,8 +68,6 @@ contract Ownable is
 
 /*
 
-  Copyright 2020 Niche Networks, Inc. (owns & operates Microsponsors.io)
-
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
