@@ -680,12 +680,12 @@ contract Registry is
 
         require(
             isWhitelisted[minter],
-            'INVALID_TRANSFER'
+            'INVALID_TRANSFER_MINTER'
         );
 
         require(
             isWhitelisted[owner],
-            'INVALID_TRANSFER'
+            'INVALID_TRANSFER_OWNER'
         );
 
         // Flag to enforce restrictions on third-party trading
@@ -693,7 +693,7 @@ contract Registry is
 
             require(
                 from == minter || to == minter,
-                'INVALID_TRANSFER'
+                'INVALID_TRANSFER_GLOBAL_RESALE_DISABLED'
             );
 
         }
