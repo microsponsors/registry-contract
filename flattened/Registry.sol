@@ -745,6 +745,16 @@ contract Registry is
             'INVALID_TOKEN_ID'
         );
 
+        require(
+            isWhitelisted[minter],
+            'INVALID_TRANSFER'
+        );
+
+        require(
+            isWhitelisted[owner],
+            'INVALID_TRANSFER'
+        );
+
         // Flag to enforce restrictions on third-party trading
         if (isGlobalResaleEnabled == false) {
 
