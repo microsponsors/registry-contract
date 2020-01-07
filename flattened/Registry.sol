@@ -68,8 +68,6 @@ contract Ownable is
 
 /*
 
-  Copyright 2019 Niche Networks, Inc. (owns & operates Microsponsors.io)
-
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -94,6 +92,13 @@ contract Registry is
 {
 
 
+    // Pause. When true, Registry updates are paused.
+    bool public paused = false;
+
+    /// @dev isGlobalResaleEnabled Admin only. When false, token buyers cannot resell tokens.
+    bool public isGlobalResaleEnabled = false;
+
+
     /***  Microsponsors Registry Data:  ***/
 
 
@@ -110,7 +115,10 @@ contract Registry is
     mapping (address => uint) public registrantTimestamp;
 
     // Map each registrant's address to the address that referred them.
-    mapping (address => address) public registrantToReferrer;
+    mapping (address => address) private registrantToReferrer;
+
+    // Map each referrer's address to array of addresses they referred.
+    mapping (address => address[]) private referrerToRegistrants;
 
     // Map address => array of ContentId structs.
     // Using struct because there is not mapping to an array of strings in Solidity at this time.
@@ -122,9 +130,6 @@ contract Registry is
     // Map contentId => address (for reverse-lookups)
     mapping (string => address) private contentIdToAddress;
 
-    // Pause. When true, Registry state updates and 0x order fills are blocked.
-    bool public paused = false;
-
 
     /***  Constructor  ***/
 
@@ -135,7 +140,49 @@ contract Registry is
     }
 
 
-    /***  Admin functions (onlyOwner) that mutate registry state  ***/
+    /*** Admin Pause: Adapted from OpenZeppelin (via Cryptokitties) ***/
+
+
+    /// @dev Modifier to allow actions only when the contract IS NOT paused
+    modifier whenNotPaused() {
+        require(!paused);
+        _;
+    }
+
+    /// @dev Modifier to allow actions only when the contract IS paused
+    modifier whenPaused {
+        require(paused);
+        _;
+    }
+
+    /// @dev Called by contract owner to pause actions on this contract
+    function pause() external onlyOwner whenNotPaused {
+        paused = true;
+    }
+
+    /// @dev Called by contract owner to unpause the smart contract.
+    /// @notice This is public rather than external so it can be called by
+    ///  derived contracts.
+    function unpause() public onlyOwner whenPaused {
+        paused = false;
+    }
+
+
+    /** Admin: Minting & Trade Restrictions ***/
+
+
+    /// @dev Called by contract owner to enable token transfer (resale) by buyers.
+    function enableGlobalResale() public onlyOwner {
+        isGlobalResaleEnabled = true;
+    }
+
+    /// @dev Called by contract owner to disable token tranfer (resale) by buyers.
+    function disableGlobalResale() public onlyOwner {
+        isGlobalResaleEnabled = false;
+    }
+
+
+    /***  Admin: Registry Management  ***/
 
 
     /// @dev Admin registers an address with a contentId.
@@ -200,13 +247,13 @@ contract Registry is
 
         adminUpdate(target, contentId, isApproved);
 
-        adminUpdateRegistrantToReferrer(target, referrer);
+        adminUpdateReferrer(target, referrer);
 
     }
 
 
-    function adminUpdateRegistrantToReferrer(
-        address target,
+    function adminUpdateReferrer(
+        address registrant,
         address referrer
     )
         public
@@ -215,10 +262,10 @@ contract Registry is
     {
 
         // Revert transaction (refund gas) if
-        // the target address has never registered
+        // the registrant has never registered
         require(
-            hasRegistered(target),
-            'INVALID_TARGET'
+            hasRegistered(registrant),
+            'INVALID_REGISTRANT'
         );
 
         // Revert transaction (refund gas) if
@@ -229,13 +276,32 @@ contract Registry is
         );
 
         // Revert transaction (refund gas) if
-        // the target and referrer are the same
+        // the registrant and referrer are the same
         require(
-            target != referrer,
+            registrant != referrer,
             'INVALID_REFERRER'
         );
 
-        registrantToReferrer[target] = referrer;
+        require(
+            registrantToReferrer[registrant] != referrer,
+            'REFERRER_UPDATE_IS_REDUNDANT'
+        );
+
+        address previousReferrer = registrantToReferrer[registrant];
+
+        // If the registrant had a previous referrer, remove the registrant
+        // from referrerToRegistrants[previousReferrer] array
+        if (previousReferrer != 0x0000000000000000000000000000000000000000) {
+            address[] memory a = referrerToRegistrants[previousReferrer];
+            for (uint i = 0; i < a.length; i++) {
+                if (a[i] == registrant) {
+                    referrerToRegistrants[previousReferrer][i] = 0x0000000000000000000000000000000000000000;
+                }
+            }
+        }
+
+        registrantToReferrer[registrant] = referrer;
+        referrerToRegistrants[referrer].push(registrant);
 
     }
 
@@ -386,7 +452,7 @@ contract Registry is
     }
 
 
-    /*** User-facing functions for reading registry status ***/
+    /*** User-facing functions for reading registry state ***/
 
 
     /// @dev Any address can check if an address has *ever* registered,
@@ -408,7 +474,6 @@ contract Registry is
 
     }
 
-
     /// @dev Returns count of all addresses that have *ever* registered,
     /// regardless of their isWhitelisted status
     function getRegistrantCount ()
@@ -420,7 +485,6 @@ contract Registry is
         return registrants.length;
 
     }
-
 
     /// @dev Returns valid whitelisted account address by registrant index number.
     function getRegistrantByIndex (
@@ -442,6 +506,25 @@ contract Registry is
         return target;
     }
 
+    function getRegistrantToReferrer(address registrant)
+        external
+        view
+        returns (address)
+    {
+
+        return registrantToReferrer[registrant];
+
+    }
+
+    function getReferrerToRegistrants(address referrer)
+        external
+        view
+        returns (address[] memory)
+    {
+
+        return referrerToRegistrants[referrer];
+
+    }
 
     /// @dev *Any* address can get a valid whitelisted account's contentIds.
     ///      In practice, this is called from dapp(s).
@@ -490,7 +573,7 @@ contract Registry is
     }
 
 
-    /*** User-facing functions to update an account's own registry status ***/
+    /*** User-facing functions to update an account's own registry state ***/
 
 
     /// @dev Valid whitelisted address can remove its own content id.
@@ -529,7 +612,6 @@ contract Registry is
 
     }
 
-
     /// @dev Valid whitelisted address can remove *all* contentIds from itself.
     function removeAllContentIdsFromAddress(
         address target
@@ -561,20 +643,29 @@ contract Registry is
     }
 
 
-    /*** Contract-to-contract read function  ***/
+    /*** User roles and authorizations: Contract-to-contract read functions  ***/
+
+
+    /**
+     * The following functions check user Roles and Authorizations.
+     * For now, most of them simply check `isWhitelisted()` in this contract.
+     * But the long-term idea here is to create a path for Microsponsors
+     * to federate: allowing other organizations to create their own
+     * exchange front-ends with their own set of granular rules about minting,
+     * selling and re-selling tokens, cross-exchange arbitrage, etc etc.
+     */
 
 
     /// @dev Valid whitelisted address validates registration of its own
-    ///      single contentId.
-    ///      In practice, this will be used by Microsponsors' ERC-721 for
-    ///      validating that an address is authorized to mint() a time slot
-    ///      for a given content id.
+    ///      Content ID. In practice, this will be used by Microsponsors'
+    ///      ERC-721 for validating that an address is authorized to mint()
+    ///      a time slot for a given content id.
     function isContentIdRegisteredToCaller(
-        string calldata contentId
+        string memory contentId
     )
-        external
+        public
         view
-        returns(bool)
+        returns (bool)
     {
 
         // Check tx.origin (vs msg.sender) since this *is likely* invoked by
@@ -595,47 +686,85 @@ contract Registry is
 
     }
 
+    function isMinter(address account)
+        public
+        view
+        returns (bool)
+    {
 
-    /*** Pausable: Adapted from OpenZeppelin (via Cryptokitties) ***/
-
-
-    /// @dev Modifier to allow actions only when the contract IS NOT paused
-    modifier whenNotPaused() {
-        require(!paused);
-        _;
-    }
-
-    /// @dev Modifier to allow actions only when the contract IS paused
-    modifier whenPaused {
-        require(paused);
-        _;
-    }
-
-    /// @dev Called by contract owner to pause actions on this contract
-    function pause() external onlyOwner whenNotPaused {
-        paused = true;
-    }
-
-    /// @dev Called by contract owner to unpause the smart contract.
-    /// @notice This is public rather than external so it can be called by
-    ///  derived contracts.
-    function unpause() public onlyOwner whenPaused {
-        // can't unpause if contract was upgraded
-        paused = false;
-    }
-
-
-    /*** Prevent Accidents! ***/
-
-
-    /// @notice No tipping!
-    /// @dev Reject all Ether from being sent here.
-    /// (Hopefully, we can prevent user accidents.)
-    ///  Hat-tip to Cryptokitties.
-    function() external payable {
         require(
-            msg.sender == address(0)
+            isWhitelisted[account],
+            'INVALID_MINTER'
         );
+
+        return true;
+
+    }
+
+    function isTrader(address account)
+        public
+        view
+        returns (bool)
+    {
+
+        require(
+            isWhitelisted[account],
+            'INVALID_TRADER'
+        );
+
+        return true;
+
+    }
+
+    function isAuthorizedTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId,
+        address minter,
+        address owner
+    )
+        public
+        view
+        returns (bool)
+    {
+
+        require(
+            isWhitelisted[from],
+            'INVALID_TRANSFER_FROM'
+        );
+
+        require(
+            isWhitelisted[to],
+            'INVALID_TRANSFER_TO'
+        );
+
+        require(
+            tokenId > 0,
+            'INVALID_TOKEN_ID'
+        );
+
+        require(
+            isWhitelisted[minter],
+            'INVALID_TRANSFER_MINTER'
+        );
+
+        require(
+            isWhitelisted[owner],
+            'INVALID_TRANSFER_OWNER'
+        );
+
+        // Flag to enforce restrictions on third-party trading
+        if (isGlobalResaleEnabled == false) {
+
+            require(
+                from == minter || to == minter,
+                'INVALID_TRANSFER_GLOBAL_RESALE_DISABLED'
+            );
+
+        }
+
+        return true;
+
     }
 
 
@@ -674,6 +803,20 @@ contract Registry is
 
         return counter;
 
+    }
+
+
+    /*** Prevent Accidents! ***/
+
+
+    /// @notice No tipping!
+    /// @dev Reject all Ether from being sent here.
+    /// (Hopefully, we can prevent user accidents.)
+    ///  Hat-tip to Cryptokitties.
+    function() external payable {
+        require(
+            msg.sender == address(0)
+        );
     }
 
 

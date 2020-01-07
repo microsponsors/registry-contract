@@ -30,7 +30,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.5+commit.47a71e8f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership2\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership1\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/lauren/github/registry-contract/contracts/IOwnable.sol\":\"IOwnable\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/lauren/github/registry-contract/contracts/IOwnable.sol\":{\"keccak256\":\"0x6b6762f59526a6d0435bb81c5e0dbeac38a8fb28dd4d4853fe635a759498ab80\",\"urls\":[\"bzzr://d5ef6da3fa07429ac65fff85a76fd6d2ebd7bf073b82f2c836baebb0ddfa859e\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.5+commit.47a71e8f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership2\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership1\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/lauren/github/registry-contract/contracts/IOwnable.sol\":\"IOwnable\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":500},\"remappings\":[]},\"sources\":{\"/Users/lauren/github/registry-contract/contracts/IOwnable.sol\":{\"keccak256\":\"0x6b6762f59526a6d0435bb81c5e0dbeac38a8fb28dd4d4853fe635a759498ab80\",\"urls\":[\"bzzr://d5ef6da3fa07429ac65fff85a76fd6d2ebd7bf073b82f2c836baebb0ddfa859e\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
@@ -345,7 +345,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-12-30T00:30:15.178Z",
+  "updatedAt": "2020-01-06T23:28:18.069Z",
   "devdoc": {
     "methods": {}
   },

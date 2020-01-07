@@ -1,14 +1,24 @@
 # Test Cases
 
-## Contract Admin Functions:
+## Admin: Contract
 #### pause()
 #### unpause()
-#### transferOwnership()
 
-## Registry Admin Functions:
+## Admin: Ownership
+#### owner1()
+#### transferOwnership1()
+#### owner2()
+#### transferOwnership2()
+
+## Admin: Minting & Trade Restrictions
+#### isGlobalResaleEnabled()
+#### enableGlobalResale()
+#### disableGlobalResale()
+
+## Admin: Registry Mgmt
 #### adminUpdate()
 #### adminUpdateWithReferrer()
-#### adminUpdateRegistrantToReferrer()
+#### adminUpdateReferrer()
 #### adminUpdateWhitelistStatus()
 #### adminRemoveContentIdFromAddress()
 #### adminRemoveAllContentIdsFromAddress()
@@ -22,7 +32,8 @@
 #### getRegistrantCount()
 #### getRegistrantByIndex()
 #### registantTimestamp()
-#### registrantToReferrer()
+#### getRegistrantToReferrer()
+#### getReferrerToRegistrants()
 #### getAddressByContentId()
 #### getContentIdsByAddress()
 #### removeContentIdFromAddress()
@@ -30,6 +41,9 @@
 
 ## Integration with ERC-721 and/or 0x Exchange Functions:
 #### isContentIdRegisteredToCaller()
+#### isMinter()
+#### isTrader()
+#### isAuthorizedTransferFrom()
 
 ---
 
@@ -78,15 +92,15 @@ Is pausable.
 r.adminUpdateWithReferrer(account2, "dns%3Abaz.com", true, account1);
 ```
 
-#### adminUpdateRegistrantToReferrer()
-Admin: Update the `registrantToReferrer` mapping.
+#### adminUpdateReferrer()
+Admin: Update the `registrantToReferrer` and `referrerToRegistrants` mappings.
 Only if target has registered (whitelist status does not matter) and referrer `isWhitelisted`.
 Is pausable.
 * @param `target`: the registrant, regardless of their `isWhitelisted` status.
 * @param `referrer`: the address referring the target, only if `isWhitelisted`
 ```javascript
-r.adminUpdateRegistrantToReferrer(account2, account3);
-r.adminUpdateRegistrantToReferrer(account2, admin);
+r.adminUpdateReferrer(account2, account3);
+r.adminUpdateReferrer(account2, admin);
 // --> should error since admin acct is !isWhitelisted
 ```
 
@@ -165,11 +179,18 @@ Any address can check the `block.timestamp` of when a registrant was registered,
 r.registrantTimestamp(account1, {from: account2});
 ```
 
-#### registrantToReferrer()
+#### getRegistrantToReferrer()
 Any address can get the address that referred a registrant, regardless of `isWhitelisted` status of either.
 ```javascript
-r.registrantToReferrer(account1);
-r.registrantToReferrer(account2);
+r.getRegistrantToReferrer(account1);
+r.getRegistrantToReferrer(account2);
+```
+
+#### getReferrerToRegistrants()
+Any address can get the addresses that were referred by a registrant, regardless of `isWhitelisted` status of either.
+```javascript
+r.referrerToRegistrants(account1);
+r.referrerToRegistrants(account2);
 ```
 
 #### hasRegistered()
@@ -250,6 +271,34 @@ r.isContentIdRegisteredToCaller("dns%3Azap.com", {from: account2 });
 r.isContentIdRegisteredToCaller("dns%3Afoo.com", {from: account1 });
 // --> should error "INVALID SENDER" since account1 is not whitelisted anymore
 
+```
+
+#### isMinter()
+Public permissions check.
+```javascript
+r.isMinter(account1);
+r.isMinter(account3);
+```
+
+#### isTrader()
+Public permissions check.
+```javascript
+r.isTrader(account1);
+r.isTrader(account3);
+```
+
+#### isAuthorizedTransferFrom()
+Public permissions check.
+```javascript
+r.isAuthorizedTransferFrom(account2, account3, 1);
+r.isAuthorizedTransferFrom(account1, account3, 1);
+```
+
+#### isAuthorizeResale()
+Public permissions check.
+```javascript
+r.isAuthorizedResale(account2, account3, 1);
+r.isAuthorizedResale(account1, account3, 1);
 ```
 
 ---
