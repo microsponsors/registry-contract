@@ -10,11 +10,6 @@
 #### owner2()
 #### transferOwnership2()
 
-## Admin: Minting & Trade Restrictions
-#### isGlobalResaleEnabled()
-#### enableGlobalResale()
-#### disableGlobalResale()
-
 ## Admin: Registry Mgmt
 #### adminUpdate()
 #### adminUpdateWithReferrer()
