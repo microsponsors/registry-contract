@@ -92,11 +92,8 @@ contract Registry is
 {
 
 
-    // Pause. When true, Registry updates are paused.
+    // Pause. When true, Registry updates (writes) are paused.
     bool public paused = false;
-
-    /// @dev isGlobalResaleEnabled Admin only. When false, token buyers cannot resell tokens.
-    bool public isGlobalResaleEnabled = false;
 
 
     /***  Microsponsors Registry Data:  ***/
@@ -165,20 +162,6 @@ contract Registry is
     ///  derived contracts.
     function unpause() public onlyOwner whenPaused {
         paused = false;
-    }
-
-
-    /** Admin: Minting & Trade Restrictions ***/
-
-
-    /// @dev Called by contract owner to enable token transfer (resale) by buyers.
-    function enableGlobalResale() public onlyOwner {
-        isGlobalResaleEnabled = true;
-    }
-
-    /// @dev Called by contract owner to disable token tranfer (resale) by buyers.
-    function disableGlobalResale() public onlyOwner {
-        isGlobalResaleEnabled = false;
     }
 
 
@@ -752,16 +735,6 @@ contract Registry is
             isWhitelisted[owner],
             'INVALID_TRANSFER_OWNER'
         );
-
-        // Flag to enforce restrictions on third-party trading
-        if (isGlobalResaleEnabled == false) {
-
-            require(
-                from == minter || to == minter,
-                'INVALID_TRANSFER_GLOBAL_RESALE_DISABLED'
-            );
-
-        }
 
         return true;
 
