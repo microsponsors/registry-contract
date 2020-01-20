@@ -10,15 +10,14 @@ For doc purposes, things marked `Admin` refer to the `owner` of this smart contr
 Note that there *are* transfer restrictions on Microsponsors tokens that are enforced by this registry, to satisfy the following business requirements:
 
 1. All minters (Creators) and buyers (Sponsors) must be validated in our Proof-of-Content Registry to eliminate fraud/ impersonation/ spamming.
-2. At launch, there will be no reselling to third-parties.
-3. When we do support token sales to third-parties, it needs to be third-parties approved by the minter (Creator) to ensure that Creators' time slots aren't sold to individuals or organizations they do not wish to represent.
+2. Microsponsors ERC-721s (NFTs) give minters the option to disable token resale to third-parties, to help ensure that Creators' time slots aren't sold to individuals or organizations they do not wish to transact with. This is useful for certain use-cases, i.e. Creators or Freelancers who do not wish to represent certain brands or organizations.
 
 ## Path to Federation
 The long-term plan is to create a path for Microsponsors to federate (think: DAOs, game studios, media orgs, agencies, consulting, freelancing, etc.). We will encourage other organizations to create their own exchange front-ends with their own set of rules about minting Microsponsors tokens, selling and re-selling, cross-exchange arbitrage, etc etc.
 
 The functions in this contract that will enable federation as well as transfer restrictions are below; they are currently called directly by Microsponsors' ERC-721 token contract. When we are ready to federate, we can create another smart contract that keeps track of the Federation registry addresses (this contract will become just one instance of a Microsponsors Registry among many), and forward the following calls to the appropriate contract address for each token according to its `federationId` mapping in the ERC-721 contract:
 
-```javascript
+```
 function isContentIdRegisteredToCaller(string memory contentId) public view returns(bool);
 function isMinter(address account) public view returns (bool);
 function isTrader(address account) public view returns(bool);
