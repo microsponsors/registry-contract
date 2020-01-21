@@ -1,5 +1,9 @@
 # DEPLOYS
 
+### 2020.01.20
+git tag: v1.5
+* Kovan: [0x48F21c5541F5201c9b90D73F2A753B311D3e2F9F](https://kovan.etherscan.io/address/0x48F21c5541F5201c9b90D73F2A753B311D3e2F9F)
+
 ### 2020.01.05
 git tag: v1.4
 * Ropsten: [0x48f21c5541f5201c9b90d73f2a753b311d3e2f9f](https://ropsten.etherscan.io/address/0x48f21c5541f5201c9b90d73f2a753b311d3e2f9f)
