@@ -696,7 +696,6 @@ contract Registry is
 
     }
 
-
     function isAuthorizedTransferFrom(
         uint32 federationId,
         address from,
