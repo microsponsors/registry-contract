@@ -37,7 +37,6 @@
 ## Integration with ERC-721 and/or 0x Exchange Functions:
 #### isContentIdRegisteredToCaller()
 #### isMinter()
-#### isTrader()
 #### isAuthorizedTransferFrom()
 
 ---
