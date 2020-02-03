@@ -1,5 +1,9 @@
 # DEPLOYS
 
+### 2020.02.03
+git tag v1.6
+* Kovan [0x8c66cf55d313d7bb67322a0bb5ab4b40d5dc0b9c](https://kovan.etherscan.io/address/0x8c66cf55d313d7bb67322a0bb5ab4b40d5dc0b9c)
+
 ### 2020.01.20
 git tag: V1.5
 * Kovan: [0x48F21c5541F5201c9b90D73F2A753B311D3e2F9F](https://kovan.etherscan.io/address/0x48F21c5541F5201c9b90D73F2A753B311D3e2F9F)

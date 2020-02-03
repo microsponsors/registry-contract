@@ -37,7 +37,6 @@
 ## Integration with ERC-721 and/or 0x Exchange Functions:
 #### isContentIdRegisteredToCaller()
 #### isMinter()
-#### isTrader()
 #### isAuthorizedTransferFrom()
 
 ---
@@ -256,45 +255,30 @@ r.removeAllContentIdsFromAddress(account2);
 #### isContentIdRegisteredToCaller()
 Valid whitelisted address confirms registration of its own single content id.
 Uses `tx.origin` (vs `msg.sender`) because this function will be called by the Microsponsors ERC-721 contract during the token minting process to confirm that the calling address has the right to mint tokens against a contentId.
+* @param `federationId`:
 * @param `contentId`: UTF8 encoded Microsponsors SRN (see utils.js lib).
 * @returns boolean
 ```javascript
-r.isContentIdRegisteredToCaller("dns%3Azap.com", {from: account3 });
+r.isContentIdRegisteredToCaller(1, "dns%3Azap.com", {from: account3 });
 // --> true
-r.isContentIdRegisteredToCaller("dns%3Azap.com", {from: account2 });
+r.isContentIdRegisteredToCaller(1, "dns%3Azap.com", {from: account2 });
 // --> should error "INVALID_SENDER" since account2 doesn't have this contentId
-r.isContentIdRegisteredToCaller("dns%3Afoo.com", {from: account1 });
+r.isContentIdRegisteredToCaller(1, "dns%3Afoo.com", {from: account1 });
 // --> should error "INVALID SENDER" since account1 is not whitelisted anymore
 
 ```
 
 #### isMinter()
 Public permissions check.
+Will be called by Microsponsors ERC-721 contract.
 ```javascript
-r.isMinter(account1);
-r.isMinter(account3);
-```
-
-#### isTrader()
-Public permissions check.
-```javascript
-r.isTrader(account1);
-r.isTrader(account3);
+r.isMinter(1, account1);
+r.isMinter(1, account3);
 ```
 
 #### isAuthorizedTransferFrom()
 Public permissions check.
-```javascript
-r.isAuthorizedTransferFrom(account2, account3, 1);
-r.isAuthorizedTransferFrom(account1, account3, 1);
-```
-
-#### isAuthorizeResale()
-Public permissions check.
-```javascript
-r.isAuthorizedResale(account2, account3, 1);
-r.isAuthorizedResale(account1, account3, 1);
-```
+Will be called by Microsponsors ERC-721 contract.
 
 ---
 

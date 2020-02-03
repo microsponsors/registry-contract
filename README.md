@@ -19,13 +19,12 @@ _In this way, Microsponsors becomes an open protocol utility rather than simply 
 
 The functions in this contract that will enable federation as well as govern transfer restrictions are below; they are currently called directly by Microsponsors' ERC-721 token contract. To federate, we will create another smart contract called the Federation Relay that keeps track of each Federation members' Registry contract addresses (this first Registry contract will become just one instance of a Microsponsors Registry among many).
 
-During `mint()` and `transfer()` calls the Federation Relay will forward the following function calls to the appropriate registry contract according to its `federationId`:
+During `mint()` and `transferFrom()` calls the Federation Relay will forward the following function calls to the appropriate registry contract according to its `federationId`:
 
 ```
-function isContentIdRegisteredToCaller(string memory contentId) public view returns(bool);
-function isMinter(address account) public view returns (bool);
-function isTrader(address account) public view returns(bool);
-function isAuthorizedTransferFrom(address from, address to, uint256 tokenId, address minter, address owner) public view returns(bool);
+function isContentIdRegisteredToCaller(uint32 federationId, string memory contentId) public view returns(bool);
+function isMinter(uint32 federationId, address account) public view returns (bool);
+function isAuthorizedTransferFrom(uint32 federationId, address from, address to, uint256 tokenId, address minter, address owner) public view returns(bool);
 
 ```
 

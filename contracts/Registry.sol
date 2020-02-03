@@ -577,12 +577,17 @@ contract Registry is
     ///      ERC-721 for validating that an address is authorized to mint()
     ///      a time slot for a given content id.
     function isContentIdRegisteredToCaller(
+        uint32 federationId,
         string memory contentId
     )
         public
         view
         returns (bool)
     {
+
+        // Minimal checks around federationId here in case
+        // other Federation registries wish to read from this one
+        require(federationId > 0, 'INVALID_FEDERATION_ID');
 
         // Check tx.origin (vs msg.sender) since this *is likely* invoked by
         // another contract
@@ -602,11 +607,18 @@ contract Registry is
 
     }
 
-    function isMinter(address account)
+    function isMinter(
+        uint32 federationId,
+        address account
+    )
         public
         view
         returns (bool)
     {
+
+        // Minimal checks around federationId here in case
+        // other Federation registries wish to read from this one
+        require(federationId > 0, 'INVALID_FEDERATION_ID');
 
         require(
             isWhitelisted[account],
@@ -617,22 +629,8 @@ contract Registry is
 
     }
 
-    function isTrader(address account)
-        public
-        view
-        returns (bool)
-    {
-
-        require(
-            isWhitelisted[account],
-            'INVALID_TRADER'
-        );
-
-        return true;
-
-    }
-
     function isAuthorizedTransferFrom(
+        uint32 federationId,
         address from,
         address to,
         uint256 tokenId,
@@ -643,6 +641,10 @@ contract Registry is
         view
         returns (bool)
     {
+
+        // Minimal checks around federationId here in case
+        // other Federation registries wish to read from this one
+        require(federationId > 0, 'INVALID_FEDERATION_ID');
 
         require(
             isWhitelisted[from],
