@@ -1,4 +1,5 @@
 # Test Cases
+`Admin` below refers to methods that the the `owner` of the contract (only) has access to.
 
 ## Admin: Contract
 #### pause()
@@ -21,7 +22,7 @@
 #### adminGetContentIdsByAddress()
 #### adminGetRegistrantByIndex()
 
-## External/public -facing Functions:
+## External/public-facing Functions:
 #### isWhitelisted()
 #### hasRegistered()
 #### getRegistrantCount()
@@ -34,7 +35,8 @@
 #### removeContentIdFromAddress()
 #### removeAllContentIdsFromAddress()
 
-## Integration with ERC-721 and/or 0x Exchange Functions:
+## Integration with MSPT ERC-721 transfer restrictions:
+These are the methods that the MSPT smart contract calls to determine if a user action is authorized by this Registry contract:
 #### isContentIdRegisteredToCaller()
 #### isMinter()
 #### isAuthorizedTransferFrom()
