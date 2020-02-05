@@ -6,6 +6,12 @@ The Registry also records which address acted as the `referrer` for each registe
 
 For doc purposes, things marked `Admin` refer to the `owner` of this smart contract.
 
+## Smart Contract Addresses/ Deployments
+See [DEPLOYS.md](DEPLOYS.md)
+
+## See All Contract Methods
+See [test/TEST_CASES.md](test/TEST_CASES.md)
+
 ## Minting & Transfer Restrictions
 Note that there *are* transfer restrictions on Microsponsors tokens that are enforced by this registry, to satisfy the following business requirements:
 
@@ -27,6 +33,8 @@ function isMinter(uint32 federationId, address account) public view returns (boo
 function isAuthorizedTransferFrom(uint32 federationId, address from, address to, uint256 tokenId, address minter, address owner) public view returns(bool);
 
 ```
+
+---
 
 ## Install, Develop, Deploy
 
@@ -63,11 +71,6 @@ This stack seems to be sensitive to versioning, so capturing details of local se
 
 #### Git tag + DEPLOYS.md
 Each public network deployment is git tagged (starting with `v0.1`) and recorded in [DEPLOYS.md](DEPLOYS.md)
-
----
-
-## How To Use
-See `test/TEST_CASES.md`
 
 ---
 
