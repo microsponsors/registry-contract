@@ -15,7 +15,7 @@ Note that there *are* transfer restrictions on Microsponsors [MSPT](https://gith
 2. Microsponsors ERC-721s (NFTs) give Minters the option to disable token resale to third-parties, to help ensure that their time slots aren't sold to anyone they do not wish to transact with. This is useful for certain use-cases, i.e. Creators who want to carefully choose which organizations they wish to work with.
 
 ## Path to Federation
-The long-term plan is for Microsponsors to Federate (think: DAOs, game studios, media orgs, agencies, consultants, freelancers, etc). We plan to Federate so that other organizations can implement their own rules and logic around Registration, token minting, selling and re-selling (think: DAOs, game studios, media orgs, agencies, consultants, freelancers, etc).
+The long-term plan is for Microsponsors to Federate (think: DAOs, game studios, media orgs, agencies, consultants, freelancers, etc). We plan to Federate so that other organizations can implement their own rules and logic around Registration, token minting, selling and re-selling.
 
 _In this way, Microsponsors becomes an open protocol utility rather than simply a standalone dapp. Other organizations can spin up their own marketplaces, applications and front-ends, and use Microsponsors tokens as a composable building block that can be layered in with their own blockchain apps._
 
