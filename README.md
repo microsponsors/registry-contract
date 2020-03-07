@@ -17,7 +17,7 @@ Note that there *are* transfer restrictions on Microsponsors [MSPT](https://gith
 ## Path to Federation
 The long-term plan is for Microsponsors to Federate (think: DAOs, game studios, media orgs, agencies, consultants, freelancers, etc). We plan to Federate so that other organizations can implement their own rules and logic around Registration, token minting, selling and re-selling.
 
-_In this way, Microsponsors becomes an open protocol utility rather than simply a standalone dapp. Other organizations can spin up their own marketplaces, applications and front-ends, and use Microsponsors tokens as a composable building block that can be layered in with their own apps._
+*In this way, Microsponsors becomes an open protocol utility rather than simply a standalone dapp. Other organizations can spin up their own marketplaces, applications and front-ends, and use Microsponsors tokens as a composable building block that can be layered in with their own apps.*
 
 The functions in this contract that will enable federation as well as govern transfer restrictions are below; they are currently called directly by Microsponsors' ERC-721 token contract. To federate, we will create another smart contract called the Federation Relay that keeps track of each Federation members' Registry contract addresses (this first Registry contract will become just one instance of a Microsponsors Registry among many).
 
