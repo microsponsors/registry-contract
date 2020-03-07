@@ -1,8 +1,10 @@
 # Microsponsors Proof-of-Content Registry Contract
 
-This is the on-chain Registry that maps a account's Ethereum `address` to an `isWhitelisted` boolean, the timestamp of the block the account was registered in, and any `contentId` the account wishes to associate with their address, as defined in our utils.js library [here](https://github.com/microsponsors/utils.js#contentid). All `contentId`s are verified in order to prevent fraud/ impersonation/ spamming.
-
-The Registry also records which address acted as the `referrer` for each registered address so we can reward them.
+This is the on-chain Registry that maps a account's Ethereum `address` to:
+- an `isWhitelisted` boolean
+- the timestamp of the block the account was registered in
+- and any `contentId` the account wishes to associate with their address, as defined in our utils.js library [here](https://github.com/microsponsors/utils.js#contentid). All `contentId`s are verified in order to help prevent fraud/ impersonation/ spamming.
+- (optionally) records which address acted as the `referrer` for each registered address so we can reward them later
 
 For doc purposes, things marked `Admin` refer to the `owner` of this smart contract.
 
@@ -13,10 +15,10 @@ See [DEPLOYS.md](DEPLOYS.md)
 See [test/TEST_CASES.md](test/TEST_CASES.md)
 
 ## Minting & Transfer Restrictions
-Note that there *are* transfer restrictions on Microsponsors tokens that are enforced by this registry, to satisfy the following business requirements:
+Note that there *are* transfer restrictions on Microsponsors MSPT (time slot) tokens that are enforced by this registry, to satisfy the following business requirements:
 
-1. All minters (Creators) and buyers (Sponsors) must be validated in our Proof-of-Content Registry to eliminate fraud/ impersonation/ spamming.
-2. Microsponsors ERC-721s (NFTs) give minters the option to disable token resale to third-parties, to help ensure that Creators' time slots aren't sold to individuals or organizations they do not wish to transact with. This is useful for certain use-cases, i.e. Creators who want to carefully choose which brands or organizations they wish to work with.
+1. All Minters ("Creators") must be validated in our Proof-of-Content Registry to help eliminate fraud/ impersonation/ spamming.
+2. Microsponsors ERC-721s (NFTs) give Minters the option to disable token resale to third-parties, to help ensure that their time slots aren't sold to anyone they do not wish to transact with. This is useful for certain use-cases, i.e. Creators who want to carefully choose which organizations they wish to work with.
 
 ## Path to Federation
 The long-term plan is for Microsponsors to Federate (think: DAOs, game studios, media orgs, agencies, consultants, freelancers, etc). We plan to Federate so that other organizations can implement their own rules and logic around Registration, token minting, selling and re-selling (think: DAOs, game studios, media orgs, agencies, consultants, freelancers, etc).
@@ -33,6 +35,8 @@ function isMinter(uint32 federationId, address account) public view returns (boo
 function isAuthorizedTransferFrom(uint32 federationId, address from, address to, uint256 tokenId, address minter, address owner) public view returns(bool);
 
 ```
+
+Each Federation member can then implement its own Registry with its own Whitelists and Transfer Restrictions.
 
 ---
 
