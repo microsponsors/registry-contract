@@ -8,12 +8,6 @@ This is the on-chain Registry that maps an Ethereum `address` to:
 
 For doc purposes, things marked `Admin` refer to the `owner` of this smart contract.
 
-## Smart Contract Addresses/ Deployments
-See [DEPLOYS.md](DEPLOYS.md)
-
-## See All Contract Methods
-See [test/TEST_CASES.md](test/TEST_CASES.md)
-
 ## Minting & Transfer Restrictions
 Note that there *are* transfer restrictions on Microsponsors [MSPT](https://github.com/microsponsors/erc-721) time slot tokens that are enforced by this registry, to satisfy the following business requirements:
 
@@ -37,6 +31,14 @@ function isAuthorizedTransferFrom(uint32 federationId, address from, address to,
 ```
 
 Each Federation member can then implement its own Registry with its own Whitelists and Transfer Restrictions.
+
+---
+
+## Smart Contract Addresses/ Deployments
+See [DEPLOYS.md](DEPLOYS.md)
+
+## See All Contract Methods
+See [test/TEST_CASES.md](test/TEST_CASES.md)
 
 ---
 
