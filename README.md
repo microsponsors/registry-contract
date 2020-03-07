@@ -3,7 +3,7 @@
 This is the on-chain Registry that maps an Ethereum `address` to:
 - an `isWhitelisted` boolean
 - the timestamp of the block the account was registered in
-- and any `contentId` the account wishes to associate with their address, as defined in our utils.js library [here](https://github.com/microsponsors/utils.js#contentid). All `contentId`s are verified in order to help prevent fraud/ impersonation/ spamming.
+- any `contentId` the account wishes to associate with their address, as defined in our utils.js library [here](https://github.com/microsponsors/utils.js#contentid). All `contentId`s are verified in order to help prevent fraud/ impersonation/ spamming when Minting [MSPT](https://github.com/microsponsors/erc-721) tokens.
 - (optionally) records which address acted as the `referrer` for each registered address so we can reward them later
 
 For doc purposes, things marked `Admin` refer to the `owner` of this smart contract.
