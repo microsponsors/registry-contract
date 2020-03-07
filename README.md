@@ -1,6 +1,6 @@
 # Microsponsors Proof-of-Content Registry Contract
 
-This is the on-chain Registry that maps a account's Ethereum `address` to:
+This is the on-chain Registry that maps an Ethereum `address` to:
 - an `isWhitelisted` boolean
 - the timestamp of the block the account was registered in
 - and any `contentId` the account wishes to associate with their address, as defined in our utils.js library [here](https://github.com/microsponsors/utils.js#contentid). All `contentId`s are verified in order to help prevent fraud/ impersonation/ spamming.
