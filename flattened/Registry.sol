@@ -713,14 +713,10 @@ contract Registry is
         // other Federation registries wish to read from this one
         require(federationId > 0, 'INVALID_FEDERATION_ID');
 
+        // The Minter must be whitelisted
         require(
-            isWhitelisted[from],
-            'INVALID_TRANSFER_FROM'
-        );
-
-        require(
-            isWhitelisted[to],
-            'INVALID_TRANSFER_TO'
+            isWhitelisted[minter],
+            'INVALID_TRANSFER_MINTER'
         );
 
         require(
@@ -729,13 +725,13 @@ contract Registry is
         );
 
         require(
-            isWhitelisted[minter],
-            'INVALID_TRANSFER_MINTER'
+            from != to,
+            'INVALID_TRANSFER'
         );
 
         require(
-            isWhitelisted[owner],
-            'INVALID_TRANSFER_OWNER'
+            owner != address(0),
+            'INVALID_TRANSFER'
         );
 
         return true;
