@@ -1,5 +1,13 @@
 # DEPLOYS
 
+### 2020.03.09
+git tag v1.7
+* Kovan [0xd9003377df712892fef5960e2cae0f45dc51df67](https://kovan.etherscan.io/address/0xd9003377df712892fef5960e2cae0f45dc51df67)
+
+- Merged in [PR#8](https://github.com/microsponsors/registry-contract/pull/8)
+- Loosened transfer restrictions: update `isAuthorizedTransferFrom()`
+- Migrated state of 15 users from previous Registry contract on Kovan
+
 ### 2020.02.03
 git tag v1.6
 * Kovan [0x8c66cf55d313d7bb67322a0bb5ab4b40d5dc0b9c](https://kovan.etherscan.io/address/0x8c66cf55d313d7bb67322a0bb5ab4b40d5dc0b9c)
