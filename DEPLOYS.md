@@ -1,5 +1,8 @@
 # DEPLOYS
 
+### 2020.03.11
+* Mainnet [0x7668a7d18439fb9779db55c8686ccd7bcf205d12](https://etherscan.io/address/0x7668a7d18439fb9779db55c8686ccd7bcf205d12)
+
 ### 2020.03.09
 git tag v1.7
 * Kovan [0xd9003377df712892fef5960e2cae0f45dc51df67](https://kovan.etherscan.io/address/0xd9003377df712892fef5960e2cae0f45dc51df67)
