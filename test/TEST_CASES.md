@@ -1,3 +1,23 @@
+# Test Scenarios
+
+## Local Setup
+
+Start ganache in one terminal locally, then deploy and start truffle console in another:
+```
+$ ganache-cli -p 8545
+$ npm run deploy
+$ truffle console --network development
+> Registry.deployed().then(inst => { r = inst })
+> admin = "<paste 1st address from ganache>"
+> account1 = "<paste from ganache>"
+> account2 = "<paste from ganache>"
+> account3 = "<paste from ganache>"
+> contractAddr = "<paste from ganache>"
+```
+The following test scenarios assume you're querying from truffle console.
+`r` = registry instance created when you deployed the Registry (above).
+
+
 # Test Cases
 `Admin` below refers to methods that the the `owner` of the contract (only) has access to.
 
@@ -42,26 +62,6 @@ These are the methods that the MSPT smart contract calls to determine if a user 
 #### isAuthorizedTransferFrom()
 
 ---
-
-# Test Scenarios
-
-## Local Setup
-
-Start ganache in one terminal locally, then deploy and start truffle console in another:
-```
-$ ganache-cli -p 8545
-$ npm run deploy
-$ truffle console --network development
-> Registry.deployed().then(inst => { r = inst })
-> admin = "<paste 1st address from ganache>"
-> account1 = "<paste from ganache>"
-> account2 = "<paste from ganache>"
-> account3 = "<paste from ganache>"
-> contractAddr = "<paste from ganache>"
-```
-The following test scenarios assume you're querying from truffle console.
-`r` = registry instance created when you deployed the Registry (above).
-
 
 ## Registry Admin
 
