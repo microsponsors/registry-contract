@@ -28319,15 +28319,16 @@
     "version": "0.5.5+commit.47a71e8f.Emscripten.clang"
   },
   "networks": {
-    "1583782791533": {
+    "1614808561913": {
       "events": {},
       "links": {},
-      "address": "0x6CBf35dC30d8dfBF273c126AfbA73f8423b39cd1",
-      "transactionHash": "0xf2fdb69cbe7378f3b1266c12c50fca1caad59e744d4812efdb0827dc15d695f8"
+      "address": "0x8A67513f3Ad5Ae49b550CEE04d41729564c3cc93",
+      "transactionHash": "0xe939c8471ec5e0c51bbf4e9a2a4e31db7afd2a24e8a1b01a19bef0ec1e66a8cb"
     }
   },
-  "schemaVersion": "3.0.10",
-  "updatedAt": "2020-03-09T19:40:20.670Z",
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2021-03-03T21:57:49.188Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {
       "adminGetAddressByContentId(string)": {

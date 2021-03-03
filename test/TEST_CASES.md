@@ -2,9 +2,9 @@
 
 ## Local Setup
 
-Start ganache in one terminal locally, then deploy and start truffle console in another:
+* Start ganache in one terminal locally: `$ ganache-cli -p 8545`
+* Then deploy and start truffle console in another:
 ```
-$ ganache-cli -p 8545
 $ npm run deploy
 $ truffle console --network development
 > Registry.deployed().then(inst => { r = inst })
@@ -12,7 +12,9 @@ $ truffle console --network development
 > account1 = "<paste from ganache>"
 > account2 = "<paste from ganache>"
 > account3 = "<paste from ganache>"
-> contractAddr = "<paste from ganache>"
+> registryAddr = "<paste from ganache>"
+> r  # echoes out contract instance
+> r.owner1()  # echoes out admin address
 ```
 The following test scenarios assume you're querying from truffle console.
 `r` = registry instance created when you deployed the Registry (above).
@@ -72,11 +74,11 @@ Is pausable.
 * @param `contentId`: UTF8 encoded Microsponsors contentId (see utils.js)
 * @param `isApproved`: isWhitelisted status boolean for address.
 ```javascript
-r.adminUpdate(account1, "dns%3Afoo.com", true);
-r.adminUpdate(account2, "dns%3Abar.com", true);
-r.adminUpdate(account2, "dns%3Abaz.com", true, {from: account2});
+r.adminUpdate(account1, "bdns%3Afoo.com", true);
+r.adminUpdate(account2, "bdns%3Abar.com", true);
+r.adminUpdate(account2, "bdns%3Abaz.com", true, {from: account2});
 // --> should error "ONLY_CONTRACT_OWNER"
-r.adminUpdate(account3, "dns%3Azap.com", true);
+r.adminUpdate(account3, "bdns%3Azap.com", true);
 ```
 The `contentId` is designed to be pretty flexible in this contract (just a simple string) to allow for maximum forward-compatibility. Details on format [here](https://github.com/microsponsors/utils.js#contentid).
 

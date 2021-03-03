@@ -56,13 +56,13 @@ $ npm install -g solhint
 $ npm run lint
 ```
 
-#### Local Deploy
+#### Local Compile & Deploy
 See `/migrations/2_deploy_contracts.js` and `./truffle-config.js`
-
 * Start Ganache in another terminal: `$ ganache-cli -p 8545`
 * Compile: `$ npm run compile`. Rebuilds `/build` dir.
 * Deploy to local ganache instance: `$ truffle migrate --network development `
 * Or... Compile & Deploy in one step: `$ npm run deploy`
+* Note the new Registry contract's address, use it to deploy MSPT contract
 
 #### Flatten for Remix Deploy
 * `npm run flatten`
